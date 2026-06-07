@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Moussa Balima — Développeur Web Freelance à Ouagadougou, Burkina Faso. Création de sites web, pages de vente et pages de capture qui convertissent vos visiteurs en clients. Paiement Orange Money."/>
+<meta name="keywords" content="développeur web Burkina Faso, créer site web Ouagadougou, page de vente Burkina, freelance web Ouagadougou, site internet Burkina Faso, page de capture, Orange Money, Moussa Balima, web developer Burkina"/>
+<meta name="author" content="Moussa Balima"/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="Balima Web Developer — Sites qui vendent au Burkina Faso"/>
+<meta property="og:description" content="Développeur web freelance à Ouagadougou. Pages de capture, pages de vente, sites vitrines. Livraison 24h–5 jours. Paiement Orange Money."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="fr_BF"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Balima Web Developer — Dev Web Premium Burkina Faso"/>
+<meta name="twitter:description" content="Je crée des sites web qui convertissent vos visiteurs en clients. Ouagadougou, Burkina Faso. Orange Money accepté."/>
+<link rel="canonical" href="https://balima-dev.com/"/>
+<title>Balima Web Developer — Développeur Web Freelance Ouagadougou, Burkina Faso</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Moussa Balima",
+  "jobTitle": "Développeur Web Freelance",
+  "description": "Développeur web freelance spécialisé en pages de vente et sites vitrines au Burkina Faso",
+  "url": "https://balima-dev.com",
+  "telephone": "+22607190217",
+  "email": "moussabalima07@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ouagadougou",
+    "addressCountry": "BF"
+  },
+  "sameAs": ["https://wa.me/22607190217"]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* ===== THEME LIGHT (default) ===== */
+:root{
+  --bg:#f5f7ff;
+  --dark:#edf0fa;
+  --card:#ffffff;
+  --border:rgba(0,100,200,.1);
+  --accent:#0055ff;
+  --accent2:#0044cc;
+  --gold:#c8860a;
+  --gold2:#a06808;
+  --text:#0d1220;
+  --muted:#8090b0;
+  --muted2:#5a6a8a;
+  --red:#d92040;
+  --green:#0a8a3c;
+  --glow:0 0 40px rgba(0,85,255,.1);
+  --nav-bg:rgba(245,247,255,.85);
+  --grid-color:rgba(0,85,255,.04);
+  --hero-gradient:radial-gradient(ellipse 70% 60% at 70% 50%,rgba(0,85,255,.06) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(200,134,10,.04) 0%,transparent 50%);
+  --scan-color:rgba(0,85,255,.25);
+  --code-bg:#1a1e2e;
+  --svc-hover:rgba(0,85,255,.03);
+  --ba-bad-bg:#fff0f2;
+  --ba-good-bg:#f0fff8;
+  --rev-bg:#ffffff;
+  --faq-hover:rgba(0,85,255,.03);
+  --pay-bg:#ffffff;
+  --contact-bg:#edf0fa;
+  --link-hover:rgba(0,85,255,.03);
+  --guar-bg:linear-gradient(135deg,rgba(200,134,10,.04),#ffffff);
+}
+
+/* ===== THEME DARK ===== */
+body.dark{
+  --bg:#040608;
+  --dark:#080c12;
+  --card:#0d1420;
+  --border:rgba(0,255,200,.08);
+  --accent:#00ffc8;
+  --accent2:#00d4a8;
+  --gold:#f0b429;
+  --gold2:#d4941a;
+  --text:#f0f4ff;
+  --muted:#5a6a80;
+  --muted2:#8a9ab0;
+  --red:#ff4560;
+  --green:#00e676;
+  --glow:0 0 40px rgba(0,255,200,.12);
+  --nav-bg:rgba(4,6,8,.75);
+  --grid-color:rgba(0,255,200,.025);
+  --hero-gradient:radial-gradient(ellipse 70% 60% at 70% 50%,rgba(0,255,200,.04) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(240,180,41,.03) 0%,transparent 50%);
+  --scan-color:rgba(0,255,200,.3);
+  --code-bg:#0d1420;
+  --svc-hover:rgba(0,255,200,.025);
+  --ba-bad-bg:#0d1420;
+  --ba-good-bg:#0d1420;
+  --rev-bg:#0d1420;
+  --faq-hover:rgba(0,255,200,.025);
+  --pay-bg:#0d1420;
+  --contact-bg:#080c12;
+  --link-hover:rgba(0,255,200,.025);
+  --guar-bg:linear-gradient(135deg,rgba(240,180,41,.03),#0d1420);
+}
+
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Syne',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  cursor:none;
+  transition:background .4s ease,color .4s ease;
+}
+
+.cursor-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;position:fixed;transform:translate(-50%,-50%);pointer-events:none;z-index:500;transition:background .3s ease;}
+.cursor-ring{width:36px;height:36px;border:1px solid rgba(0,255,200,.4);border-radius:50%;position:fixed;transform:translate(-50%,-50%);pointer-events:none;z-index:499;transition:width .2s ease,height .2s ease,border-color .2s ease,background .2s ease;}
+body.dark .cursor-ring{border-color:rgba(0,85,255,.3);}
+.cursor-ring.hov{width:58px;height:58px;border-color:var(--accent);background:rgba(0,255,200,.04);}
+body.dark .cursor-ring.hov{background:rgba(0,85,255,.04);}
+
+/* Désactiver cursor custom sur mobile/tactile */
+@media(hover:none),(max-width:768px){
+  body{cursor:auto;}
+  .cursor-dot,.cursor-ring{display:none !important;}
+  a,button{cursor:pointer;}
+}
+
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.35;
+}
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:linear-gradient(var(--grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--grid-color) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;z-index:0;
+  transition:background-image .4s ease;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  height:72px;
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+  background:var(--nav-bg);
+  transition:background .4s ease,border-color .4s ease;
+}
+.nav-logo{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;font-weight:700;
+  color:var(--accent);letter-spacing:2px;
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+  line-height:1.3;
+  transition:color .3s ease;
+}
+.nav-logo::before{content:'';width:8px;height:8px;background:var(--accent);border-radius:50%;animation:blink 2s infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 8px var(--accent);}50%{opacity:.3;box-shadow:none;}}
+
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted2);
+  text-decoration:none;letter-spacing:1px;transition:color .2s ease;position:relative;
+}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s ease;}
+.nav-links a:hover{color:var(--accent);}
+.nav-links a:hover::after{width:100%;}
+
+.nav-controls{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+
+/* LANG SWITCHER */
+.lang-sw{display:flex;border:1px solid var(--border);overflow:hidden;transition:border-color .3s ease;}
+.lang-btn{
+  padding:8px 14px;background:transparent;border:none;
+  color:var(--muted2);font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;cursor:pointer;transition:.2s ease;letter-spacing:1px;
+}
+.lang-btn.active{background:var(--accent);color:var(--bg);font-weight:700;}
+
+/* THEME TOGGLE */
+.theme-btn{
+  width:38px;height:38px;border:1px solid var(--border);background:var(--card);
+  color:var(--text);font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:.25s ease;
+}
+.theme-btn:hover{border-color:var(--accent);}
+
+.nav-cta{
+  padding:10px 20px;border:1px solid var(--accent);
+  color:var(--accent);font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;letter-spacing:1px;background:transparent;cursor:pointer;
+  transition:all .25s ease;text-decoration:none;
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+}
+.nav-cta:hover{background:var(--accent);color:var(--bg);}
+/* hamburger styles définis plus bas */
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 40px 60px;position:relative;z-index:1;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;background:var(--hero-gradient);transition:background .4s ease;}
+.hero-line{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--scan-color),transparent);animation:scan 4s ease-in-out infinite;}
+@keyframes scan{0%{top:0;opacity:0;}10%{opacity:1;}90%{opacity:1;}100%{top:100%;opacity:0;}}
+.hero-content{position:relative;z-index:1;max-width:760px;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:3px;
+  margin-bottom:28px;padding:8px 16px;
+  border:1px solid rgba(0,255,200,.2);background:rgba(0,255,200,.04);
+  transition:all .3s ease;
+}
+body.dark .hero-tag{border-color:rgba(0,85,255,.15);background:rgba(0,85,255,.04);}
+.hero-tag .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 1.5s infinite;}
+h1{font-size:clamp(3rem,7vw,6.5rem);line-height:.92;font-weight:800;letter-spacing:-2px;margin-bottom:24px;}
+h1 em{font-style:normal;color:var(--accent);}
+h1 .line-gold{color:var(--gold);}
+.hero-sub{
+  font-family:'JetBrains Mono',monospace;font-size:.88rem;color:var(--muted2);
+  line-height:1.8;max-width:540px;margin-bottom:40px;
+  border-left:2px solid var(--accent);padding-left:18px;transition:border-color .3s ease;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;padding:16px 30px;
+  background:var(--accent);color:var(--bg);
+  font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:700;letter-spacing:1px;
+  text-decoration:none;cursor:pointer;transition:all .25s ease;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+  box-shadow:0 0 30px rgba(0,255,200,.2);
+}
+body.dark .btn-primary{box-shadow:0 0 30px rgba(0,85,255,.2);}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;padding:15px 28px;
+  border:1px solid var(--border);color:var(--text);
+  font-family:'JetBrains Mono',monospace;font-size:.82rem;letter-spacing:1px;
+  text-decoration:none;cursor:pointer;transition:all .25s ease;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+/* CODE WINDOW */
+.hero-code{
+  position:absolute;right:40px;top:50%;transform:translateY(-50%);
+  width:min(420px,42vw);background:var(--code-bg);
+  border:1px solid rgba(0,255,200,.12);
+  box-shadow:var(--glow),0 40px 80px rgba(0,0,0,.4);
+  overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:.78rem;z-index:1;
+}
+.code-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(0,255,200,.1);background:rgba(0,0,0,.3);}
+.code-dot{width:10px;height:10px;border-radius:50%;}
+.code-dot.r{background:#ff5f57;}.code-dot.y{background:#febc2e;}.code-dot.g{background:#28c840;}
+.code-file{margin-left:auto;color:#5a6a80;font-size:.68rem;}
+.code-body{padding:20px;line-height:1.9;color:#c9d1d9;}
+.code-ln{color:#3d4f6a;margin-right:16px;user-select:none;}
+.kw{color:#c792ea;}.fn{color:#00ffc8;}.str{color:#f0b429;}.cm{color:#5a6a80;font-style:italic;}.num{color:#f78c6c;}
+.cursor-blink{display:inline-block;width:8px;height:14px;background:#00ffc8;animation:cb .8s infinite;}
+@keyframes cb{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+
+/* STATS */
+.stats-bar{position:relative;z-index:1;display:flex;justify-content:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(0,255,200,.02);transition:background .4s ease;}
+body.dark .stats-bar{background:rgba(0,85,255,.02);}
+.stat-cell{flex:1;max-width:240px;padding:24px 20px;text-align:center;position:relative;transition:background .25s ease;}
+.stat-cell:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:var(--border);}
+.stat-cell:hover{background:rgba(0,255,200,.03);}
+body.dark .stat-cell:hover{background:rgba(0,85,255,.03);}
+.stat-num{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:6px;}
+.stat-lbl{font-size:.75rem;color:var(--muted2);letter-spacing:2px;text-transform:uppercase;}
+
+/* SECTION */
+section{position:relative;z-index:1;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 40px;}
+.sec-pad{padding:60px 0;}
+.sec-tag{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.sec-tag::before{content:'//';color:var(--muted);}
+.sec-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-1px;line-height:1.05;margin-bottom:16px;}
+.sec-title em{font-style:normal;color:var(--accent);}
+.sec-sub{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted2);line-height:1.8;max-width:500px;}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;border:1px solid var(--border);margin-top:36px;background:var(--border);}
+.svc-card{background:var(--card);padding:40px 36px;position:relative;overflow:hidden;transition:background .3s ease;display:flex;flex-direction:column;gap:20px;}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-card:hover{background:var(--svc-hover);}
+.svc-card.gold::before{background:linear-gradient(90deg,var(--gold),transparent);}
+.svc-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:3px;}
+.svc-icon{font-size:2rem;margin-bottom:4px;}
+.svc-name{font-size:1.3rem;font-weight:700;letter-spacing:-.5px;margin-bottom:4px;}
+.svc-desc{font-family:'JetBrains Mono',monospace;font-size:.77rem;color:var(--muted2);line-height:1.8;}
+.svc-price{margin-top:auto;display:flex;align-items:baseline;gap:8px;padding-top:20px;border-top:1px solid var(--border);}
+.price-main{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--accent);}
+.svc-card.gold .price-main{color:var(--gold);}
+.price-sub{font-size:.72rem;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.svc-feats{display:flex;flex-direction:column;gap:8px;}
+.svc-feat{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.73rem;color:var(--muted2);}
+.svc-feat::before{content:'→';color:var(--accent);flex-shrink:0;}
+.svc-card.gold .svc-feat::before{color:var(--gold);}
+.svc-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 20px;
+  border:1px solid rgba(0,255,200,.3);color:var(--accent);
+  font-family:'JetBrains Mono',monospace;font-size:.73rem;letter-spacing:1px;
+  text-decoration:none;cursor:pointer;transition:all .25s ease;width:fit-content;
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+}
+.svc-btn:hover{background:var(--accent);color:var(--bg);}
+.svc-card.gold .svc-btn{border-color:rgba(240,180,41,.3);color:var(--gold);}
+.svc-card.gold .svc-btn:hover{background:var(--gold);color:var(--bg);}
+body.dark .svc-btn{border-color:rgba(0,85,255,.25);}
+
+/* CURRENCY */
+.currency-bar{display:flex;align-items:center;gap:12px;margin-top:36px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);}
+.curr-btns{display:flex;gap:0;border:1px solid var(--border);overflow:hidden;}
+.curr-btn{padding:8px 16px;background:transparent;border:none;color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.7rem;cursor:pointer;transition:.2s ease;letter-spacing:1px;}
+.curr-btn.active{background:var(--accent);color:var(--bg);font-weight:700;}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;position:relative;}
+.process-grid::before{content:'';position:absolute;top:32px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),var(--border),transparent);}
+.proc-step{text-align:center;padding:0 20px;}
+.proc-num{width:64px;height:64px;border:1px solid var(--border);background:var(--card);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--accent);position:relative;z-index:1;transition:all .3s ease;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);}
+.proc-step:hover .proc-num{background:var(--accent);color:var(--bg);box-shadow:0 0 30px rgba(0,255,200,.3);}
+body.dark .proc-step:hover .proc-num{box-shadow:0 0 30px rgba(0,85,255,.2);}
+.proc-title{font-size:.9rem;font-weight:700;margin-bottom:8px;letter-spacing:-.3px;}
+.proc-text{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted2);line-height:1.7;}
+
+/* BEFORE / AFTER */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border);background:var(--border);margin-top:40px;}
+.ba-col{padding:32px 28px;transition:background .3s ease;}
+.ba-col.bad{background:var(--ba-bad-bg);border-top:2px solid rgba(255,69,96,.4);}
+.ba-col.good{background:var(--ba-good-bg);border-top:2px solid rgba(0,255,200,.4);}
+body.dark .ba-col.good{border-top-color:rgba(0,85,255,.4);}
+.ba-status{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:2px;padding:6px 14px;margin-bottom:28px;}
+.ba-col.bad .ba-status{color:var(--red);border:1px solid rgba(255,69,96,.2);background:rgba(255,69,96,.05);}
+.ba-col.good .ba-status{color:var(--accent);border:1px solid rgba(0,255,200,.2);background:rgba(0,255,200,.05);}
+body.dark .ba-col.good .ba-status{border-color:rgba(0,85,255,.2);background:rgba(0,85,255,.05);}
+.ba-heading{font-size:1.4rem;font-weight:800;letter-spacing:-.5px;margin-bottom:28px;}
+.ba-col.bad .ba-heading{color:var(--muted2);}
+.ba-col.good .ba-heading{color:var(--text);}
+.ba-items{display:flex;flex-direction:column;gap:14px;}
+.ba-item{display:flex;align-items:flex-start;gap:12px;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.6;}
+.ba-col.bad .ba-item{color:var(--muted2);}
+.ba-col.good .ba-item{color:var(--text);}
+.ba-icon{font-size:1rem;flex-shrink:0;margin-top:1px;}
+
+/* GUARANTEE */
+.guarantee{margin:0 auto;max-width:700px;border:1px solid rgba(240,180,41,.2);padding:36px 40px;text-align:center;background:var(--guar-bg);position:relative;overflow:hidden;}
+body.dark .guarantee{border-color:rgba(200,134,10,.25);}
+.guarantee::before{content:'';position:absolute;top:-80px;right:-80px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(240,180,41,.08),transparent);}
+.guar-icon{font-size:3rem;margin-bottom:16px;}
+.guar-title{font-size:1.6rem;font-weight:800;color:var(--gold);margin-bottom:14px;letter-spacing:-.5px;}
+.guar-text{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted2);line-height:1.9;}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:36px;}
+.rev-card{background:var(--rev-bg);border:1px solid var(--border);padding:32px;position:relative;overflow:hidden;transition:border-color .3s ease;}
+.rev-card::before{content:'"';position:absolute;top:16px;right:24px;font-size:5rem;font-weight:800;color:rgba(0,255,200,.06);font-family:'Syne',sans-serif;line-height:1;}
+body.dark .rev-card::before{color:rgba(0,85,255,.05);}
+.rev-card:hover{border-color:rgba(0,255,200,.2);}
+body.dark .rev-card:hover{border-color:rgba(0,85,255,.2);}
+.rev-stars{color:var(--gold);font-size:.9rem;margin-bottom:14px;letter-spacing:2px;}
+.rev-text{font-family:'JetBrains Mono',monospace;font-size:.77rem;color:var(--muted2);line-height:1.9;margin-bottom:20px;}
+.rev-result{font-family:'JetBrains Mono',monospace;font-size:.73rem;color:var(--accent);padding:8px 14px;border:1px solid rgba(0,255,200,.15);background:rgba(0,255,200,.04);margin-bottom:20px;display:inline-block;transition:all .3s ease;}
+body.dark .rev-result{border-color:rgba(0,85,255,.15);background:rgba(0,85,255,.04);}
+.rev-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border);}
+.rev-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:var(--bg);}
+.rev-name{font-size:.85rem;font-weight:700;}
+.rev-loc{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:0;margin-top:36px;border:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{width:100%;padding:22px 28px;background:transparent;border:none;color:var(--text);font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background .2s ease;}
+.faq-q:hover{background:var(--faq-hover);}
+.faq-q span:last-child{width:24px;height:24px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--accent);flex-shrink:0;transition:transform .3s ease;}
+.faq-item.open .faq-q span:last-child{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;padding:0 28px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted2);line-height:1.9;transition:max-height .4s ease,padding .3s ease;}
+.faq-item.open .faq-a{max-height:200px;padding:0 28px 22px;}
+
+/* PAYMENT */
+.payment-box{background:var(--pay-bg);border:1px solid var(--border);padding:36px;max-width:600px;margin:36px auto 0;text-align:center;}
+.om-badge{display:inline-flex;align-items:center;gap:12px;padding:14px 24px;margin-bottom:28px;border:1px solid rgba(240,180,41,.3);background:rgba(240,180,41,.05);}
+.om-badge span{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--gold);}
+.pay-num{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:var(--text);letter-spacing:4px;margin:20px 0;}
+.pay-sub{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);margin-bottom:32px;}
+.pay-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* CONTACT */
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.contact-left p{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted2);line-height:1.9;margin-top:20px;}
+.contact-right{display:flex;flex-direction:column;gap:14px;}
+.contact-link{display:flex;align-items:center;gap:16px;padding:20px 24px;border:1px solid var(--border);background:var(--card);text-decoration:none;color:var(--text);transition:all .25s ease;position:relative;overflow:hidden;}
+.contact-link::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);transform:scaleY(0);transition:transform .3s ease;}
+.contact-link:hover{border-color:rgba(0,255,200,.2);background:var(--link-hover);}
+body.dark .contact-link:hover{border-color:rgba(0,85,255,.15);}
+.contact-link:hover::before{transform:scaleY(1);}
+.cl-icon{font-size:1.3rem;flex-shrink:0;}
+.cl-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);margin-bottom:2px;}
+.cl-val{font-size:.9rem;font-weight:700;}
+.cl-arr{margin-left:auto;color:var(--accent);font-size:1.1rem;transition:transform .25s ease;}
+.contact-link:hover .cl-arr{transform:translateX(4px);}
+
+/* FOOTER */
+footer{padding:40px;text-align:center;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);position:relative;z-index:1;}
+footer span{color:var(--accent);}
+
+/* REVEAL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+.reveal.vis{opacity:1;transform:translateY(0);}
+.reveal-l{opacity:0;transform:translateX(-30px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+.reveal-l.vis{opacity:1;transform:translateX(0);}
+.reveal-r{opacity:0;transform:translateX(30px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+.reveal-r.vis{opacity:1;transform:translateX(0);}
+
+/* WA BUTTON */
+.wa-btn{position:fixed;bottom:32px;right:32px;z-index:800;width:56px;height:56px;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 8px 30px rgba(37,211,102,.3);transition:transform .25s ease;text-decoration:none;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);}
+.wa-btn:hover{transform:scale(1.1);}
+
+/* MOBILE NAV — FULL SCREEN OVERLAY HAUT NIVEAU */
+.menu-backdrop{
+  position:fixed;inset:0;z-index:9000;
+  background:rgba(0,0,0,.6);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .4s ease, visibility 0s linear .4s;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.menu-backdrop.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transition:opacity .4s ease, visibility 0s linear 0s;
+}
+
+.mobile-nav{
+  position:fixed;top:0;right:0;bottom:0;
+  width:min(340px,88vw);
+  z-index:9100;
+  background:var(--bg);
+  border-left:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  transform:translateX(100%);
+  visibility:hidden;
+  transition:transform .45s cubic-bezier(.16,1,.3,1), visibility 0s linear .45s;
+  overflow:hidden;
+  box-shadow:-20px 0 60px rgba(0,0,0,.3);
+}
+.mobile-nav::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(0,255,200,.03) 0%,transparent 50%);
+  pointer-events:none;
+  z-index:0;
+}
+body.dark .mobile-nav::before{
+  background:linear-gradient(160deg,rgba(0,85,255,.04) 0%,transparent 50%);
+}
+.mobile-nav.open{
+  transform:translateX(0);
+  visibility:visible;
+  transition:transform .45s cubic-bezier(.16,1,.3,1), visibility 0s linear 0s;
+}
+
+/* Header du tiroir */
+.mobile-nav-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 28px;
+  border-bottom:1px solid var(--border);
+  width:100%;flex-shrink:0;
+  position:relative;z-index:1;
+}
+.mobile-nav-logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;font-weight:700;color:var(--accent);
+  letter-spacing:2px;
+}
+.mobile-nav-logo::before{
+  content:'';width:8px;height:8px;
+  background:var(--accent);border-radius:50%;
+  animation:blink 2s infinite;flex-shrink:0;
+}
+.mobile-nav-close{
+  width:36px;height:36px;
+  border:1px solid var(--border);
+  background:transparent;color:var(--text);
+  font-size:.9rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s ease;
+  clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);
+}
+.mobile-nav-close:hover{background:var(--accent);color:var(--bg);border-color:var(--accent);}
+
+/* LIENS nav mobile */
+.mobile-nav-links{
+  flex:1;display:flex;flex-direction:column;
+  padding:12px 0;
+  position:relative;z-index:1;
+  overflow-y:auto;
+}
+.mobile-nav-links a{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.82rem;font-weight:600;
+  color:var(--muted2);
+  text-decoration:none;letter-spacing:1px;
+  transition:all .25s ease;
+  padding:17px 28px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;overflow:hidden;
+}
+.mobile-nav-links a::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--accent);
+  transform:scaleY(0);
+  transition:transform .25s ease;
+}
+.mobile-nav-links a::after{
+  content:'→';
+  color:var(--accent);
+  font-size:.8rem;
+  opacity:0;
+  transform:translateX(-8px);
+  transition:all .25s ease;
+}
+.mobile-nav-links a:hover{
+  color:var(--text);
+  background:rgba(0,255,200,.03);
+  padding-left:36px;
+}
+body.dark .mobile-nav-links a:hover{background:rgba(0,85,255,.03);}
+.mobile-nav-links a:hover::before{transform:scaleY(1);}
+.mobile-nav-links a:hover::after{opacity:1;transform:translateX(0);}
+
+/* Numéro de lien */
+.mob-link-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.58rem;color:var(--muted);
+  letter-spacing:2px;margin-right:auto;margin-left:0;
+  padding-right:14px;
+}
+
+/* Footer du tiroir */
+.mobile-nav-footer{
+  padding:20px 28px 28px;
+  border-top:1px solid var(--border);
+  display:flex;flex-direction:column;gap:12px;
+  background:var(--dark);
+  position:relative;z-index:1;
+  flex-shrink:0;
+}
+.mobile-nav-footer-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.mobile-lang{display:flex;border:1px solid var(--border);overflow:hidden;}
+.mobile-cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 20px;
+  background:var(--accent);color:var(--bg);
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;
+  letter-spacing:1px;text-decoration:none;
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+  transition:all .25s ease;
+  width:100%;
+}
+.mobile-cta:hover{background:var(--accent2);}
+
+/* Hamburger animé */
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:1px solid var(--border);width:38px;height:38px;padding:0;transition:border-color .2s ease;flex-shrink:0;}
+.hamburger:hover{border-color:var(--accent);}
+.hamburger span{
+  width:18px;height:2px;
+  background:var(--text);
+  transition:transform .35s cubic-bezier(.16,1,.3,1), opacity .2s ease, width .3s ease;
+  transform-origin:center;
+  display:block;
+}
+.hamburger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.is-open span:nth-child(2){opacity:0;width:0;}
+.hamburger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+
+@media(max-width:1000px){.hero-code{display:none;}h1{font-size:clamp(2.8rem,8vw,4.5rem);}}
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  /* mobile-nav toujours display:flex, caché par transform+visibility */
+  .hero{padding:88px 20px 48px;}
+  .wrap{padding:0 20px;}
+  .services-grid,.ba-grid,.reviews-grid,.contact-inner{grid-template-columns:1fr;}
+  .process-grid{grid-template-columns:1fr 1fr;gap:24px;}
+  .process-grid::before{display:none;}
+  .stats-bar{flex-wrap:wrap;}
+  .stat-cell{flex:none;width:50%;}
+  .stat-cell:nth-child(2)::after{display:none;}
+  .guarantee{margin:20px auto;padding:28px 20px;}
+  .payment-box{padding:32px 20px;margin:40px 20px 0;}
+  .contact-inner{gap:40px;}
+  .wa-btn{bottom:20px;right:20px;}
+  .nav-controls{gap:6px;}
+  .lang-btn{padding:7px 10px;}
+  .theme-btn{width:34px;height:34px;}
+  .portfolio-grid,.blog-grid{grid-template-columns:1fr;}
+  .hero-top{gap:14px;}
+  .brand-frame{width:70px;height:70px;}
+  .portfolio-filters{flex-wrap:wrap;width:100%;}
+  .pf-btn{flex:1;text-align:center;}
+}
+
+/* NAV BRAND FRAME */
+.nav-brand-frame{
+  width:44px;height:44px;flex-shrink:0;
+  border:2px dashed var(--accent);
+  border-radius:8px;
+  background:rgba(0,85,255,.04);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .25s ease;overflow:hidden;
+}
+body.dark .nav-brand-frame{background:rgba(0,255,200,.04);}
+.nav-brand-frame:hover{border-style:solid;border-color:var(--accent);}
+.nav-brand-placeholder{display:flex;align-items:center;justify-content:center;pointer-events:none;}
+h1{font-size:clamp(3rem,7vw,6.5rem);line-height:.92;font-weight:800;letter-spacing:-2px;margin-bottom:24px;}
+
+/* PORTFOLIO */
+.portfolio-filters{display:flex;gap:0;border:1px solid var(--border);margin:36px 0 24px;overflow:hidden;width:fit-content;}
+.pf-btn{padding:10px 20px;background:transparent;border:none;color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.72rem;cursor:pointer;transition:.2s ease;letter-spacing:1px;border-right:1px solid var(--border);}
+.pf-btn:last-child{border-right:none;}
+.pf-btn.active{background:var(--accent);color:var(--bg);font-weight:700;}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.port-card{background:var(--card);border:1px solid var(--border);overflow:hidden;transition:all .3s ease;position:relative;}
+.port-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08);}
+.port-img-placeholder{width:100%;height:160px;background:linear-gradient(135deg,var(--dark),var(--card));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-bottom:1px solid var(--border);position:relative;}
+.port-img-placeholder .p-emoji{font-size:2.5rem;}
+.port-img-placeholder .p-type{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+.port-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease;}
+.port-card:hover .port-overlay{opacity:1;}
+.port-overlay a{padding:10px 20px;background:var(--accent);color:var(--bg);font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;text-decoration:none;letter-spacing:1px;cursor:pointer;}
+.port-body{padding:16px;}
+.port-tag-label{display:inline-block;padding:3px 10px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;border:1px solid;}
+.port-tag-label.capture{color:var(--accent);border-color:currentColor;opacity:.8;}
+.port-tag-label.vente{color:var(--gold);border-color:currentColor;opacity:.8;}
+.port-tag-label.vitrine{color:var(--green);border-color:currentColor;opacity:.8;}
+.port-tag-label.affiche{color:var(--red);border-color:currentColor;opacity:.8;}
+.port-title{font-size:.92rem;font-weight:700;margin-bottom:4px;}
+.port-desc{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted2);line-height:1.6;}
+.port-add{border:2px dashed var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:260px;cursor:pointer;transition:all .25s ease;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:1px;text-align:center;padding:20px;background:transparent;}
+.port-add:hover{border-color:var(--accent);color:var(--accent);}
+.port-add-icon{font-size:2rem;}
+
+/* BLOG */
+.port-img-wrap{position:relative;overflow:hidden;}
+.port-img-demo{width:100%;height:160px;position:relative;overflow:hidden;transition:transform .4s ease;}
+.port-card:hover .port-img-demo{transform:scale(1.03);}
+.port-img-label{position:absolute;bottom:8px;left:10px;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:1px;opacity:.6;}
+.port-img-real{width:100%;height:160px;object-fit:cover;object-position:top;display:block;transition:transform .4s ease;}
+.port-card:hover .port-img-real{transform:scale(1.03);}
+
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+.blog-card{background:var(--card);border:1px solid var(--border);overflow:hidden;transition:all .3s ease;display:flex;flex-direction:column;}
+.blog-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.blog-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;border-bottom:1px solid var(--border);background:linear-gradient(135deg,var(--dark),var(--card));}
+.blog-body{padding:18px;display:flex;flex-direction:column;flex:1;}
+.blog-meta{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.blog-cat{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;}
+.blog-date{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted);margin-left:auto;}
+.blog-title{font-size:.95rem;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;line-height:1.3;}
+.blog-excerpt{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted2);line-height:1.7;flex:1;}
+.blog-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);letter-spacing:1px;text-decoration:none;transition:gap .2s ease;}
+.blog-link:hover{gap:10px;}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <div class="nav-brand-frame" id="brandFrame" title="Clique pour ajouter ton logo">
+      <input type="file" id="brandUpload" accept="image/*" style="display:none">
+      <div class="nav-brand-placeholder" id="brandPlaceholder">
+        <span style="font-size:1rem;">🖼</span>
+      </div>
+      <img id="brandImg" src="" alt="Logo" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:6px;">
+    </div>
+    <span>BALIMA WEB<br>DEVELOPER</span>
+  </div>
+  <div class="nav-links">
+    <a href="#services" data-i18n="nav.services">Services</a>
+    <a href="#realisations" data-i18n="nav.portfolio">Réalisations</a>
+    <a href="#blog" data-i18n="nav.blog">Blog</a>
+    <a href="#avis" data-i18n="nav.reviews">Avis</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </div>
+  <div class="nav-controls">
+    <div class="lang-sw">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="theme-btn" id="themeBtn" title="Changer de thème">🌙</button>
+    <a href="https://wa.me/22607190217" class="nav-cta" data-i18n="nav.cta">→ Me contacter</a>
+  </div>
+  <button class="hamburger" id="hambBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <!-- Header -->
+  <div class="mobile-nav-header">
+    <div class="mobile-nav-logo">BALIMA·DEV</div>
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Fermer le menu">✕</button>
+  </div>
+
+  <!-- Liens -->
+  <div class="mobile-nav-links">
+    <a href="#services" class="mob-link" data-idx="01">
+      <span><span class="mob-link-num">01 /</span> <span data-i18n="nav.services">Services</span></span>
+    </a>
+    <a href="#realisations" class="mob-link" data-idx="02">
+      <span><span class="mob-link-num">02 /</span> <span data-i18n="nav.portfolio">Réalisations</span></span>
+    </a>
+    <a href="#blog" class="mob-link" data-idx="03">
+      <span><span class="mob-link-num">03 /</span> <span data-i18n="nav.blog">Blog</span></span>
+    </a>
+    <a href="#processus" class="mob-link" data-idx="04">
+      <span><span class="mob-link-num">04 /</span> <span data-i18n="nav.process">Processus</span></span>
+    </a>
+    <a href="#avis" class="mob-link" data-idx="05">
+      <span><span class="mob-link-num">05 /</span> <span data-i18n="nav.reviews">Avis</span></span>
+    </a>
+    <a href="#contact" class="mob-link" data-idx="06">
+      <span><span class="mob-link-num">06 /</span> <span data-i18n="nav.contact">Contact</span></span>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="mobile-nav-footer">
+    <div class="mobile-nav-footer-row">
+      <div class="mobile-lang">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button id="themeBtnMobile" class="theme-btn" style="cursor:pointer;">🌙</button>
+    </div>
+    <a href="https://wa.me/22607190217?text=Bonjour%20Moussa%2C%20je%20veux%20un%20site%20web." class="mobile-cta" target="_blank">💬 Démarrer mon projet</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="dot"></span><span data-i18n="hero.tag">✅ DISPONIBLE · OUAGADOUGOU, BURKINA FASO</span></div>
+    <h1>
+      <span data-i18n="hero.line1">TON SITE WEB</span><br>
+      <em data-i18n="hero.line2">TES CLIENTS</em><br>
+      <span class="line-gold" data-i18n="hero.line3">TES VENTES.</span>
+    </h1>
+
+    <p class="hero-sub" data-i18n="hero.sub">Je suis <strong>Moussa Balima</strong>, développeur web freelance à Ouagadougou.<br>Je crée des sites professionnels qui génèrent des clients — pas juste des visiteurs.<br><span style="color:var(--gold);font-size:.78rem;">+15 sites livrés · Paiement Orange Money · Réponse en &lt;1h</span></p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary" data-i18n="hero.cta1">→ Voir mes services</a>
+      <a href="https://wa.me/22607190217?text=Bonjour%20Moussa%2C%20je%20veux%20un%20site%20web." class="btn-ghost" target="_blank" data-i18n="hero.cta2">💬 WhatsApp direct</a>
+    </div>
+  </div>
+  <div class="hero-code" aria-hidden="true">
+    <div class="code-bar">
+      <div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div>
+      <span class="code-file">balima_portfolio.js</span>
+    </div>
+    <div class="code-body">
+      <div><span class="code-ln">01</span><span class="kw">const</span> <span class="fn">developer</span> = {</div>
+      <div><span class="code-ln">02</span>&nbsp;&nbsp;name: <span class="str">"Moussa Balima"</span>,</div>
+      <div><span class="code-ln">03</span>&nbsp;&nbsp;role: <span class="str">"Web Dev Premium"</span>,</div>
+      <div><span class="code-ln">04</span>&nbsp;&nbsp;location: <span class="str">"Burkina Faso 🇧🇫"</span>,</div>
+      <div><span class="code-ln">05</span>&nbsp;&nbsp;sites_delivered: <span class="num">15</span>,</div>
+      <div><span class="code-ln">06</span>&nbsp;&nbsp;satisfaction: <span class="str">"100%"</span>,</div>
+      <div><span class="code-ln">07</span>&nbsp;&nbsp;<span class="fn">build</span>: <span class="kw">async</span> (project) => {</div>
+      <div><span class="code-ln">08</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm">// transform visitors into clients</span></div>
+      <div><span class="code-ln">09</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="fn">premium_result</span>(project);</div>
+      <div><span class="code-ln">10</span>&nbsp;&nbsp;}</div>
+      <div><span class="code-ln">11</span>};</div>
+      <div style="margin-top:8px;"><span class="code-ln">12</span><span class="cm">// ready to deploy your vision</span></div>
+      <div><span class="code-ln">13</span><span class="fn">developer</span>.build(<span class="str">"ton projet"</span>);<span class="cursor-blink"></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-cell reveal"><div class="stat-num" data-target="15" data-suffix="+">0</div><div class="stat-lbl" data-i18n="stats.s1">Sites livrés</div></div>
+  <div class="stat-cell reveal" style="transition-delay:.1s"><div class="stat-num" data-target="7" data-suffix="/7">0</div><div class="stat-lbl" data-i18n="stats.s2">Disponibilité</div></div>
+  <div class="stat-cell reveal" style="transition-delay:.2s"><div class="stat-num" data-target="100" data-suffix="%">0</div><div class="stat-lbl" data-i18n="stats.s3">Satisfaction client</div></div>
+  <div class="stat-cell reveal" style="transition-delay:.3s"><div class="stat-num" data-target="48" data-suffix="h">0</div><div class="stat-lbl" data-i18n="stats.s4">Livraison express</div></div>
+  <div class="stat-cell reveal" style="transition-delay:.4s"><div class="stat-num" data-target="3" data-suffix=" villes">0</div><div class="stat-lbl">Clients actifs au BF</div></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="sec-pad">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="svc.tag">Services</div>
+    <div class="sec-title reveal"><span data-i18n="svc.title1">Des solutions</span> <em data-i18n="svc.title2">qui vendent</em></div>
+    <p class="sec-sub reveal" data-i18n="svc.sub">Chaque formule est conçue pour convertir tes visiteurs en clients payants.</p>
+    <div class="currency-bar reveal">
+      <span data-i18n="svc.devise">Devise :</span>
+      <div class="curr-btns">
+        <button class="curr-btn active" data-currency="xof">XOF</button>
+        <button class="curr-btn" data-currency="eur">EUR</button>
+        <button class="curr-btn" data-currency="usd">USD</button>
+      </div>
+    </div>
+    <div class="services-grid reveal">
+      <div class="svc-card">
+        <div><div class="svc-num">01 / STARTER</div><div class="svc-icon">🎯</div>
+        <div class="svc-name" data-i18n="svc1.name">Page de capture</div>
+        <div class="svc-desc" data-i18n="svc1.desc">Design impactant. Formulaire optimisé. Interface qui inspire confiance immédiatement.</div></div>
+        <div class="svc-feats">
+          <div class="svc-feat" data-i18n="svc1.f1">Design moderne et percutant</div>
+          <div class="svc-feat" data-i18n="svc1.f2">Formulaire de capture optimisé</div>
+          <div class="svc-feat" data-i18n="svc1.f3">Compatible mobile / PC</div>
+          <div class="svc-feat" data-i18n="svc1.f4">Livraison 24h–48h</div>
+        </div>
+        <div class="svc-price"><div class="price-main" data-xof="24 000 XOF" data-eur="37 EUR" data-usd="40 USD">24 000 XOF</div><div class="price-sub" data-i18n="svc.om">Orange Money</div></div>
+        <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+une+page+de+capture." class="svc-btn" target="_blank" data-i18n="svc.order">→ Commander</a>
+      </div>
+      <div class="svc-card gold">
+        <div><div class="svc-num">02 / BEST SELLER</div><div class="svc-icon">🚀</div>
+        <div class="svc-name" data-i18n="svc2.name">Page de vente</div>
+        <div class="svc-desc" data-i18n="svc2.desc">Structure de conversion éprouvée. Design premium. Bouton d'action irrésistible.</div></div>
+        <div class="svc-feats">
+          <div class="svc-feat" data-i18n="svc2.f1">Structure de conversion testée</div>
+          <div class="svc-feat" data-i18n="svc2.f2">Design premium crédibilisant</div>
+          <div class="svc-feat" data-i18n="svc2.f3">CTA stratégique et percutant</div>
+          <div class="svc-feat" data-i18n="svc2.f4">Compatible mobile / PC</div>
+        </div>
+        <div class="svc-price"><div class="price-main" data-xof="42 000 XOF" data-eur="65 EUR" data-usd="70 USD">42 000 XOF</div><div class="price-sub" data-i18n="svc.om">Orange Money</div></div>
+        <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+une+page+de+vente." class="svc-btn" target="_blank" data-i18n="svc.order">→ Commander</a>
+      </div>
+      <div class="svc-card">
+        <div><div class="svc-num">03 / PRO</div><div class="svc-icon">🏢</div>
+        <div class="svc-name" data-i18n="svc3.name">Site vitrine</div>
+        <div class="svc-desc" data-i18n="svc3.desc">3 à 5 pages sur mesure. Image professionnelle garantie. Structure propre et moderne.</div></div>
+        <div class="svc-feats">
+          <div class="svc-feat" data-i18n="svc3.f1">3 à 5 pages personnalisées</div>
+          <div class="svc-feat" data-i18n="svc3.f2">Image professionnelle garantie</div>
+          <div class="svc-feat" data-i18n="svc3.f3">Structure propre et moderne</div>
+          <div class="svc-feat" data-i18n="svc3.f4">Livraison 3–5 jours</div>
+        </div>
+        <div class="svc-price"><div class="price-main" data-xof="72 000 XOF" data-eur="110 EUR" data-usd="120 USD">72 000 XOF</div><div class="price-sub" data-i18n="svc.om">Orange Money</div></div>
+        <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+un+site+vitrine." class="svc-btn" target="_blank" data-i18n="svc.order">→ Commander</a>
+      </div>
+      <div class="svc-card gold">
+        <div><div class="svc-num">04 / PACK COMPLET</div><div class="svc-icon">⚡</div>
+        <div class="svc-name" data-i18n="svc4.name">BOOST ULTIME</div>
+        <div class="svc-desc" data-i18n="svc4.desc">Tout inclus. Page capture + page vente + site vitrine + optimisation offerte.</div></div>
+        <div class="svc-feats">
+          <div class="svc-feat" data-i18n="svc4.f1">Page de capture incluse</div>
+          <div class="svc-feat" data-i18n="svc4.f2">Page de vente incluse</div>
+          <div class="svc-feat" data-i18n="svc4.f3">Site vitrine complet</div>
+          <div class="svc-feat" data-i18n="svc4.f4">Optimisation offerte</div>
+        </div>
+        <div class="svc-price"><div class="price-main" data-xof="120 000 XOF" data-eur="185 EUR" data-usd="200 USD">120 000 XOF</div><div class="price-sub" data-i18n="svc.om">Orange Money</div></div>
+        <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+le+BOOST+ULTIME." class="svc-btn" target="_blank" data-i18n="svc.order">→ Commander</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="processus" class="sec-pad" style="background:var(--dark);">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="proc.tag">Processus</div>
+    <div class="sec-title reveal"><span data-i18n="proc.title1">Ton site en</span> <em data-i18n="proc.title2">4 étapes</em></div>
+    <div class="process-grid">
+      <div class="proc-step reveal" style="transition-delay:0s"><div class="proc-num">01</div><div class="proc-title" data-i18n="proc.s1t">Tu me contactes</div><div class="proc-text" data-i18n="proc.s1d">Tu m'expliques ton projet sur WhatsApp. Je comprends tes besoins en profondeur.</div></div>
+      <div class="proc-step reveal" style="transition-delay:.12s"><div class="proc-num">02</div><div class="proc-title" data-i18n="proc.s2t">Je construis</div><div class="proc-text" data-i18n="proc.s2d">Je crée ton site sur mesure. 2 à 5 jours selon la formule choisie.</div></div>
+      <div class="proc-step reveal" style="transition-delay:.24s"><div class="proc-num">03</div><div class="proc-title" data-i18n="proc.s3t">Tu valides</div><div class="proc-text" data-i18n="proc.s3d">Tu vérifies chaque détail. Retouches gratuites jusqu'à ta satisfaction totale.</div></div>
+      <div class="proc-step reveal" style="transition-delay:.36s"><div class="proc-num">04</div><div class="proc-title" data-i18n="proc.s4t">Je te livre</div><div class="proc-text" data-i18n="proc.s4d">Site livré, prêt à convertir. Je reste disponible après la livraison.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section id="avant-apres" class="sec-pad">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="ba.tag">Impact réel</div>
+    <div class="sec-title reveal"><span data-i18n="ba.title1">Ce qui</span> <em data-i18n="ba.title2">change</em> <span data-i18n="ba.title3">avec un site pro</span></div>
+    <div class="ba-grid">
+      <div class="ba-col bad reveal-l">
+        <div class="ba-status" data-i18n="ba.bad.status">⛔ SANS SITE PRO</div>
+        <div class="ba-heading" data-i18n="ba.bad.title">Tu bloques tes propres ventes</div>
+        <div class="ba-items">
+          <div class="ba-item"><span class="ba-icon">✕</span><span data-i18n="ba.bad.i1">Tes clients doutent et repartent chez un concurrent</span></div>
+          <div class="ba-item"><span class="ba-icon">✕</span><span data-i18n="ba.bad.i2">Ta page Facebook ne suffit plus — personne ne te croit</span></div>
+          <div class="ba-item"><span class="ba-icon">✕</span><span data-i18n="ba.bad.i3">Chaque jour sans site = des ventes perdues en silence</span></div>
+          <div class="ba-item"><span class="ba-icon">✕</span><span data-i18n="ba.bad.i4">Tu parais amateur même si ton produit est excellent</span></div>
+          <div class="ba-item"><span class="ba-icon">✕</span><span data-i18n="ba.bad.i5">Tu expliques encore et encore au lieu de vendre</span></div>
+        </div>
+      </div>
+      <div class="ba-col good reveal-r">
+        <div class="ba-status" data-i18n="ba.good.status">✓ AVEC UN SITE WEB</div>
+        <div class="ba-heading" data-i18n="ba.good.title">Tes ventes s'activent automatiquement</div>
+        <div class="ba-items">
+          <div class="ba-item"><span class="ba-icon" style="color:var(--accent)">→</span><span data-i18n="ba.good.i1">Confiance immédiate : tes visiteurs achètent</span></div>
+          <div class="ba-item"><span class="ba-icon" style="color:var(--accent)">→</span><span data-i18n="ba.good.i2">Ton sérieux parle avant même que tu ouvres la bouche</span></div>
+          <div class="ba-item"><span class="ba-icon" style="color:var(--accent)">→</span><span data-i18n="ba.good.i3">Des ventes automatiques, 24h/24, même la nuit</span></div>
+          <div class="ba-item"><span class="ba-icon" style="color:var(--accent)">→</span><span data-i18n="ba.good.i4">Une image premium qui justifie tes prix</span></div>
+          <div class="ba-item"><span class="ba-icon" style="color:var(--accent)">→</span><span data-i18n="ba.good.i5">Ton site vend pour toi — tu te concentres sur ton métier</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="guarantee reveal">
+      <div class="guar-icon">🛡️</div>
+      <div class="guar-title" data-i18n="guar.title">Garantie satisfait ou retouché</div>
+      <p class="guar-text" data-i18n="guar.text">Si le rendu ne te plaît pas à 100%, je retravaille gratuitement jusqu'à ce que tu sois fier de le montrer.<br><br><strong style="color:var(--gold)">Zéro risque. Zéro mauvaise surprise. Zéro argent perdu.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="avis" class="sec-pad" style="background:var(--dark);">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="rev.tag">Témoignages</div>
+    <div class="sec-title reveal"><span data-i18n="rev.title1">Ce que disent</span> <em data-i18n="rev.title2">mes clients</em></div>
+    <div class="reviews-grid">
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★☆</div>
+        <p class="rev-text" data-i18n="rev.r1.text">J'ai hésité... et je n'aurais pas dû. Site livré en 3 jours, propre, rapide. Je l'ai recommandé à 2 amis immédiatement après.</p>
+        <div class="rev-result" data-i18n="rev.r1.result">→ 8 nouveaux clients en 2 semaines</div>
+        <div class="rev-author"><div class="rev-avatar">AO</div><div><div class="rev-name">Aïcha O.</div><div class="rev-loc">Ouagadougou, BF</div></div></div>
+      </div>
+      <div class="rev-card reveal" style="transition-delay:.1s">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text" data-i18n="rev.r2.text">Il a pris le temps de vraiment comprendre mon activité. Le site reflète exactement ce que je voulais. Mes ventes ont augmenté dès la première semaine.</p>
+        <div class="rev-result" data-i18n="rev.r2.result">→ 12 commandes en 7 jours</div>
+        <div class="rev-author"><div class="rev-avatar">MK</div><div><div class="rev-name">Moussa K.</div><div class="rev-loc">Bobo-Dioulasso, BF</div></div></div>
+      </div>
+      <div class="rev-card reveal" style="transition-delay:.2s">
+        <div class="rev-stars">★★★★☆</div>
+        <p class="rev-text" data-i18n="rev.r3.text">Patient, rapide, il tient ses promesses. Ce n'est pas juste un développeur, c'est un vrai partenaire de business. Je reviendrai.</p>
+        <div class="rev-result" data-i18n="rev.r3.result">→ Un site dont je suis fier</div>
+        <div class="rev-author"><div class="rev-avatar">IS</div><div><div class="rev-name">Ibrahim S.</div><div class="rev-loc">Koudougou, BF</div></div></div>
+      </div>
+      <div class="rev-card reveal" style="transition-delay:.3s">
+        <div class="rev-stars">★★★★☆</div>
+        <p class="rev-text" data-i18n="rev.r4.text">Livré rapidement et proprement. Mes clients me prennent beaucoup plus au sérieux. L'investissement est rentabilisé en 1 semaine.</p>
+        <div class="rev-result" data-i18n="rev.r4.result">→ Crédibilité multipliée ×3</div>
+        <div class="rev-author"><div class="rev-avatar">KB</div><div><div class="rev-name">Kadija B.</div><div class="rev-loc">Ouagadougou, BF</div></div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;" class="reveal">
+      <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+laisser+un+avis." class="btn-ghost" style="display:inline-flex;" target="_blank" data-i18n="rev.leave">💬 Laisser un avis WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec-pad">
+  <div class="wrap">
+    <div class="sec-tag reveal">FAQ</div>
+    <div class="sec-title reveal"><span data-i18n="faq.title1">Questions</span> <em data-i18n="faq.title2">fréquentes</em></div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q"><span data-i18n="faq.q1">Est-ce que les sites sont vraiment personnalisés ?</span><span>+</span></button>
+        <div class="faq-a" data-i18n="faq.a1">Oui, chaque site est créé de zéro selon ton activité, ton style et tes objectifs. Tu n'auras jamais un copier-coller de template générique.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-i18n="faq.q2">Combien de temps pour être livré ?</span><span>+</span></button>
+        <div class="faq-a" data-i18n="faq.a2">Entre 24h et 5 jours selon la complexité du projet. La page de capture peut être livrée en 48h. Le site vitrine prend 3 à 5 jours.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-i18n="faq.q3">Comment se fait le paiement ?</span><span>+</span></button>
+        <div class="faq-a" data-i18n="faq.a3">Par Orange Money au +226 07 19 02 17. On discute du projet et des détails avant tout paiement. Pas de mauvaise surprise.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-i18n="faq.q4">Puis-je demander des modifications après livraison ?</span><span>+</span></button>
+        <div class="faq-a" data-i18n="faq.a4">Oui, les retouches sont incluses jusqu'à 100% de satisfaction. Mon objectif est que tu sois fier de montrer ton site.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-i18n="faq.q5">Et si le site ne me plaît vraiment pas ?</span><span>+</span></button>
+        <div class="faq-a" data-i18n="faq.a5">Je retravaille gratuitement jusqu'à ce que tu sois satisfait. Tu ne prends aucun risque financier.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO / RÉALISATIONS -->
+<section id="realisations" class="sec-pad" style="background:var(--dark);">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="port.tag">Réalisations</div>
+    <div class="sec-title reveal"><span data-i18n="port.title1">Mes travaux,</span> <em data-i18n="port.title2">la preuve concrète</em></div>
+    <p class="sec-sub reveal" data-i18n="port.sub">Sites web, pages de vente, pages de capture, affiches — tout ce que je suis capable de créer pour toi.</p>
+
+    <!-- NOTICE PORTFOLIO (à supprimer quand les vraies captures sont ajoutées) -->
+    <div class="reveal" style="margin-top:24px;padding:14px 20px;border:1px dashed var(--accent);background:rgba(0,255,200,.03);font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted2);line-height:1.8;display:none;" id="portNotice">
+      💡 <strong style="color:var(--accent);">Pour toi Moussa :</strong> Remplace les images de démonstration ci-dessous par de vraies captures de tes projets. Pour chaque carte, change <code>src="..."</code> dans la balise <code>&lt;img&gt;</code>. Tu peux aussi supprimer ce bloc notice une fois les captures ajoutées.
+    </div>
+
+    <div class="portfolio-filters reveal" style="margin-top:32px;">
+      <button class="pf-btn active" data-filter="all" data-i18n="port.f.all">Tout</button>
+      <button class="pf-btn" data-filter="capture" data-i18n="port.f.capture">Capture</button>
+      <button class="pf-btn" data-filter="vente" data-i18n="port.f.vente">Vente</button>
+      <button class="pf-btn" data-filter="vitrine" data-i18n="port.f.vitrine">Vitrine</button>
+      <button class="pf-btn" data-filter="affiche" data-i18n="port.f.affiche">Affiche</button>
+    </div>
+
+    <div class="portfolio-grid" id="portfolioGrid">
+      <!-- Card 1 — Remplace src par une vraie capture -->
+      <div class="port-card reveal" data-cat="capture" style="transition-delay:0s">
+        <div class="port-img-wrap">
+          <!-- 🖼 REMPLACE src="" par le chemin de ta capture d'écran -->
+          <div class="port-img-demo" style="background:linear-gradient(135deg,#0d1420 0%,#1a2540 50%,#0d1420 100%);">
+            <div style="display:flex;flex-direction:column;gap:6px;padding:20px;">
+              <div style="height:8px;width:60%;background:var(--accent);opacity:.7;border-radius:2px;"></div>
+              <div style="height:5px;width:80%;background:var(--muted);opacity:.3;border-radius:2px;"></div>
+              <div style="height:5px;width:50%;background:var(--muted);opacity:.3;border-radius:2px;"></div>
+              <div style="height:32px;width:140px;background:var(--accent);opacity:.6;border-radius:2px;margin-top:8px;"></div>
+            </div>
+            <div class="port-img-label">Page de capture · Screenshot à ajouter</div>
+          </div>
+          <div class="port-overlay"><a href="https://wa.me/22607190217?text=Je%20veux%20une%20page%20de%20capture%20comme%20celle-ci." target="_blank">→ Commander le même</a></div>
+        </div>
+        <div class="port-body">
+          <span class="port-tag-label capture" data-i18n="port.f.capture">Capture</span>
+          <div class="port-title" data-i18n="port.c1.title">Landing page produit</div>
+          <div class="port-desc" data-i18n="port.c1.desc">Page rapide, formulaire clair, design qui inspire confiance dès la première seconde.</div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="port-card reveal" data-cat="vente" style="transition-delay:.08s">
+        <div class="port-img-wrap">
+          <div class="port-img-demo" style="background:linear-gradient(135deg,#0d1420 0%,#1e1000 50%,#0d1420 100%);">
+            <div style="display:flex;flex-direction:column;gap:6px;padding:20px;">
+              <div style="height:10px;width:70%;background:var(--gold);opacity:.7;border-radius:2px;"></div>
+              <div style="height:5px;width:90%;background:var(--muted);opacity:.3;border-radius:2px;"></div>
+              <div style="height:5px;width:65%;background:var(--muted);opacity:.3;border-radius:2px;"></div>
+              <div style="height:5px;width:75%;background:var(--muted);opacity:.3;border-radius:2px;"></div>
+              <div style="height:36px;width:160px;background:var(--gold);opacity:.6;border-radius:2px;margin-top:8px;"></div>
+            </div>
+            <div class="port-img-label">Tunnel de vente · Screenshot à ajouter</div>
+          </div>
+          <div class="port-overlay"><a href="https://wa.me/22607190217?text=Je%20veux%20une%20page%20de%20vente%20comme%20celle-ci." target="_blank">→ Commander le même</a></div>
+        </div>
+        <div class="port-body">
+          <span class="port-tag-label vente" data-i18n="port.f.vente">Vente</span>
+          <div class="port-title" data-i18n="port.c2.title">Tunnel de vente complet</div>
+          <div class="port-desc" data-i18n="port.c2.desc">Structure de conversion éprouvée, boutons stratégiques, résultat : 12 commandes en 7 jours.</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="port-card reveal" data-cat="vitrine" style="transition-delay:.16s">
+        <div class="port-img-wrap">
+          <div class="port-img-demo" style="background:linear-gradient(135deg,#080c12 0%,#101828 50%,#080c12 100%);">
+            <div style="display:flex;flex-direction:column;gap:6px;padding:20px;">
+              <div style="display:flex;gap:6px;"><div style="height:6px;width:12px;background:var(--accent);opacity:.5;border-radius:2px;"></div><div style="height:6px;width:30px;background:var(--muted);opacity:.3;border-radius:2px;"></div><div style="height:6px;width:20px;background:var(--muted);opacity:.3;border-radius:2px;"></div></div>
+              <div style="height:40px;width:100%;background:linear-gradient(90deg,var(--accent),var(--gold));opacity:.15;border-radius:2px;margin-top:4px;"></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:4px;">
+                <div style="height:20px;background:var(--muted);opacity:.15;border-radius:2px;"></div>
+                <div style="height:20px;background:var(--muted);opacity:.15;border-radius:2px;"></div>
+              </div>
+            </div>
+            <div class="port-img-label">Site vitrine · Screenshot à ajouter</div>
+          </div>
+          <div class="port-overlay"><a href="https://wa.me/22607190217?text=Je%20veux%20un%20site%20vitrine%20comme%20celui-ci." target="_blank">→ Commander le même</a></div>
+        </div>
+        <div class="port-body">
+          <span class="port-tag-label vitrine" data-i18n="port.f.vitrine">Vitrine</span>
+          <div class="port-title" data-i18n="port.c3.title">Site entreprise 5 pages</div>
+          <div class="port-desc" data-i18n="port.c3.desc">Image pro, compatible partout, crédibilité décuplée dès la mise en ligne.</div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="port-card reveal" data-cat="affiche" style="transition-delay:.24s">
+        <div class="port-img-wrap">
+          <div class="port-img-demo" style="background:linear-gradient(135deg,#100808 0%,#1a0a0a 50%,#100808 100%);">
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;padding:16px;">
+              <div style="height:12px;width:80%;background:var(--red);opacity:.6;border-radius:2px;"></div>
+              <div style="height:60px;width:90%;background:linear-gradient(135deg,rgba(255,69,96,.2),rgba(240,180,41,.2));border-radius:4px;border:1px solid rgba(255,69,96,.3);"></div>
+              <div style="height:6px;width:60%;background:var(--muted);opacity:.3;border-radius:2px;"></div>
+            </div>
+            <div class="port-img-label">Affiche / Visuel · Screenshot à ajouter</div>
+          </div>
+          <div class="port-overlay"><a href="https://wa.me/22607190217?text=Je%20veux%20une%20affiche%20publicitaire." target="_blank">→ Commander le même</a></div>
+        </div>
+        <div class="port-body">
+          <span class="port-tag-label affiche" data-i18n="port.f.affiche">Affiche</span>
+          <div class="port-title" data-i18n="port.c4.title">Visuel publicitaire</div>
+          <div class="port-desc" data-i18n="port.c4.desc">Affiche pro pour réseaux sociaux ou impression — design percutant, message clair.</div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="port-card reveal" data-cat="capture" style="transition-delay:.32s">
+        <div class="port-img-wrap">
+          <div class="port-img-demo" style="background:linear-gradient(135deg,#060d14 0%,#0a1820 50%,#060d14 100%);">
+            <div style="display:flex;flex-direction:column;gap:6px;padding:20px;">
+              <div style="height:7px;width:55%;background:var(--accent);opacity:.5;border-radius:2px;"></div>
+              <div style="height:5px;width:75%;background:var(--muted);opacity:.3;border-radius:2px;"></div>
+              <div style="height:28px;width:100%;background:rgba(0,255,200,.08);border:1px solid rgba(0,255,200,.2);border-radius:2px;margin-top:6px;"></div>
+              <div style="height:28px;width:100%;background:rgba(0,255,200,.08);border:1px solid rgba(0,255,200,.2);border-radius:2px;"></div>
+              <div style="height:30px;width:120px;background:var(--accent);opacity:.5;border-radius:2px;margin-top:4px;"></div>
+            </div>
+            <div class="port-img-label">Newsletter opt-in · Screenshot à ajouter</div>
+          </div>
+          <div class="port-overlay"><a href="https://wa.me/22607190217?text=Je%20veux%20une%20page%20opt-in%20newsletter." target="_blank">→ Commander le même</a></div>
+        </div>
+        <div class="port-body">
+          <span class="port-tag-label capture" data-i18n="port.f.capture">Capture</span>
+          <div class="port-title" data-i18n="port.c5.title">Page opt-in newsletter</div>
+          <div class="port-desc" data-i18n="port.c5.desc">15 leads récoltés en 3 jours avec un formulaire simple et un design percutant.</div>
+        </div>
+      </div>
+      <!-- Slot à remplir -->
+      <div class="port-add reveal" style="transition-delay:.4s" onclick="window.open('https://wa.me/22607190217?text=Bonjour%20Moussa%2C%20je%20veux%20un%20site%20web.','_blank')">
+        <div class="port-add-icon">＋</div>
+        <span data-i18n="port.add">Ton projet ici bientôt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" class="sec-pad">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="blog.tag">Blog</div>
+    <div class="sec-title reveal"><span data-i18n="blog.title1">Conseils &</span> <em data-i18n="blog.title2">ressources</em></div>
+    <p class="sec-sub reveal" data-i18n="blog.sub">Des articles pratiques pour booster ta visibilité en ligne et vendre plus.</p>
+    <div class="blog-grid">
+      <div class="blog-card reveal" style="transition-delay:0s">
+        <div class="blog-img">💡</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat" data-i18n="blog.cat.tips">Conseils</span>
+            <span class="blog-date">Juin 2026</span>
+          </div>
+          <div class="blog-title" data-i18n="blog.p1.title">5 erreurs qui tuent tes ventes en ligne</div>
+          <div class="blog-excerpt" data-i18n="blog.p1.excerpt">Sans le savoir, beaucoup de vendeurs sabotent leur propre business à cause de ces 5 erreurs simples à corriger.</div>
+          <button class="blog-link" onclick="openArticle('a1')" data-i18n="blog.read" style="background:none;border:none;cursor:pointer;padding:0;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);letter-spacing:1px;display:inline-flex;align-items:center;gap:6px;margin-top:14px;transition:gap .2s ease;">Lire l'article →</button>
+        </div>
+      </div>
+      <div class="blog-card reveal" style="transition-delay:.1s">
+        <div class="blog-img">📱</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat" data-i18n="blog.cat.web">Web</span>
+            <span class="blog-date">Mai 2026</span>
+          </div>
+          <div class="blog-title" data-i18n="blog.p2.title">Pourquoi ton site doit être mobile-first</div>
+          <div class="blog-excerpt" data-i18n="blog.p2.excerpt">Plus de 70% de tes clients visitent ton site depuis leur téléphone. Si ton site n'est pas optimisé, tu perds des ventes chaque jour.</div>
+          <button class="blog-link" onclick="openArticle('a2')" data-i18n="blog.read" style="background:none;border:none;cursor:pointer;padding:0;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);letter-spacing:1px;display:inline-flex;align-items:center;gap:6px;margin-top:14px;transition:gap .2s ease;">Lire l'article →</button>
+        </div>
+      </div>
+      <div class="blog-card reveal" style="transition-delay:.2s">
+        <div class="blog-img">🎯</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat" data-i18n="blog.cat.convert">Conversion</span>
+            <span class="blog-date">Avril 2026</span>
+          </div>
+          <div class="blog-title" data-i18n="blog.p3.title">Page de capture vs page de vente : laquelle choisir ?</div>
+          <div class="blog-excerpt" data-i18n="blog.p3.excerpt">Tu ne sais pas par où commencer ? Voici comment choisir la bonne page selon ton objectif business.</div>
+          <button class="blog-link" onclick="openArticle('a3')" data-i18n="blog.read" style="background:none;border:none;cursor:pointer;padding:0;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);letter-spacing:1px;display:inline-flex;align-items:center;gap:6px;margin-top:14px;transition:gap .2s ease;">Lire l'article →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL ARTICLES -->
+<div id="articleModal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);overflow-y:auto;padding:40px 20px;">
+  <div id="articleContent" style="max-width:680px;margin:0 auto;background:var(--card);border:1px solid var(--border);padding:48px;position:relative;line-height:1.8;">
+    <button onclick="closeArticle()" style="position:absolute;top:16px;right:20px;background:none;border:1px solid var(--border);color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;padding:8px 14px;cursor:pointer;transition:.2s ease;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">✕ Fermer</button>
+    <div id="articleBody"></div>
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);text-align:center;">
+      <p style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted2);margin-bottom:16px;">Tu veux un site qui applique tout ça pour toi ?</p>
+      <a href="https://wa.me/22607190217?text=J%27ai%20lu%20ton%20article%20et%20je%20veux%20qu%27on%20discute%20de%20mon%20projet." target="_blank" class="btn-primary" style="display:inline-flex;">💬 Discuter de mon projet</a>
+    </div>
+  </div>
+</div>
+
+
+<section id="paiement" class="sec-pad" style="background:var(--dark);">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="pay.tag">Paiement</div>
+    <div class="sec-title reveal" style="text-align:center;">Orange <em>Money</em></div>
+    <div class="payment-box reveal">
+      <div class="om-badge"><span>🔒</span><span data-i18n="pay.badge">Paiement sécurisé · Orange Money Burkina Faso</span></div>
+      <div class="pay-num">+226 07 19 02 17</div>
+      <div class="pay-sub" data-i18n="pay.sub">Après paiement, contacte-moi pour confirmer et démarrer ton projet.</div>
+      <div class="pay-btns">
+        <a href="https://wa.me/22607190217?text=J%27ai%20pay%C3%A9." class="btn-primary" target="_blank" style="background:#25D366;box-shadow:0 0 30px rgba(37,211,102,.2);" data-i18n="pay.paid">✅ J'ai payé</a>
+        <a href="https://wa.me/22607190217" class="btn-ghost" target="_blank" data-i18n="pay.ask">Poser une question</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec-pad" style="background:var(--contact-bg);">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="sec-tag reveal" data-i18n="contact.tag">Contact</div>
+        <div class="sec-title reveal"><span data-i18n="contact.title1">Prêt à lancer</span><br><span data-i18n="contact.title2">ton </span><em data-i18n="contact.title3">projet ?</em></div>
+        <p class="reveal" data-i18n="contact.sub">Ce que tu vends a de la valeur.<br>Ton site doit le montrer avant même que tu parles.<br><br>Contacte-moi maintenant — je réponds en moins d'une heure.</p>
+
+        <!-- FORMULAIRE INTÉGRÉ -->
+        <div class="reveal" style="margin-top:32px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:3px;margin-bottom:16px;">// ENVOIE-MOI UN MESSAGE</div>
+          <div style="display:flex;flex-direction:column;gap:12px;" id="contactForm">
+            <input type="text" id="cf-name" placeholder="Ton prénom / nom" style="background:var(--card);border:1px solid var(--border);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:14px 16px;outline:none;transition:.2s ease;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+            <input type="text" id="cf-service" placeholder="Ce dont tu as besoin (ex : page de vente, site vitrine...)" style="background:var(--card);border:1px solid var(--border);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:14px 16px;outline:none;transition:.2s ease;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+            <textarea id="cf-msg" placeholder="Décris ton projet en quelques mots..." rows="4" style="background:var(--card);border:1px solid var(--border);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:14px 16px;outline:none;transition:.2s ease;resize:vertical;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+            <button onclick="sendContactWA()" class="btn-primary" style="cursor:pointer;border:none;width:fit-content;">→ Envoyer sur WhatsApp</button>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <a href="https://wa.me/22607190217" class="contact-link reveal" target="_blank"><span class="cl-icon">💬</span><div><div class="cl-label">WHATSAPP</div><div class="cl-val">+226 07 19 02 17</div></div><span class="cl-arr">→</span></a>
+        <a href="mailto:moussabalima07@gmail.com" class="contact-link reveal" style="transition-delay:.1s"><span class="cl-icon">✉️</span><div><div class="cl-label">EMAIL</div><div class="cl-val">moussabalima07@gmail.com</div></div><span class="cl-arr">→</span></a>
+        <div class="contact-link reveal" style="transition-delay:.2s;cursor:default;"><span class="cl-icon">📍</span><div><div class="cl-label" data-i18n="contact.loc">LOCALISATION</div><div class="cl-val">Ouagadougou, Burkina Faso 🇧🇫</div></div></div>
+        <div class="contact-link reveal" style="transition-delay:.3s;border-color:rgba(0,255,200,.15);background:rgba(0,255,200,.03);"><span class="cl-icon">⚡</span><div><div class="cl-label" data-i18n="contact.rep">RÉPONSE</div><div class="cl-val" style="color:var(--accent)" data-i18n="contact.repval">En moins d'1 heure</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>BALIMA WEB DEVELOPER</span> · <span data-i18n="footer.sub">Développeur Web Freelance Premium</span> · Ouagadougou, Burkina Faso 🇧🇫 · © 2026<br>
+  <span style="font-size:.65rem;opacity:.5;display:block;margin-top:6px;">Création site web Ouagadougou · Page de vente Burkina Faso · Page de capture · Orange Money · +226 07 19 02 17</span>
+</footer>
+
+<a href="https://wa.me/22607190217" class="wa-btn" target="_blank" aria-label="WhatsApp">💬</a>
+
+<script>
+// ===== CONTACT FORM → WHATSAPP =====
+function sendContactWA() {
+  const name = document.getElementById('cf-name').value.trim();
+  const service = document.getElementById('cf-service').value.trim();
+  const msg = document.getElementById('cf-msg').value.trim();
+  if(!name && !service && !msg){ alert('Remplis au moins un champ avant d\'envoyer.'); return; }
+  const text = `Bonjour Moussa ! 👋\n\nJe m'appelle : ${name||'(non renseigné)'}\nCe dont j'ai besoin : ${service||'(non renseigné)'}\nMon projet : ${msg||'(non renseigné)'}`;
+  window.open('https://wa.me/22607190217?text=' + encodeURIComponent(text), '_blank');
+}
+
+// ===== ARTICLES BLOG =====
+const articles = {
+  a1: {
+    title: '5 erreurs qui tuent tes ventes en ligne',
+    cat: 'Conseils · Juin 2026',
+    body: `
+      <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;">5 erreurs qui tuent tes ventes en ligne</h2>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);letter-spacing:2px;margin-bottom:28px;">CONSEILS · JUIN 2026</div>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.82rem;line-height:1.9;margin-bottom:20px;">Tu vends un bon produit, tu postes sur Facebook, tu travailles dur — mais les clients ne viennent pas en masse. Pourquoi ? Voici les 5 erreurs que la plupart des vendeurs font sans le savoir.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">01. Pas de site web = pas de crédibilité</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">En 2026, si ton seul outil de vente c'est ta page Facebook, tu perds 60% de tes clients potentiels avant même qu'ils te contactent. Un site professionnel montre que tu es sérieux.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">02. Des photos de mauvaise qualité</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">Une photo floue ou mal éclairée fait fuir les acheteurs instantanément. Investis dans de bonnes photos de ton produit ou service. C'est souvent la première chose que voit ton client.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">03. Aucun appel à l'action clair</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">Les gens ont besoin qu'on leur dise quoi faire : "Commande maintenant", "Contacte-moi sur WhatsApp", "Clique ici pour réserver". Sans CTA clair, ils lisent et repartent.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">04. Un site non optimisé pour mobile</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">Plus de 70% des Burkinabè naviguent sur téléphone. Si ton site ou ta page met du temps à charger ou est difficile à lire sur mobile, tu perds ces clients.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">05. Tu ne rassures pas assez</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">Les gens ont peur d'être arnaqués. Ajoute des témoignages de clients, des photos de tes livraisons, une garantie. La confiance se construit avec des preuves concrètes.</p>
+      <div style="margin-top:28px;padding:16px 20px;border-left:3px solid var(--accent);background:rgba(0,255,200,.04);font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted2);line-height:1.8;">
+        <strong style="color:var(--text);">En résumé :</strong> Un site professionnel, de bonnes visuels, des CTA clairs, un design mobile et des preuves sociales. C'est exactement ce que je construis pour mes clients.
+      </div>
+    `
+  },
+  a2: {
+    title: 'Pourquoi ton site doit être mobile-first',
+    cat: 'Web · Mai 2026',
+    body: `
+      <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;">Pourquoi ton site doit être mobile-first</h2>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);letter-spacing:2px;margin-bottom:28px;">WEB · MAI 2026</div>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.82rem;line-height:1.9;margin-bottom:20px;">Au Burkina Faso comme partout en Afrique, l'internet se consomme avant tout sur téléphone. Si ton site n'est pas pensé pour le mobile dès le départ, tu te coupes d'une grande majorité de tes clients.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">Qu'est-ce que le mobile-first ?</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">C'est une approche de design où on conçoit d'abord l'expérience mobile, puis on l'adapte pour les grands écrans. Le résultat : un site rapide, lisible et facile à utiliser sur téléphone.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">Les chiffres qui font réfléchir</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">En Afrique subsaharienne, plus de 75% des connexions internet se font via mobile. Un site qui prend plus de 3 secondes à charger perd 50% de ses visiteurs. Ces visiteurs, ce sont tes clients perdus.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">Ce que ça change concrètement</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">Un site mobile-first c'est : des boutons assez grands pour être cliqués avec le pouce, des textes lisibles sans zoomer, des images optimisées pour ne pas consommer trop de data, et un formulaire de contact facile à remplir.</p>
+      <div style="margin-top:28px;padding:16px 20px;border-left:3px solid var(--accent);background:rgba(0,255,200,.04);font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted2);line-height:1.8;">
+        <strong style="color:var(--text);">Bonne nouvelle :</strong> Tous les sites que je crée sont 100% responsive et optimisés mobile dès la conception. Ton client peut commander depuis son Tecno ou son Samsung sans aucun problème.
+      </div>
+    `
+  },
+  a3: {
+    title: 'Page de capture vs page de vente : laquelle choisir ?',
+    cat: 'Conversion · Avril 2026',
+    body: `
+      <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;">Page de capture vs page de vente : laquelle choisir ?</h2>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);letter-spacing:2px;margin-bottom:28px;">CONVERSION · AVRIL 2026</div>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.82rem;line-height:1.9;margin-bottom:20px;">Beaucoup de personnes me posent cette question. Page de capture ou page de vente ? La réponse dépend entièrement de ton objectif commercial.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">La page de capture : collecter des contacts</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">Son but unique : récupérer le numéro WhatsApp ou l'email de ton visiteur en échange de quelque chose (un guide gratuit, une réduction, une consultation). Tu construis une liste de prospects que tu pourras relancer.</p>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;"><strong style="color:var(--text);">Idéal si :</strong> tu lances un nouveau produit, tu veux tester le marché, ou tu vends un service haut de gamme qui nécessite une discussion avant achat.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">La page de vente : vendre directement</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">Son but : convaincre le visiteur d'acheter immédiatement. Elle contient : le problème que tu résous, ta solution, des témoignages, le prix, et un bouton d'achat ou de commande.</p>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;"><strong style="color:var(--text);">Idéal si :</strong> ton produit est clair, son prix est accessible, et ta cible est prête à acheter sans long processus.</p>
+      <h3 style="font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--accent);">Ma recommandation</h3>
+      <p style="color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.9;margin-bottom:16px;">Si tu démarres : commence par une page de capture pour construire ta base de clients. Ensuite ajoute une page de vente pour convertir. Le combo des deux, c'est ce que j'appelle le tunnel de vente — et c'est ce qui génère les meilleurs résultats.</p>
+      <div style="margin-top:28px;padding:16px 20px;border-left:3px solid var(--gold);background:rgba(240,180,41,.04);font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted2);line-height:1.8;">
+        <strong style="color:var(--gold);">Mon BOOST ULTIME</strong> inclut les deux : page de capture + page de vente + site vitrine. C'est la combinaison la plus puissante pour vendre en ligne au Burkina Faso.
+      </div>
+    `
+  }
+};
+
+function openArticle(id) {
+  const modal = document.getElementById('articleModal');
+  const body = document.getElementById('articleBody');
+  if(articles[id]) {
+    body.innerHTML = articles[id].body;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    window.scrollTo(0,0);
+  }
+}
+function closeArticle() {
+  document.getElementById('articleModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('articleModal').addEventListener('click', function(e){
+  if(e.target === this) closeArticle();
+});
+
+// ===== TRANSLATIONS =====
+const i18n = {
+  fr: {
+    "nav.services":"Services","nav.portfolio":"Réalisations","nav.blog":"Blog","nav.process":"Processus","nav.reviews":"Avis","nav.contact":"Contact","nav.cta":"→ Me contacter",
+    "hero.tag":"DISPONIBLE · BURKINA FASO","hero.line1":"TON SITE WEB","hero.line2":"TES CLIENTS","hero.line3":"TES VENTES.","hero.brandHint":"Ta marque",
+    "hero.sub":"Je suis <strong>Moussa Balima</strong>, dev web freelance.<br>Je crée des sites qui prouvent ta valeur avant même que tu parles.",
+    "hero.cta1":"→ Voir mes services","hero.cta2":"💬 WhatsApp direct",
+    "stats.s1":"Sites livrés","stats.s2":"Disponibilité","stats.s3":"Satisfaction","stats.s4":"Livraison rapide",
+    "svc.tag":"Services","svc.title1":"Des solutions","svc.title2":"qui vendent","svc.sub":"Chaque formule est conçue pour convertir tes visiteurs en clients payants.","svc.devise":"Devise :","svc.om":"Orange Money","svc.order":"→ Commander",
+    "svc1.name":"Page de capture","svc1.desc":"Design impactant. Formulaire optimisé. Interface qui inspire confiance immédiatement.","svc1.f1":"Design moderne et percutant","svc1.f2":"Formulaire de capture optimisé","svc1.f3":"Compatible mobile / PC","svc1.f4":"Livraison 24h–48h",
+    "svc2.name":"Page de vente","svc2.desc":"Structure de conversion éprouvée. Design premium. Bouton d'action irrésistible.","svc2.f1":"Structure de conversion testée","svc2.f2":"Design premium crédibilisant","svc2.f3":"CTA stratégique et percutant","svc2.f4":"Compatible mobile / PC",
+    "svc3.name":"Site vitrine","svc3.desc":"3 à 5 pages sur mesure. Image professionnelle garantie. Structure propre et moderne.","svc3.f1":"3 à 5 pages personnalisées","svc3.f2":"Image professionnelle garantie","svc3.f3":"Structure propre et moderne","svc3.f4":"Livraison 3–5 jours",
+    "svc4.name":"BOOST ULTIME","svc4.desc":"Tout inclus. Page capture + page vente + site vitrine + optimisation offerte.","svc4.f1":"Page de capture incluse","svc4.f2":"Page de vente incluse","svc4.f3":"Site vitrine complet","svc4.f4":"Optimisation offerte",
+    "proc.tag":"Processus","proc.title1":"Ton site en","proc.title2":"4 étapes",
+    "proc.s1t":"Tu me contactes","proc.s1d":"Tu m'expliques ton projet sur WhatsApp. Je comprends tes besoins en profondeur.",
+    "proc.s2t":"Je construis","proc.s2d":"Je crée ton site sur mesure. 2 à 5 jours selon la formule choisie.",
+    "proc.s3t":"Tu valides","proc.s3d":"Tu vérifies chaque détail. Retouches gratuites jusqu'à ta satisfaction totale.",
+    "proc.s4t":"Je te livre","proc.s4d":"Site livré, prêt à convertir. Je reste disponible après la livraison.",
+    "ba.tag":"Impact réel","ba.title1":"Ce qui","ba.title2":"change","ba.title3":"avec un site pro",
+    "ba.bad.status":"⛔ SANS SITE PRO","ba.bad.title":"Tu bloques tes propres ventes",
+    "ba.bad.i1":"Tes clients doutent et repartent chez un concurrent","ba.bad.i2":"Ta page Facebook ne suffit plus — personne ne te croit","ba.bad.i3":"Chaque jour sans site = des ventes perdues en silence","ba.bad.i4":"Tu parais amateur même si ton produit est excellent","ba.bad.i5":"Tu expliques encore et encore au lieu de vendre",
+    "ba.good.status":"✓ AVEC UN SITE WEB","ba.good.title":"Tes ventes s'activent automatiquement",
+    "ba.good.i1":"Confiance immédiate : tes visiteurs achètent","ba.good.i2":"Ton sérieux parle avant même que tu ouvres la bouche","ba.good.i3":"Des ventes automatiques, 24h/24, même la nuit","ba.good.i4":"Une image premium qui justifie tes prix","ba.good.i5":"Ton site vend pour toi — tu te concentres sur ton métier",
+    "guar.title":"Garantie satisfait ou retouché","guar.text":"Si le rendu ne te plaît pas à 100%, je retravaille gratuitement jusqu'à ce que tu sois fier de le montrer.<br><br><strong style=\"color:var(--gold)\">Zéro risque. Zéro mauvaise surprise. Zéro argent perdu.</strong>",
+    "rev.tag":"Témoignages","rev.title1":"Ce que disent","rev.title2":"mes clients",
+    "rev.r1.text":"J'ai hésité... et je n'aurais pas dû. Site livré en 3 jours, propre, rapide. Je l'ai recommandé à 2 amis immédiatement après.",
+    "rev.r1.result":"→ 8 nouveaux clients en 2 semaines",
+    "rev.r2.text":"Il a pris le temps de vraiment comprendre mon activité. Le site reflète exactement ce que je voulais. Mes ventes ont augmenté dès la première semaine.",
+    "rev.r2.result":"→ 12 commandes en 7 jours",
+    "rev.r3.text":"Patient, rapide, il tient ses promesses. Ce n'est pas juste un développeur, c'est un vrai partenaire de business. Je reviendrai.",
+    "rev.r3.result":"→ Un site dont je suis fier",
+    "rev.r4.text":"Livré rapidement et proprement. Mes clients me prennent beaucoup plus au sérieux. L'investissement est rentabilisé en 1 semaine.",
+    "rev.r4.result":"→ Crédibilité multipliée ×3",
+    "rev.leave":"💬 Laisser un avis WhatsApp",
+    "faq.title1":"Questions","faq.title2":"fréquentes",
+    "faq.q1":"Est-ce que les sites sont vraiment personnalisés ?","faq.a1":"Oui, chaque site est créé de zéro selon ton activité, ton style et tes objectifs. Tu n'auras jamais un copier-coller de template générique.",
+    "faq.q2":"Combien de temps pour être livré ?","faq.a2":"Entre 24h et 5 jours selon la complexité du projet. La page de capture peut être livrée en 48h. Le site vitrine prend 3 à 5 jours.",
+    "faq.q3":"Comment se fait le paiement ?","faq.a3":"Par Orange Money au +226 07 19 02 17. On discute du projet et des détails avant tout paiement. Pas de mauvaise surprise.",
+    "faq.q4":"Puis-je demander des modifications après livraison ?","faq.a4":"Oui, les retouches sont incluses jusqu'à 100% de satisfaction. Mon objectif est que tu sois fier de montrer ton site.",
+    "faq.q5":"Et si le site ne me plaît vraiment pas ?","faq.a5":"Je retravaille gratuitement jusqu'à ce que tu sois satisfait. Tu ne prends aucun risque financier.",
+    "pay.tag":"Paiement","pay.badge":"Paiement sécurisé · Orange Money Burkina Faso","pay.sub":"Après paiement, contacte-moi pour confirmer et démarrer ton projet.","pay.paid":"✅ J'ai payé","pay.ask":"Poser une question",
+    "contact.tag":"Contact","contact.title1":"Prêt à lancer","contact.title2":"ton ","contact.title3":"projet ?",
+    "contact.sub":"Ce que tu vends a de la valeur.<br>Ton site doit le montrer avant même que tu parles.<br><br>Contacte-moi maintenant — je réponds en moins d'une heure.",
+    "contact.loc":"LOCALISATION","contact.locval":"Disponible partout","contact.rep":"RÉPONSE","contact.repval":"En moins d'1 heure",
+    "footer.sub":"Développeur Web Freelance Premium",
+    "port.tag":"Réalisations","port.title1":"Mes travaux,","port.title2":"la preuve concrète","port.sub":"Sites web, pages de vente, pages de capture, affiches — tout ce que je suis capable de créer pour toi.",
+    "port.f.all":"Tout","port.f.capture":"Capture","port.f.vente":"Vente","port.f.vitrine":"Vitrine","port.f.affiche":"Affiche",
+    "port.c1.title":"Landing page produit","port.c1.desc":"Page rapide, formulaire clair, design qui inspire confiance dès la première seconde.",
+    "port.c2.title":"Tunnel de vente complet","port.c2.desc":"Structure de conversion éprouvée, boutons stratégiques, résultat : 12 commandes en 7 jours.",
+    "port.c3.title":"Site entreprise 5 pages","port.c3.desc":"Image pro, compatible partout, crédibilité décuplée dès la mise en ligne.",
+    "port.c4.title":"Visuel publicitaire","port.c4.desc":"Affiche pro pour réseaux sociaux ou impression — design percutant, message clair.",
+    "port.c5.title":"Page opt-in newsletter","port.c5.desc":"15 leads récoltés en 3 jours avec un formulaire simple et un design percutant.",
+    "port.add":"Ton projet ici bientôt",
+    "blog.tag":"Blog","blog.title1":"Conseils &","blog.title2":"ressources","blog.sub":"Des articles pratiques pour booster ta visibilité en ligne et vendre plus.",
+    "blog.cat.tips":"Conseils","blog.cat.web":"Web","blog.cat.convert":"Conversion","blog.read":"Lire l'article →",
+    "blog.p1.title":"5 erreurs qui tuent tes ventes en ligne","blog.p1.excerpt":"Sans le savoir, beaucoup de vendeurs sabotent leur propre business à cause de ces 5 erreurs simples à corriger.",
+    "blog.p2.title":"Pourquoi ton site doit être mobile-first","blog.p2.excerpt":"Plus de 70% de tes clients visitent ton site depuis leur téléphone. Si ton site n'est pas optimisé, tu perds des ventes chaque jour.",
+    "blog.p3.title":"Page de capture vs page de vente : laquelle choisir ?","blog.p3.excerpt":"Tu ne sais pas par où commencer ? Voici comment choisir la bonne page selon ton objectif business."
+  },
+  en: {
+    "nav.services":"Services","nav.process":"Process","nav.reviews":"Reviews","nav.contact":"Contact","nav.cta":"→ Contact me",
+    "hero.tag":"AVAILABLE · BURKINA FASO","hero.line1":"YOUR WEBSITE","hero.line2":"YOUR CLIENTS","hero.line3":"YOUR SALES.","hero.brandHint":"Your brand",
+    "hero.sub":"I am <strong>Moussa Balima</strong>, freelance web developer.<br>I build websites that prove your value before you even speak.",
+    "hero.cta1":"→ See my services","hero.cta2":"💬 Direct WhatsApp",
+    "stats.s1":"Sites delivered","stats.s2":"Availability","stats.s3":"Satisfaction","stats.s4":"Fast delivery",
+    "svc.tag":"Services","svc.title1":"Solutions built","svc.title2":"to sell","svc.sub":"Every package is designed to turn your visitors into paying clients.","svc.devise":"Currency:","svc.om":"Orange Money","svc.order":"→ Order now",
+    "svc1.name":"Capture page","svc1.desc":"Impactful design. Optimized form. Interface that instantly inspires trust.","svc1.f1":"Modern, striking design","svc1.f2":"Optimized capture form","svc1.f3":"Mobile / PC compatible","svc1.f4":"Delivery 24h–48h",
+    "svc2.name":"Sales page","svc2.desc":"Proven conversion structure. Premium design. Irresistible call-to-action.","svc2.f1":"Tested conversion structure","svc2.f2":"Premium credibility-building design","svc2.f3":"Strategic, powerful CTA","svc2.f4":"Mobile / PC compatible",
+    "svc3.name":"Showcase site","svc3.desc":"3 to 5 custom pages. Guaranteed professional image. Clean and modern structure.","svc3.f1":"3 to 5 custom pages","svc3.f2":"Guaranteed professional image","svc3.f3":"Clean and modern structure","svc3.f4":"Delivery 3–5 days",
+    "svc4.name":"ULTIMATE BOOST","svc4.desc":"All included. Capture page + sales page + showcase site + free optimization.","svc4.f1":"Capture page included","svc4.f2":"Sales page included","svc4.f3":"Full showcase site","svc4.f4":"Free optimization",
+    "proc.tag":"Process","proc.title1":"Your site in","proc.title2":"4 steps",
+    "proc.s1t":"You contact me","proc.s1d":"You explain your project via WhatsApp. I understand your needs in depth.",
+    "proc.s2t":"I build","proc.s2d":"I create your custom site. 2 to 5 days depending on the chosen package.",
+    "proc.s3t":"You validate","proc.s3d":"You review every detail. Free revisions until you're fully satisfied.",
+    "proc.s4t":"I deliver","proc.s4d":"Site delivered, ready to convert. I remain available after delivery.",
+    "ba.tag":"Real impact","ba.title1":"What","ba.title2":"changes","ba.title3":"with a pro website",
+    "ba.bad.status":"⛔ WITHOUT A PRO SITE","ba.bad.title":"You block your own sales",
+    "ba.bad.i1":"Clients doubt you and go to a competitor","ba.bad.i2":"Your Facebook page is not enough — nobody believes you","ba.bad.i3":"Every day without a site = silent lost sales","ba.bad.i4":"You look amateur even if your product is excellent","ba.bad.i5":"You keep explaining instead of selling",
+    "ba.good.status":"✓ WITH A WEBSITE","ba.good.title":"Your sales activate automatically",
+    "ba.good.i1":"Immediate trust: your visitors buy","ba.good.i2":"Your professionalism speaks before you even talk","ba.good.i3":"Automatic sales, 24/7, even at night","ba.good.i4":"A premium image that justifies your prices","ba.good.i5":"Your site sells for you — you focus on your craft",
+    "guar.title":"Satisfaction or revision guarantee","guar.text":"If you are not 100% happy with the result, I rework it for free until you are proud to show it.<br><br><strong style=\"color:var(--gold)\">Zero risk. Zero bad surprises. Zero money lost.</strong>",
+    "rev.tag":"Testimonials","rev.title1":"What","rev.title2":"my clients say",
+    "rev.r1.text":"I hesitated... I shouldn't have. Site delivered in 3 days, clean and fast. I recommended it to 2 friends right away.",
+    "rev.r1.result":"→ 8 new clients in 2 weeks",
+    "rev.r2.text":"He took time to truly understand my business. The site reflects exactly what I wanted. My sales increased from the very first week.",
+    "rev.r2.result":"→ 12 orders in 7 days",
+    "rev.r3.text":"Patient, fast, keeps his word. Not just a developer — a real business partner. I'll be back.",
+    "rev.r3.result":"→ A site I'm proud of",
+    "rev.r4.text":"Delivered quickly and cleanly. My clients take me much more seriously now. The investment paid off in 1 week.",
+    "rev.r4.result":"→ Credibility multiplied ×3",
+    "rev.leave":"💬 Leave a WhatsApp review",
+    "faq.title1":"Frequently","faq.title2":"asked questions",
+    "faq.q1":"Are the sites truly customized?","faq.a1":"Yes, every site is built from scratch based on your activity, style and goals. You'll never get a copy-paste generic template.",
+    "faq.q2":"How long for delivery?","faq.a2":"Between 24h and 5 days depending on the project complexity. The capture page can be delivered in 48h. The showcase site takes 3 to 5 days.",
+    "faq.q3":"How does payment work?","faq.a3":"Via Orange Money at +226 07 19 02 17. We discuss the project and details before any payment. No bad surprises.",
+    "faq.q4":"Can I request changes after delivery?","faq.a4":"Yes, revisions are included until 100% satisfaction. My goal is for you to be proud to show your site.",
+    "faq.q5":"What if I really don't like the site?","faq.a5":"I rework it for free until you're satisfied. You take zero financial risk.",
+    "pay.tag":"Payment","pay.badge":"Secure payment · Orange Money Burkina Faso","pay.sub":"After payment, contact me to confirm and start your project.","pay.paid":"✅ I paid","pay.ask":"Ask a question",
+    "contact.tag":"Contact","contact.title1":"Ready to launch","contact.title2":"your ","contact.title3":"project?",
+    "contact.sub":"What you sell has value.<br>Your website must show it before you even speak.<br><br>Contact me now — I reply in under an hour.",
+    "contact.loc":"LOCATION","contact.locval":"Available everywhere","contact.rep":"RESPONSE","contact.repval":"In under 1 hour",
+    "footer.sub":"Premium Freelance Web Developer",
+    "port.tag":"Portfolio","port.title1":"My work,","port.title2":"concrete proof","port.sub":"Websites, sales pages, capture pages, posters — everything I can build for you.",
+    "port.f.all":"All","port.f.capture":"Capture","port.f.vente":"Sales","port.f.vitrine":"Showcase","port.f.affiche":"Poster",
+    "port.c1.title":"Product landing page","port.c1.desc":"Fast page, clear form, design that inspires trust from the very first second.",
+    "port.c2.title":"Full sales funnel","port.c2.desc":"Proven conversion structure, strategic buttons, result: 12 orders in 7 days.",
+    "port.c3.title":"5-page business site","port.c3.desc":"Pro image, works everywhere, credibility multiplied from day one.",
+    "port.c4.title":"Advertising visual","port.c4.desc":"Pro poster for social media or print — striking design, clear message.",
+    "port.c5.title":"Newsletter opt-in page","port.c5.desc":"15 leads collected in 3 days with a simple form and impactful design.",
+    "port.add":"Your project here soon",
+    "blog.tag":"Blog","blog.title1":"Tips &","blog.title2":"resources","blog.sub":"Practical articles to boost your online visibility and sell more.",
+    "blog.cat.tips":"Tips","blog.cat.web":"Web","blog.cat.convert":"Conversion","blog.read":"Read the article →",
+    "blog.p1.title":"5 mistakes that kill your online sales","blog.p1.excerpt":"Without knowing it, many sellers sabotage their own business because of these 5 simple mistakes.",
+    "blog.p2.title":"Why your website must be mobile-first","blog.p2.excerpt":"Over 70% of your clients visit your site from their phone. If your site is not optimized, you lose sales every day.",
+    "blog.p3.title":"Capture page vs sales page: which one to choose?","blog.p3.excerpt":"Not sure where to start? Here's how to choose the right page based on your business goal."
+  }
+};
+
+let currentLang = 'fr';
+function applyLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang] && i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
+  });
+  document.querySelectorAll('.lang-btn[data-lang]').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  document.documentElement.lang = lang;
+}
+document.querySelectorAll('.lang-btn[data-lang]').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+
+// ===== THEME =====
+let isDark = false;
+const themeBtn = document.getElementById('themeBtn');
+const themeBtnMobile = document.getElementById('themeBtnMobile');
+function applyTheme(){
+  document.body.classList.toggle('dark', isDark);
+  const icon = isDark ? '☀️' : '🌙';
+  const label = isDark ? (currentLang==='fr'?'Thème clair':'Light mode') : (currentLang==='fr'?'Thème sombre':'Dark mode');
+  themeBtn.textContent = icon;
+  if(themeBtnMobile) themeBtnMobile.innerHTML = icon+' <span>'+(isDark?(currentLang==='fr'?'Thème clair':'Light theme'):(currentLang==='fr'?'Thème sombre':'Dark theme'))+'</span>';
+}
+themeBtn.addEventListener('click', () => { isDark=!isDark; applyTheme(); });
+if(themeBtnMobile) themeBtnMobile.addEventListener('click', () => { isDark=!isDark; applyTheme(); });
+
+// ===== CURSOR =====
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);}
+animRing();
+document.querySelectorAll('a,button,.curr-btn,.faq-q,.contact-link').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('hov'));
+});
+
+// ===== HAMBURGER / MOBILE NAV =====
+const hambBtn    = document.getElementById('hambBtn');
+const mobileNav  = document.getElementById('mobileNav');
+const menuBackdrop = document.getElementById('menuBackdrop');
+const mobileNavClose = document.getElementById('mobileNavClose');
+
+function openMobileNav(){
+  mobileNav.classList.add('open');
+  menuBackdrop.classList.add('open');
+  hambBtn.classList.add('is-open');
+  mobileNav.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileNav(){
+  mobileNav.classList.remove('open');
+  menuBackdrop.classList.remove('open');
+  hambBtn.classList.remove('is-open');
+  mobileNav.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+
+hambBtn.addEventListener('click', () => {
+  mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
+});
+mobileNavClose.addEventListener('click', closeMobileNav);
+menuBackdrop.addEventListener('click', closeMobileNav);
+
+// Fermer sur clic lien
+document.querySelectorAll('.mob-link').forEach(a => {
+  a.addEventListener('click', closeMobileNav);
+});
+
+// Fermer avec touche Escape
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closeMobileNav();
+});
+
+// ===== CURRENCY =====
+const prices=document.querySelectorAll('.price-main');
+document.querySelectorAll('.curr-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.curr-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    prices.forEach(p=>p.textContent=p.dataset[btn.dataset.currency]);
+  });
+});
+
+// ===== FAQ =====
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    document.querySelectorAll('.faq-item').forEach(i=>{if(i!==item)i.classList.remove('open');});
+    item.classList.toggle('open');
+  });
+});
+
+// ===== SCROLL REVEAL =====
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+
+// ===== COUNTERS =====
+function countUp(el){
+  const target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'',dur=1600,start=performance.now();
+  function upd(now){const p=Math.min((now-start)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target)+suffix;if(p<1)requestAnimationFrame(upd);else el.textContent=target+suffix;}
+  requestAnimationFrame(upd);
+}
+const statsObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.stat-num').forEach(countUp);statsObs.unobserve(e.target);}});},{threshold:.5});
+const statsBar=document.querySelector('.stats-bar');
+if(statsBar)statsObs.observe(statsBar);
+
+// ===== BRAND PHOTO UPLOAD =====
+const brandFrame = document.getElementById('brandFrame');
+const brandUpload = document.getElementById('brandUpload');
+const brandImg = document.getElementById('brandImg');
+const brandPlaceholder = document.getElementById('brandPlaceholder');
+if(brandFrame){
+  brandFrame.addEventListener('click', () => brandUpload.click());
+  brandUpload.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      brandImg.src = ev.target.result;
+      brandImg.style.display = 'block';
+      brandPlaceholder.style.display = 'none';
+      brandFrame.style.border = '2px solid var(--accent)';
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// ===== PORTFOLIO FILTER =====
+document.querySelectorAll('.pf-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('#portfolioGrid .port-card').forEach(card => {
+      const show = filter === 'all' || card.dataset.cat === filter;
+      card.style.display = show ? 'block' : 'none';
+    });
+  });
+});
+
+// Init
+applyLang('fr');
+</script>
+</body>
+  </html>
