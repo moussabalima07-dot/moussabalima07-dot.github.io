@@ -501,7 +501,7 @@ footer span{color:var(--accent);}
         <div class="svc-price"><div class="price-main" data-xof="72 000 XOF" data-eur="110 EUR" data-usd="120 USD">72 000 XOF</div><div class="price-sub" data-i18n="svc.om">Orange Money</div></div>
         <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+un+site+vitrine." class="svc-btn" target="_blank" data-i18n="svc.order">→ Commander</a>
       </div>
-      <!-- 04 VISUEL / AFFICHE — NOUVEAU -->
+      <!-- 04 VISUEL / AFFICHE -->
       <div class="svc-card">
         <div><div class="svc-num">04 / CRÉATIF</div><div class="svc-icon">🎨</div>
         <div class="svc-name" data-i18n="svc5.name">Visuel publicitaire</div>
@@ -539,8 +539,32 @@ footer span{color:var(--accent);}
   </div>
 </section>
 
+<!-- PORTFOLIO -->
+<section id="realisations" class="sec-pad" style="background:var(--dark);">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="port.tag">Réalisations</div>
+    <div class="sec-title reveal"><span data-i18n="port.title1">Mes travaux,</span> <em data-i18n="port.title2">la preuve concrète</em></div>
+    <p class="sec-sub reveal" data-i18n="port.sub">Sites web, pages de vente, pages de capture, affiches — tout ce que je suis capable de créer pour toi.</p>
+    <div class="portfolio-filters reveal">
+      <button class="pf-btn active" data-filter="all" data-i18n="port.f.all">Tout</button>
+      <button class="pf-btn" data-filter="capture" data-i18n="port.f.capture">Capture</button>
+      <button class="pf-btn" data-filter="vente" data-i18n="port.f.vente">Vente</button>
+      <button class="pf-btn" data-filter="vitrine" data-i18n="port.f.vitrine">Vitrine</button>
+      <button class="pf-btn" data-filter="affiche" data-i18n="port.f.affiche">Affiche</button>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid">
+      <div class="port-card reveal" data-cat="capture"><div class="port-img-placeholder"><span class="p-emoji">🎯</span><span class="p-type">Page de capture</span><div class="port-overlay"><a href="https://wa.me/22607190217" target="_blank">→ Commander le même</a></div></div><div class="port-body"><span class="port-tag-label capture" data-i18n="port.f.capture">Capture</span><div class="port-title" data-i18n="port.c1.title">Landing page produit</div><div class="port-desc" data-i18n="port.c1.desc">Page rapide, formulaire clair, design qui inspire confiance dès la première seconde.</div></div></div>
+      <div class="port-card reveal" data-cat="vente" style="transition-delay:.08s"><div class="port-img-placeholder"><span class="p-emoji">🚀</span><span class="p-type">Page de vente</span><div class="port-overlay"><a href="https://wa.me/22607190217" target="_blank">→ Commander le même</a></div></div><div class="port-body"><span class="port-tag-label vente" data-i18n="port.f.vente">Vente</span><div class="port-title" data-i18n="port.c2.title">Tunnel de vente complet</div><div class="port-desc" data-i18n="port.c2.desc">Structure de conversion éprouvée, boutons stratégiques, résultat : 12 commandes en 7 jours.</div></div></div>
+      <div class="port-card reveal" data-cat="vitrine" style="transition-delay:.16s"><div class="port-img-placeholder"><span class="p-emoji">🏢</span><span class="p-type">Site vitrine</span><div class="port-overlay"><a href="https://wa.me/22607190217" target="_blank">→ Commander le même</a></div></div><div class="port-body"><span class="port-tag-label vitrine" data-i18n="port.f.vitrine">Vitrine</span><div class="port-title" data-i18n="port.c3.title">Site entreprise 5 pages</div><div class="port-desc" data-i18n="port.c3.desc">Image pro, compatible partout, crédibilité décuplée dès la mise en ligne.</div></div></div>
+      <div class="port-card reveal" data-cat="affiche" style="transition-delay:.24s"><div class="port-img-placeholder"><span class="p-emoji">🎨</span><span class="p-type">Affiche / Visuel</span><div class="port-overlay"><a href="https://wa.me/22607190217" target="_blank">→ Commander le même</a></div></div><div class="port-body"><span class="port-tag-label affiche" data-i18n="port.f.affiche">Affiche</span><div class="port-title" data-i18n="port.c4.title">Visuel publicitaire</div><div class="port-desc" data-i18n="port.c4.desc">Affiche pro pour réseaux sociaux ou impression — design percutant, message clair.</div></div></div>
+      <div class="port-card reveal" data-cat="capture" style="transition-delay:.32s"><div class="port-img-placeholder"><span class="p-emoji">📧</span><span class="p-type">Newsletter opt-in</span><div class="port-overlay"><a href="https://wa.me/22607190217" target="_blank">→ Commander le même</a></div></div><div class="port-body"><span class="port-tag-label capture" data-i18n="port.f.capture">Capture</span><div class="port-title" data-i18n="port.c5.title">Page opt-in newsletter</div><div class="port-desc" data-i18n="port.c5.desc">15 leads récoltés en 3 jours avec un formulaire simple et un design percutant.</div></div></div>
+      <div class="port-add reveal" style="transition-delay:.4s" onclick="window.open('https://wa.me/22607190217','_blank')"><div class="port-add-icon">＋</div><span data-i18n="port.add">Ton projet ici bientôt</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- PROCESS -->
-<section id="processus" class="sec-pad" style="background:var(--dark);">
+<section id="processus" class="sec-pad">
   <div class="wrap">
     <div class="sec-tag reveal" data-i18n="proc.tag">Processus</div>
     <div class="sec-title reveal"><span data-i18n="proc.title1">Ton site en</span> <em data-i18n="proc.title2">4 étapes</em></div>
@@ -554,7 +578,7 @@ footer span{color:var(--accent);}
 </section>
 
 <!-- BEFORE / AFTER -->
-<section id="avant-apres" class="sec-pad">
+<section id="avant-apres" class="sec-pad" style="background:var(--dark);">
   <div class="wrap">
     <div class="sec-tag reveal" data-i18n="ba.tag">Impact réel</div>
     <div class="sec-title reveal"><span data-i18n="ba.title1">Ce qui</span> <em data-i18n="ba.title2">change</em> <span data-i18n="ba.title3">avec un site pro</span></div>
@@ -596,32 +620,8 @@ footer span{color:var(--accent);}
   </div>
 </div></section>
 
-<!-- PORTFOLIO -->
-<section id="realisations" class="sec-pad" style="background:var(--dark);">
-  <div class="wrap">
-    <div class="sec-tag reveal" data-i18n="port.tag">Réalisations</div>
-    <div class="sec-title reveal"><span data-i18n="port.title1">Mes travaux,</span> <em data-i18n="port.title2">la preuve concrète</em></div>
-    <p class="sec-sub reveal" data-i18n="port.sub">Sites web, pages de vente, pages de capture, affiches — tout ce que je suis capable de créer pour toi.</p>
-    <div class="portfolio-filters reveal">
-      <button class="pf-btn active" data-filter="all" data-i18n="port.f.all">Tout</button>
-      <button class="pf-btn" data-filter="capture" data-i18n="port.f.capture">Capture</button>
-      <button class="pf-btn" data-filter="vente" data-i18n="port.f.vente">Vente</button>
-      <button class="pf-btn" data-filter="vitrine" data-i18n="port.f.vitrine">Vitrine</button>
-      <button class="pf-btn" data-filter="affiche" data-i18n="port.f.affiche">Affiche</button>
-    </div>
-    <div class="portfolio-grid" id="portfolioGrid">
-      <div class="port-card reveal" data-cat="capture"><div class="port-img-placeholder"><span class="p-emoji">🎯</span><span class="p-type">Page de capture</span><div class="port-overlay"><a href="https://wa.me/22607190217" target="_blank">→ Commander le même</a></div></div><div class="port-body"><span class="port-tag-label capture" data-i18n="port.f.capture">Capture</span><div class="port-title" data-i18n="port.c1.title">Landing page produit</div><div class="port-desc" data-i18n="port.c1.desc">Page rapide, formulaire clair, design qui inspire confiance dès la première seconde.</div></div></div>
-      <div class="port-card reveal" data-cat="vente" style="transition-delay:.08s"><div class="port-img-placeholder"><span class="p-emoji">🚀</span><span class="p-type">Page de vente</span><div class="port-overlay"><a href="https://wa.me/22607190217" target="_blank">→ Commander le même</a></div></div><div class="port-body"><span class="port-tag-label vente" data-i18n="port.f.vente">Vente</span><div class="port-title" data-i18n="port.c2.title">Tunnel de vente complet</div><div class="port-desc" data-i18n="port.c2.desc">Structure de conversion éprouvée, boutons stratégiques, résultat : 12 commandes en 7 jours.</div></div></div>
-      <div class="port-card reveal" data-cat="vitrine" style="transition-delay:.16s"><div class="port-img-placeholder"><span class="p-emoji">🏢</span><span class="p-type">Site vitrine</span><div class="port-overlay"><a href="https://wa.me/22607190217" target="_blank">→ Commander le même</a></div></div><div class="port-body"><span class="port-tag-label vitrine" data-i18n="port.f.vitrine">Vitrine</span><div class="port-title" data-i18n="port.c3.title">Site entreprise 5 pages</div><div class="port-desc" data-i18n="port.c3.desc">Image pro, compatible partout, crédibilité décuplée dès la mise en ligne.</div></div></div>
-      <div class="port-card reveal" data-cat="affiche" style="transition-delay:.24s"><div class="port-img-placeholder"><span class="p-emoji">🎨</span><span class="p-type">Affiche / Visuel</span><div class="port-overlay"><a href="https://wa.me/22607190217" target="_blank">→ Commander le même</a></div></div><div class="port-body"><span class="port-tag-label affiche" data-i18n="port.f.affiche">Affiche</span><div class="port-title" data-i18n="port.c4.title">Visuel publicitaire</div><div class="port-desc" data-i18n="port.c4.desc">Affiche pro pour réseaux sociaux ou impression — design percutant, message clair.</div></div></div>
-      <div class="port-card reveal" data-cat="capture" style="transition-delay:.32s"><div class="port-img-placeholder"><span class="p-emoji">📧</span><span class="p-type">Newsletter opt-in</span><div class="port-overlay"><a href="https://wa.me/22607190217" target="_blank">→ Commander le même</a></div></div><div class="port-body"><span class="port-tag-label capture" data-i18n="port.f.capture">Capture</span><div class="port-title" data-i18n="port.c5.title">Page opt-in newsletter</div><div class="port-desc" data-i18n="port.c5.desc">15 leads récoltés en 3 jours avec un formulaire simple et un design percutant.</div></div></div>
-      <div class="port-add reveal" style="transition-delay:.4s" onclick="window.open('https://wa.me/22607190217','_blank')"><div class="port-add-icon">＋</div><span data-i18n="port.add">Ton projet ici bientôt</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- BLOG -->
-<section id="blog" class="sec-pad"><div class="wrap">
+<section id="blog" class="sec-pad" style="background:var(--dark);"><div class="wrap">
   <div class="sec-tag reveal" data-i18n="blog.tag">Blog</div>
   <div class="sec-title reveal"><span data-i18n="blog.title1">Conseils &</span> <em data-i18n="blog.title2">ressources</em></div>
   <p class="sec-sub reveal" data-i18n="blog.sub">Des articles pratiques pour booster ta visibilité en ligne et vendre plus.</p>
@@ -633,7 +633,7 @@ footer span{color:var(--accent);}
 </div></section>
 
 <!-- PAIEMENT -->
-<section id="paiement" class="sec-pad" style="background:var(--dark);"><div class="wrap">
+<section id="paiement" class="sec-pad"><div class="wrap">
   <div class="sec-tag reveal" data-i18n="pay.tag">Paiement</div>
   <div class="sec-title reveal" style="text-align:center;">Orange <em>Money</em></div>
   <div class="payment-box reveal">
