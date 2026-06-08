@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -48,19 +48,7 @@ body{
   overflow-x:hidden;transition:background .4s ease,color .4s ease;
 }
 
-/* CURSEUR CUSTOM */
-@media(hover:hover) and (pointer:fine){
-  body{cursor:none;}
-  a,button{cursor:none;}
-  .cursor-dot,.cursor-ring{display:block;}
-}
-@media(hover:none),(pointer:coarse){
-  .cursor-dot,.cursor-ring{display:none !important;}
-}
-.cursor-dot{display:none;width:6px;height:6px;background:var(--accent);border-radius:50%;position:fixed;transform:translate(-50%,-50%);pointer-events:none;z-index:200;transition:background .3s ease;}
-.cursor-ring{display:none;width:36px;height:36px;border:1px solid rgba(0,255,200,.4);border-radius:50%;position:fixed;transform:translate(-50%,-50%);pointer-events:none;z-index:199;transition:width .2s ease,height .2s ease,border-color .2s ease,background .2s ease;}
-body.dark .cursor-ring{border-color:rgba(0,85,255,.3);}
-.cursor-ring.hov{width:58px;height:58px;border-color:var(--accent);background:rgba(0,255,200,.04);}
+/* CURSEUR — natif du navigateur */
 
 /* NOISE + GRID */
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.35;}
@@ -382,8 +370,8 @@ footer span{color:var(--accent);}
   </div>
   <div class="nav-controls">
     <div class="lang-sw">
-      <button class="lang-btn active" data-lang="fr">FR</button>
-      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn active" data-lang="en">EN</button>
     </div>
     <button class="theme-btn" id="themeBtn">🌙</button>
     <a href="https://wa.me/22607190217" class="nav-cta" target="_blank" data-i18n="nav.cta">→ Me contacter</a>
@@ -413,8 +401,8 @@ footer span{color:var(--accent);}
   <div class="mnav-foot">
     <div class="mnav-foot-row">
       <div class="lang-sw">
-        <button class="lang-btn active" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn active" data-lang="en">EN</button>
       </div>
       <button class="theme-btn" id="themeBtnMobile">🌙</button>
     </div>
@@ -597,7 +585,7 @@ footer span{color:var(--accent);}
   <div class="faq-list reveal">
     <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q1">Est-ce que les sites sont vraiment personnalisés ?</span><span>+</span></button><div class="faq-a" data-i18n="faq.a1">Oui, chaque site est créé de zéro selon ton activité, ton style et tes objectifs.</div></div>
     <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q2">Combien de temps pour être livré ?</span><span>+</span></button><div class="faq-a" data-i18n="faq.a2">Entre 24h et 5 jours selon la complexité du projet. La page de capture peut être livrée en 48h.</div></div>
-    <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q3">Comment se fait le paiement ?</span><span>+</span></button><div class="faq-a" data-i18n="faq.a3">Par Orange Money au +226 07 19 02 17. On discute avant tout paiement. Pas de mauvaise surprise.</div></div>
+    <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q3">Comment se fait le paiement ?</span><span>+</span></button><div class="faq-a" data-i18n="faq.a3">Par Orange Money. On discute avant tout paiement et je te donne le numéro. Pas de mauvaise surprise.</div></div>
     <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q4">Puis-je demander des modifications après livraison ?</span><span>+</span></button><div class="faq-a" data-i18n="faq.a4">Oui, les retouches sont incluses jusqu'à 100% de satisfaction.</div></div>
     <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q5">Et si le site ne me plaît vraiment pas ?</span><span>+</span></button><div class="faq-a" data-i18n="faq.a5">Je retravaille gratuitement jusqu'à ce que tu sois satisfait. Zéro risque financier.</div></div>
   </div>
@@ -662,14 +650,14 @@ footer span{color:var(--accent);}
       <div class="sec-title reveal"><span data-i18n="contact.title1">Prêt à lancer</span><br><span data-i18n="contact.title2">ton </span><em data-i18n="contact.title3">projet ?</em></div>
       <p class="reveal" data-i18n="contact.sub">Ce que tu vends a de la valeur.<br>Ton site doit le montrer avant même que tu parles.<br><br>Contacte-moi maintenant — je réponds en moins d'une heure.</p>
       <div class="reveal" style="margin-top:28px;display:flex;flex-direction:column;gap:10px;">
-        <input type="text" id="cf-name" class="cf-field" placeholder="Ton prénom / nom"/>
-        <input type="text" id="cf-service" class="cf-field" placeholder="Ce dont tu as besoin (ex: page de vente...)"/>
-        <textarea id="cf-msg" class="cf-field" rows="3" placeholder="Décris ton projet en quelques mots..." style="resize:vertical;"></textarea>
-        <button onclick="sendContactWA()" class="btn-primary" style="width:fit-content;border:none;">→ Envoyer sur WhatsApp</button>
+        <input type="text" id="cf-name" class="cf-field" data-i18n-placeholder="contact.form.name" placeholder="Your name"/>
+        <input type="text" id="cf-service" class="cf-field" data-i18n-placeholder="contact.form.service" placeholder="What you need (e.g. sales page...)"/>
+        <textarea id="cf-msg" class="cf-field" rows="3" data-i18n-placeholder="contact.form.msg" placeholder="Describe your project in a few words..." style="resize:vertical;"></textarea>
+        <button onclick="sendContactWA()" class="btn-primary" style="width:fit-content;border:none;" data-i18n="contact.form.btn">→ Send on WhatsApp</button>
       </div>
     </div>
     <div class="contact-right">
-      <a href="https://wa.me/22607190217" class="contact-link reveal" target="_blank"><span class="cl-icon">💬</span><div><div class="cl-label">WHATSAPP</div><div class="cl-val">+226 07 19 02 17</div></div><span class="cl-arr">→</span></a>
+      <a href="https://wa.me/22607190217" class="contact-link reveal" target="_blank"><span class="cl-icon">💬</span><div><div class="cl-label">WHATSAPP</div><div class="cl-val">Moussa Balima</div></div><span class="cl-arr">→</span></a>
       <a href="mailto:moussabalima07@gmail.com" class="contact-link reveal" style="transition-delay:.1s"><span class="cl-icon">✉️</span><div><div class="cl-label">EMAIL</div><div class="cl-val">moussabalima07@gmail.com</div></div><span class="cl-arr">→</span></a>
       <div class="contact-link reveal" style="transition-delay:.2s;cursor:default;"><span class="cl-icon">📍</span><div><div class="cl-label" data-i18n="contact.loc">LOCALISATION</div><div class="cl-val">Ouagadougou, Burkina Faso 🇧🇫</div></div></div>
       <div class="contact-link reveal" style="transition-delay:.3s;border-color:rgba(0,255,200,.15);background:rgba(0,255,200,.03);"><span class="cl-icon">⚡</span><div><div class="cl-label" data-i18n="contact.rep">RÉPONSE</div><div class="cl-val" style="color:var(--accent)" data-i18n="contact.repval">En moins d'1 heure</div></div></div>
@@ -679,7 +667,7 @@ footer span{color:var(--accent);}
 
 <footer>
   <span>BALIMA WEB DEVELOPER</span> · <span data-i18n="footer.sub">Développeur Web Freelance Premium</span> · Ouagadougou, Burkina Faso 🇧🇫 · © 2026<br>
-  <span style="font-size:.65rem;opacity:.5;display:block;margin-top:6px;">Création site web Ouagadougou · Page de vente Burkina Faso · Orange Money · +226 07 19 02 17</span>
+  <span style="font-size:.65rem;opacity:.5;display:block;margin-top:6px;">Création site web Ouagadougou · Page de vente Burkina Faso · Orange Money</span>
 </footer>
 
 <a href="https://wa.me/22607190217" class="wa-btn" target="_blank" title="WhatsApp">💬</a>
@@ -718,15 +706,7 @@ function applyTheme(){document.body.classList.toggle('dark',isDark);const icon=i
 themeBtn.addEventListener('click',function(){isDark=!isDark;applyTheme();});
 if(themeBtnMobile)themeBtnMobile.addEventListener('click',function(){isDark=!isDark;applyTheme();});
 
-// ===== CURSEUR =====
-const dot=document.getElementById('cursorDot');
-const ring=document.getElementById('cursorRing');
-if(dot&&ring&&window.matchMedia('(hover:hover) and (pointer:fine)').matches){
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
-  document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){ring.classList.add('hov');});el.addEventListener('mouseleave',function(){ring.classList.remove('hov');});});
-}
+// curseur natif
 
 // ===== LANG =====
 const i18n={
@@ -762,7 +742,7 @@ const i18n={
     "faq.title1":"Questions","faq.title2":"fréquentes",
     "faq.q1":"Est-ce que les sites sont vraiment personnalisés ?","faq.a1":"Oui, chaque site est créé de zéro selon ton activité, ton style et tes objectifs.",
     "faq.q2":"Combien de temps pour être livré ?","faq.a2":"Entre 24h et 5 jours selon la complexité du projet. La page de capture peut être livrée en 48h.",
-    "faq.q3":"Comment se fait le paiement ?","faq.a3":"Par Orange Money au +226 07 19 02 17. On discute avant tout paiement. Pas de mauvaise surprise.",
+    "faq.q3":"Comment se fait le paiement ?","faq.a3":"Par Orange Money. On discute avant tout paiement et je te donne le numéro. Pas de mauvaise surprise.",
     "faq.q4":"Puis-je demander des modifications après livraison ?","faq.a4":"Oui, les retouches sont incluses jusqu'à 100% de satisfaction.",
     "faq.q5":"Et si le site ne me plaît vraiment pas ?","faq.a5":"Je retravaille gratuitement jusqu'à ce que tu sois satisfait. Zéro risque financier.",
     "pay.tag":"Paiement","pay.badge":"Paiement sécurisé · Orange Money Burkina Faso","pay.sub":"Après paiement, contacte-moi pour confirmer et démarrer ton projet.","pay.paid":"✅ J'ai payé","pay.ask":"Poser une question",
@@ -783,7 +763,11 @@ const i18n={
     "blog.p1.title":"5 erreurs qui tuent tes ventes en ligne","blog.p1.excerpt":"Sans le savoir, beaucoup de vendeurs sabotent leur propre business à cause de ces 5 erreurs simples à corriger.",
     "blog.p2.title":"Pourquoi ton site doit être mobile-first","blog.p2.excerpt":"Plus de 70% de tes clients visitent ton site depuis leur téléphone. Si ton site n'est pas optimisé, tu perds des ventes chaque jour.",
     "blog.p3.title":"Page de capture vs page de vente : laquelle choisir ?","blog.p3.excerpt":"Tu ne sais pas par où commencer ? Voici comment choisir la bonne page selon ton objectif business.",
-    "modal.cta":"Tu veux un site qui applique tout ça pour toi ?"
+    "modal.cta":"Tu veux un site qui applique tout ça pour toi ?",
+    "contact.form.name":"Ton prénom / nom",
+    "contact.form.service":"Ce dont tu as besoin (ex: page de vente...)",
+    "contact.form.msg":"Décris ton projet en quelques mots...",
+    "contact.form.btn":"→ Envoyer sur WhatsApp"
   },
   en:{
     "nav.services":"Services","nav.portfolio":"Portfolio","nav.blog":"Blog","nav.process":"Process","nav.reviews":"Reviews","nav.contact":"Contact","nav.cta":"→ Contact me",
@@ -817,7 +801,7 @@ const i18n={
     "faq.title1":"Frequent","faq.title2":"questions",
     "faq.q1":"Are the sites really personalized?","faq.a1":"Yes, every site is built from scratch according to your business, your style and your goals.",
     "faq.q2":"How long for delivery?","faq.a2":"Between 24h and 5 days depending on the project complexity. A capture page can be delivered in 48h.",
-    "faq.q3":"How does payment work?","faq.a3":"Via Orange Money at +226 07 19 02 17. We discuss the project before any payment. No bad surprises.",
+    "faq.q3":"How does payment work?","faq.a3":"Via Orange Money. We discuss the project first and I give you the number. No bad surprises.",
     "faq.q4":"Can I request modifications after delivery?","faq.a4":"Yes, revisions are included until 100% satisfaction.",
     "faq.q5":"What if I really don't like the site?","faq.a5":"I rework it for free until you're satisfied. You take zero financial risk.",
     "pay.tag":"Payment","pay.badge":"Secure payment · Orange Money Burkina Faso","pay.sub":"After payment, contact me to confirm and start your project.","pay.paid":"✅ I've paid","pay.ask":"Ask a question",
@@ -838,15 +822,23 @@ const i18n={
     "blog.p1.title":"5 mistakes that kill your online sales","blog.p1.excerpt":"Without knowing it, many sellers sabotage their own business because of these 5 simple-to-fix mistakes.",
     "blog.p2.title":"Why your site must be mobile-first","blog.p2.excerpt":"Over 70% of your clients visit your site from their phone. If your site isn't optimized, you lose sales every day.",
     "blog.p3.title":"Capture page vs sales page: which one to choose?","blog.p3.excerpt":"Don't know where to start? Here's how to choose the right page based on your business goal.",
-    "modal.cta":"Want a site that applies all this for you?"
+    "modal.cta":"Want a site that applies all this for you?",
+    "contact.form.name":"Your name",
+    "contact.form.service":"What you need (e.g. sales page...)",
+    "contact.form.msg":"Describe your project in a few words...",
+    "contact.form.btn":"→ Send on WhatsApp"
   }
 };
-let currentLang='fr';
+let currentLang='en';
 function applyLang(lang){
   currentLang=lang;
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     const key=el.getAttribute('data-i18n');
     if(i18n[lang]&&i18n[lang][key]!==undefined)el.innerHTML=i18n[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+    const key=el.getAttribute('data-i18n-placeholder');
+    if(i18n[lang]&&i18n[lang][key]!==undefined)el.placeholder=i18n[lang][key];
   });
   document.querySelectorAll('.lang-btn[data-lang]').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang);});
   document.documentElement.lang=lang;
@@ -915,8 +907,10 @@ function sendContactWA(){
   const name=document.getElementById('cf-name').value.trim();
   const service=document.getElementById('cf-service').value.trim();
   const msg=document.getElementById('cf-msg').value.trim();
-  if(!name&&!service&&!msg){alert('Remplis au moins un champ avant d\'envoyer.');return;}
-  const text='Bonjour Moussa ! 👋\n\nJe m\'appelle : '+(name||'(non renseigné)')+'\nCe dont j\'ai besoin : '+(service||'(non renseigné)')+'\nMon projet : '+(msg||'(non renseigné)');
+  if(!name&&!service&&!msg){alert(currentLang==='fr'?'Remplis au moins un champ avant d\'envoyer.':'Please fill in at least one field before sending.');return;}
+  const text = currentLang==='fr'
+    ? 'Bonjour Moussa ! 👋\n\nJe m\'appelle : '+(name||'(non renseigné)')+'\nCe dont j\'ai besoin : '+(service||'(non renseigné)')+'\nMon projet : '+(msg||'(non renseigné)')
+    : 'Hello Moussa! 👋\n\nMy name: '+(name||'(not provided)')+'\nWhat I need: '+(service||'(not provided)')+'\nMy project: '+(msg||'(not provided)');
   window.open('https://wa.me/22607190217?text='+encodeURIComponent(text),'_blank');
 }
 
@@ -931,7 +925,7 @@ function closeArticle(){document.getElementById('articleModal').style.display='n
 document.getElementById('articleModal').addEventListener('click',function(e){if(e.target===this)closeArticle();});
 
 // ===== INIT =====
-applyLang('fr');
+applyLang('en');
 </script>
 </body>
 </html>
