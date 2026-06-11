@@ -347,6 +347,25 @@ footer span{color:var(--accent);}
   .portfolio-grid,.blog-grid{grid-template-columns:1fr 1fr;}
   .process-grid{grid-template-columns:1fr 1fr;gap:24px;}
   .process-grid::before{display:none;}
+  /* Fix full-width cards: titre + prix en colonne sur mobile */
+  .svc-card-header-split{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:16px !important;
+  }
+  .svc-card-header-split > div:last-child{
+    text-align:left !important;
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:baseline !important;
+    flex-wrap:wrap !important;
+    gap:10px !important;
+  }
+  .svc-card-header-split .price-main{font-size:1.5rem !important;}
+  /* Fix 2-col features → 1 col sur mobile */
+  .svc-feats-2col{grid-template-columns:1fr !important;}
+  /* Boost saving badge pleine largeur */
+  .svc-card.gold .price-save{display:block !important;margin-top:8px !important;}
 }
 @media(max-width:480px){
   .portfolio-grid,.blog-grid{grid-template-columns:1fr;}
@@ -689,7 +708,7 @@ footer span{color:var(--accent);}
       <!-- 05 BOOST ULTIME — −25% sur le total réel -->
       <div class="svc-card gold" style="grid-column:1/-1;">
         <span class="svc-badge eco" data-i18n="svc4.eco">💰 ÉCONOMIE −23.5%</span>
-        <div style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;flex-wrap:wrap;">
+        <div class="svc-card-header-split" class="svc-card-header-split" style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
           <div>
             <div class="svc-num">05 / PACK COMPLET</div><div class="svc-icon">⚡</div>
             <div class="svc-name" data-i18n="svc4.name">BOOST ULTIME</div>
@@ -700,10 +719,10 @@ footer span{color:var(--accent);}
               <span class="price-old">170 000 XOF</span>
               <div class="price-main" style="font-size:1.8rem;">130 000 XOF</div>
             </div>
-            <div class="price-save" style="display:inline-block;margin-top:6px;" data-i18n="svc4.saving">Tu économises 40 000 XOF (−24%)</div>
+            <div class="price-save" style="display:inline-block;margin-top:6px;" data-i18n="svc4.saving">Tu économises 40 000 XOF (−23.5%)</div>
           </div>
         </div>
-        <div class="svc-feats" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
+        <div class="svc-feats svc-feats-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
           <div class="svc-feat" data-i18n="svc4.f1">Visuel publicitaire inclus</div>
           <div class="svc-feat" data-i18n="svc4.f2">Page de capture incluse</div>
           <div class="svc-feat" data-i18n="svc4.f3">Page de vente incluse</div>
@@ -719,7 +738,7 @@ footer span{color:var(--accent);}
 
       <!-- 06.5 SITE EXPRESS -->
       <div class="svc-card" style="grid-column:1/-1;border-top:2px solid rgba(255,69,96,.4);background:linear-gradient(135deg,rgba(217,32,64,.02),var(--card));">
-        <div style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
+        <div class="svc-card-header-split" style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
           <div>
             <div class="svc-num">06 / URGENCE</div><div class="svc-icon">🚨</div>
             <div class="svc-name" data-i18n="svcX.name">SITE EXPRESS</div>
@@ -729,7 +748,7 @@ footer span{color:var(--accent);}
             <div class="price-main" style="color:var(--red);">200 000 XOF</div>
           </div>
         </div>
-        <div class="svc-feats" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
+        <div class="svc-feats svc-feats-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
           <div class="svc-feat" style="color:var(--red);" data-i18n="svcX.f1">⚡ Livraison garantie &lt;24h</div>
           <div class="svc-feat" data-i18n="svcX.f2">Traitement prioritaire immédiat</div>
           <div class="svc-feat" data-i18n="svcX.f3">Travail de nuit si nécessaire</div>
@@ -743,7 +762,7 @@ footer span{color:var(--accent);}
 
       <!-- 07 MAINTENANCE MENSUELLE -->
       <div class="svc-card maintenance-card" style="grid-column:1/-1;">
-        <div style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
+        <div class="svc-card-header-split" style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
           <div>
             <div class="svc-num">07 / RÉCURRENT</div><div class="svc-icon">🔧</div>
             <div class="svc-name" data-i18n="svc6.name">Maintenance mensuelle</div>
@@ -753,7 +772,7 @@ footer span{color:var(--accent);}
             <div class="price-main">10 000 XOF<span style="font-size:.9rem;font-weight:400;">/mois</span></div>
           </div>
         </div>
-        <div class="svc-feats" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
+        <div class="svc-feats svc-feats-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
           <div class="svc-feat" data-i18n="svc6.f1">Mises à jour de contenu</div>
           <div class="svc-feat" data-i18n="svc6.f2">Surveillance disponibilité 24/7</div>
           <div class="svc-feat" data-i18n="svc6.f3">Corrections de bugs incluses</div>
@@ -840,7 +859,7 @@ footer span{color:var(--accent);}
       <!-- 05 ULTIMATE BOOST INTL — prix barré -->
       <div class="svc-card gold" style="grid-column:1/-1;">
         <span class="svc-badge eco">💰 SAVE 30%</span>
-        <div style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
+        <div class="svc-card-header-split" style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
           <div>
             <div class="svc-num">05 / FULL PACK</div><div class="svc-icon">⚡</div>
             <div class="svc-name" data-i18n="svc4.name.intl">ULTIMATE BOOST</div>
@@ -854,7 +873,7 @@ footer span{color:var(--accent);}
             <div class="price-save" style="display:inline-block;margin-top:6px;">You save 400 € (−25%)</div>
           </div>
         </div>
-        <div class="svc-feats" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
+        <div class="svc-feats svc-feats-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
           <div class="svc-feat" data-i18n="svc4.f1">Capture page included</div>
           <div class="svc-feat" data-i18n="svc4.f2">Sales page included</div>
           <div class="svc-feat" data-i18n="svc4.f3">Complete showcase site</div>
@@ -870,7 +889,7 @@ footer span{color:var(--accent);}
 
       <!-- 06 MAINTENANCE INTL -->
       <div class="svc-card maintenance-card" style="grid-column:1/-1;">
-        <div style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
+        <div class="svc-card-header-split" style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
           <div>
             <div class="svc-num">06 / EXPRESS</div><div class="svc-icon">🚨</div>
             <div class="svc-name" data-i18n="svcX.name.intl">EXPRESS SITE</div>
@@ -880,7 +899,7 @@ footer span{color:var(--accent);}
             <div class="price-main" style="color:var(--red);">600 €</div>
           </div>
         </div>
-        <div class="svc-feats" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
+        <div class="svc-feats svc-feats-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
           <div class="svc-feat" style="color:var(--red);" data-i18n="svcX.f1">⚡ Guaranteed delivery &lt;24h</div>
           <div class="svc-feat" data-i18n="svcX.f2">Immediate priority treatment</div>
           <div class="svc-feat" data-i18n="svcX.f3">Night work if necessary</div>
@@ -894,7 +913,7 @@ footer span{color:var(--accent);}
 
       <!-- 07 MAINTENANCE INTL -->
       <div class="svc-card maintenance-card" style="grid-column:1/-1;">
-        <div style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
+        <div class="svc-card-header-split" style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;">
           <div>
             <div class="svc-num">07 / RECURRING</div><div class="svc-icon">🔧</div>
             <div class="svc-name" data-i18n="svc6.name.intl">Monthly maintenance</div>
@@ -904,7 +923,7 @@ footer span{color:var(--accent);}
             <div class="price-main">50 €<span style="font-size:.9rem;font-weight:400;">/mo</span></div>
           </div>
         </div>
-        <div class="svc-feats" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
+        <div class="svc-feats svc-feats-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
           <div class="svc-feat" data-i18n="svc6.f1.intl">Content updates</div>
           <div class="svc-feat" data-i18n="svc6.f2.intl">24/7 uptime monitoring</div>
           <div class="svc-feat" data-i18n="svc6.f3.intl">Bug fixes included</div>
@@ -1089,7 +1108,7 @@ const i18n={
     "svc1.name":"Page de capture","svc1.desc":"Design impactant. Formulaire optimisé. Interface qui inspire confiance immédiatement.","svc1.f1":"Design moderne et percutant","svc1.f2":"Formulaire de capture optimisé","svc1.f3":"Compatible mobile / PC","svc1.f4":"Livraison 24h–48h",
     "svc2.name":"Page de vente","svc2.desc":"Structure de conversion éprouvée. Design premium. Bouton d'action irrésistible.","svc2.f1":"Structure de conversion testée","svc2.f2":"Design premium crédibilisant","svc2.f3":"CTA stratégique et percutant","svc2.f4":"Compatible mobile / PC","svc2.f5":"Livraison 2–3 jours",
     "svc3.name":"Site vitrine","svc3.desc":"3 à 5 pages sur mesure. Image professionnelle garantie. Structure propre et moderne.","svc3.f1":"3 à 5 pages personnalisées","svc3.f2":"Image professionnelle garantie","svc3.f3":"Structure propre et moderne","svc3.f4":"Livraison 2–5 jours selon complexité",
-    "svc4.name":"BOOST ULTIME","svc4.desc":"Tout inclus. Visuel + page capture + page vente + site vitrine + support 30 jours offert.","svc4.eco":"💰 ÉCONOMIE −23.5%","svc4.saving":"Tu économises 40 000 XOF (−24%)","svc4.f1":"Visuel publicitaire inclus","svc4.f2":"Page de capture incluse","svc4.f3":"Page de vente incluse","svc4.f4":"Site vitrine complet","svc4.f5":"Livraison 5–7 jours","svc4.f6":"Support 30 jours inclus",
+    "svc4.name":"BOOST ULTIME","svc4.desc":"Tout inclus. Visuel + page capture + page vente + site vitrine + support 30 jours offert.","svc4.eco":"💰 ÉCONOMIE −23.5%","svc4.saving":"Tu économises 40 000 XOF (−23.5%)","svc4.f1":"Visuel publicitaire inclus","svc4.f2":"Page de capture incluse","svc4.f3":"Page de vente incluse","svc4.f4":"Site vitrine complet","svc4.f5":"Livraison 5–7 jours","svc4.f6":"Support 30 jours inclus",
     "svc4.name.intl":"ULTIMATE BOOST",
     "svc5.name":"Visuel publicitaire","svc5.desc":"Affiche ou visuel pro pour tes réseaux sociaux ou l'impression. Design percutant, message clair.","svc5.f1":"Format réseaux sociaux ou impression","svc5.f2":"Design accrocheur et professionnel","svc5.f3":"Message clair et percutant","svc5.f4":"Livraison 24h–48h",
     "svc6.name":"Maintenance mensuelle","svc6.desc":"Ton site toujours en ligne, à jour et performant. Je gère tout, tu te concentres sur ton business.","svc6.f1":"Mises à jour de contenu","svc6.f2":"Surveillance disponibilité 24/7","svc6.f3":"Corrections de bugs incluses","svc6.f4":"Rapport mensuel d'activité","svc6.order":"→ Souscrire",
@@ -1119,7 +1138,7 @@ const i18n={
     "svc1.name":"Capture page","svc1.desc":"Impactful design. Optimized form. Interface that inspires confidence instantly.","svc1.f1":"Modern and impactful design","svc1.f2":"Optimized capture form","svc1.f3":"Mobile / PC compatible","svc1.f4":"Delivery 24h–48h",
     "svc2.name":"Sales page","svc2.desc":"Proven conversion structure. Premium design. Irresistible call-to-action.","svc2.f1":"Tested conversion structure","svc2.f2":"Credibility-boosting premium design","svc2.f3":"Strategic and impactful CTA","svc2.f4":"Mobile / PC compatible","svc2.f5":"Delivery 2–3 days",
     "svc3.name":"Showcase site","svc3.desc":"3 to 5 custom pages. Professional image guaranteed. Clean and modern structure.","svc3.f1":"3 to 5 personalized pages","svc3.f2":"Guaranteed professional image","svc3.f3":"Clean and modern structure","svc3.f4":"Delivery 2–5 days (complexity-based)",
-    "svc4.name":"ULTIMATE BOOST","svc4.desc":"All included. Visual + capture page + sales page + showcase site + 30-day support free.","svc4.eco":"💰 SAVE 23.5%","svc4.saving":"You save 40 000 XOF (−24%)","svc4.f1":"Advertising visual included","svc4.f2":"Capture page included","svc4.f3":"Sales page included","svc4.f4":"Complete showcase site","svc4.f5":"Delivery 5–7 days","svc4.f6":"30-day support included",
+    "svc4.name":"ULTIMATE BOOST","svc4.desc":"All included. Visual + capture page + sales page + showcase site + 30-day support free.","svc4.eco":"💰 SAVE 23.5%","svc4.saving":"You save 40 000 XOF (−23.5%)","svc4.f1":"Advertising visual included","svc4.f2":"Capture page included","svc4.f3":"Sales page included","svc4.f4":"Complete showcase site","svc4.f5":"Delivery 5–7 days","svc4.f6":"30-day support included",
     "svc4.name.intl":"ULTIMATE BOOST",
     "svc5.name":"Advertising visual","svc5.desc":"Professional poster or visual for your social media or print. Impactful design, clear message.","svc5.f1":"Social media or print format","svc5.f2":"Eye-catching professional design","svc5.f3":"Clear and impactful message","svc5.f4":"Delivery 24h–48h",
     "svc6.name":"Monthly maintenance","svc6.desc":"Your site always online, up to date and performing. I handle everything, you focus on your business.","svc6.f1":"Content updates","svc6.f2":"24/7 uptime monitoring","svc6.f3":"Bug fixes included","svc6.f4":"Monthly activity report","svc6.order":"→ Subscribe",
@@ -1277,6 +1296,7 @@ applyLang('en');
     <div class="exit-dismiss" onclick="closeExitPopup()">Non merci, je reviendrai plus tard</div>
   </div>
 </div>
-  
+
 </body>
-</html>
+ </html>
+ 
