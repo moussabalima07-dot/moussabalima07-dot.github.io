@@ -1473,6 +1473,495 @@ applyLang('en');
     <div class="exit-dismiss" onclick="closeExitPopup()">Non merci, je reviendrai plus tard</div>
   </div>
 </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Balima Web Developer — Chatbot IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<style>
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* ===== DEMO PAGE BG ===== */
+body{
+  background:#040608;
+  font-family:'JetBrains Mono',monospace;
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;
+  color:#f0f4ff;
+  background-image:linear-gradient(rgba(0,255,200,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,200,.025) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.demo-note{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  background:rgba(0,255,200,.08);border:1px solid rgba(0,255,200,.2);
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;color:rgba(0,255,200,.8);
+  padding:10px 20px;letter-spacing:2px;text-align:center;white-space:nowrap;
+  z-index:10;
+}
+.demo-note strong{color:#00ffc8;}
+
+/* ===== CHATBOT WIDGET ===== */
+#balimaChat{
+  position:fixed;
+  bottom:32px;right:32px;
+  z-index:9000;
+  font-family:'JetBrains Mono',monospace;
+}
+
+/* --- TOGGLE BUTTON --- */
+#chatToggle{
+  width:60px;height:60px;
+  background:#00ffc8;
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
+  box-shadow:0 8px 32px rgba(0,255,200,.35),0 0 0 0 rgba(0,255,200,.4);
+  animation:pulse-ring 3s ease-out infinite;
+  transition:transform .25s ease,background .25s ease;
+  clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
+  position:relative;
+}
+#chatToggle:hover{transform:scale(1.1);background:#00e6b4;}
+#chatToggle .chat-badge{
+  position:absolute;top:-4px;right:-4px;
+  width:18px;height:18px;background:#ff4560;
+  border-radius:50%;font-size:.55rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;border:2px solid #040608;
+  animation:badge-pop .4s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes badge-pop{from{transform:scale(0);}to{transform:scale(1);}}
+@keyframes pulse-ring{
+  0%{box-shadow:0 8px 32px rgba(0,255,200,.35),0 0 0 0 rgba(0,255,200,.4);}
+  70%{box-shadow:0 8px 32px rgba(0,255,200,.35),0 0 0 14px rgba(0,255,200,0);}
+  100%{box-shadow:0 8px 32px rgba(0,255,200,.35),0 0 0 0 rgba(0,255,200,0);}
+}
+
+/* --- PANEL --- */
+#chatPanel{
+  position:absolute;bottom:76px;right:0;
+  width:360px;
+  background:#0d1420;
+  border:1px solid rgba(0,255,200,.12);
+  box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 0 1px rgba(0,255,200,.05);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  max-height:540px;
+  transform:scale(.92) translateY(12px);
+  transform-origin:bottom right;
+  opacity:0;pointer-events:none;
+  transition:transform .3s cubic-bezier(.16,1,.3,1),opacity .25s ease;
+  clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+}
+#chatPanel.open{
+  transform:scale(1) translateY(0);
+  opacity:1;pointer-events:all;
+}
+
+/* --- HEADER --- */
+.chat-head{
+  padding:16px 20px;
+  border-bottom:1px solid rgba(0,255,200,.08);
+  display:flex;align-items:center;gap:12px;
+  background:rgba(0,255,200,.03);
+  flex-shrink:0;
+}
+.chat-avatar{
+  width:38px;height:38px;
+  background:linear-gradient(135deg,#00ffc8,#0044cc);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;
+  clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);
+  flex-shrink:0;
+}
+.chat-info{flex:1;}
+.chat-name{font-size:.82rem;font-weight:700;color:#f0f4ff;letter-spacing:.5px;}
+.chat-status{font-size:.62rem;color:#00ffc8;letter-spacing:2px;display:flex;align-items:center;gap:5px;margin-top:2px;}
+.chat-status::before{content:'';width:5px;height:5px;background:#00ffc8;border-radius:50%;animation:blink 1.5s infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.chat-close{
+  width:28px;height:28px;background:transparent;border:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.4);font-size:.8rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:.2s ease;line-height:1;
+}
+.chat-close:hover{border-color:#00ffc8;color:#00ffc8;}
+
+/* --- MESSAGES --- */
+#chatMessages{
+  flex:1;overflow-y:auto;
+  padding:16px;
+  display:flex;flex-direction:column;gap:10px;
+  min-height:200px;
+  max-height:320px;
+  scroll-behavior:smooth;
+}
+#chatMessages::-webkit-scrollbar{width:3px;}
+#chatMessages::-webkit-scrollbar-track{background:transparent;}
+#chatMessages::-webkit-scrollbar-thumb{background:rgba(0,255,200,.2);border-radius:2px;}
+
+.msg{
+  max-width:82%;
+  display:flex;flex-direction:column;gap:4px;
+  animation:msgIn .3s cubic-bezier(.16,1,.3,1);
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+.msg.bot{align-self:flex-start;}
+.msg.user{align-self:flex-end;}
+
+.msg-bubble{
+  padding:10px 14px;
+  font-size:.75rem;line-height:1.7;
+  letter-spacing:.2px;
+}
+.msg.bot .msg-bubble{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(0,255,200,.1);
+  color:#c8d4e8;
+  border-radius:0 12px 12px 0;
+}
+.msg.bot .msg-bubble a{color:#00ffc8;text-decoration:none;}
+.msg.bot .msg-bubble a:hover{text-decoration:underline;}
+.msg.user .msg-bubble{
+  background:rgba(0,255,200,.12);
+  border:1px solid rgba(0,255,200,.2);
+  color:#f0f4ff;
+  border-radius:12px 0 0 12px;
+}
+.msg-time{font-size:.58rem;color:rgba(255,255,255,.25);letter-spacing:1px;padding:0 4px;}
+.msg.user .msg-time{text-align:right;}
+
+/* TYPING INDICATOR */
+.typing-bubble{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(0,255,200,.1);
+  border-radius:0 12px 12px 0;
+  padding:12px 16px;
+  display:flex;gap:5px;align-items:center;
+}
+.typing-dot{
+  width:6px;height:6px;background:#00ffc8;border-radius:50%;opacity:.4;
+  animation:typing-bounce .9s ease-in-out infinite;
+}
+.typing-dot:nth-child(2){animation-delay:.15s;}
+.typing-dot:nth-child(3){animation-delay:.3s;}
+@keyframes typing-bounce{0%,60%,100%{opacity:.4;transform:translateY(0);}30%{opacity:1;transform:translateY(-4px);}}
+
+/* QUICK REPLIES */
+#quickReplies{
+  padding:8px 16px 12px;
+  display:flex;flex-wrap:wrap;gap:6px;
+  flex-shrink:0;
+  border-top:1px solid rgba(0,255,200,.05);
+}
+.qr-btn{
+  padding:6px 12px;
+  background:transparent;
+  border:1px solid rgba(0,255,200,.18);
+  color:rgba(0,255,200,.8);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.63rem;letter-spacing:.5px;
+  cursor:pointer;
+  transition:.2s ease;
+  clip-path:polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px);
+}
+.qr-btn:hover{background:rgba(0,255,200,.1);border-color:#00ffc8;color:#00ffc8;}
+
+/* --- INPUT --- */
+.chat-input-row{
+  display:flex;gap:0;
+  border-top:1px solid rgba(0,255,200,.08);
+  flex-shrink:0;
+}
+#chatInput{
+  flex:1;
+  background:transparent;
+  border:none;
+  color:#f0f4ff;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.75rem;
+  padding:14px 16px;
+  outline:none;
+  letter-spacing:.3px;
+}
+#chatInput::placeholder{color:rgba(255,255,255,.2);}
+#chatSend{
+  width:48px;
+  background:transparent;
+  border:none;
+  border-left:1px solid rgba(0,255,200,.08);
+  color:rgba(0,255,200,.5);
+  font-size:1rem;
+  cursor:pointer;
+  transition:.2s ease;
+  display:flex;align-items:center;justify-content:center;
+}
+#chatSend:hover{background:rgba(0,255,200,.08);color:#00ffc8;}
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  #chatPanel{width:calc(100vw - 32px);right:0;}
+  #balimaChat{right:16px;bottom:16px;}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-note">🤖 <strong>DÉMO CHATBOT IA</strong> — Copie le bloc &lt;!-- CHATBOT --&gt; dans ton HTML</div>
+
+<!-- ==================== CHATBOT WIDGET ==================== -->
+<!-- À coller juste avant </body> dans ton fichier balima-dev.html -->
+
+<div id="balimaChat">
+
+  <!-- TOGGLE -->
+  <button id="chatToggle" aria-label="Ouvrir le chat">
+    🤖
+    <span class="chat-badge" id="chatBadge">1</span>
+  </button>
+
+  <!-- PANEL -->
+  <div id="chatPanel">
+
+    <!-- HEADER -->
+    <div class="chat-head">
+      <div class="chat-avatar">🧑‍💻</div>
+      <div class="chat-info">
+        <div class="chat-name">Assistant Balima</div>
+        <div class="chat-status">IA · Répond instantanément</div>
+      </div>
+      <button class="chat-close" id="chatClose">✕</button>
+    </div>
+
+    <!-- MESSAGES -->
+    <div id="chatMessages"></div>
+
+    <!-- QUICK REPLIES -->
+    <div id="quickReplies"></div>
+
+    <!-- INPUT -->
+    <div class="chat-input-row">
+      <input id="chatInput" type="text" placeholder="Pose ta question..." autocomplete="off" maxlength="300"/>
+      <button id="chatSend">➤</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== END CHATBOT WIDGET ==================== -->
+
+<script>
+// ============================================================
+//  BALIMA AI CHATBOT — claude-sonnet-4-6
+//  Connaissance: services, prix, process, FAQ du site Balima
+// ============================================================
+
+const SYSTEM_PROMPT = `Tu es l'assistant IA de Moussa Balima, développeur web freelance à Ouagadougou (Burkina Faso). Tu représentes le site balima-dev.com.
+
+TON RÔLE : Aider les visiteurs à comprendre les services, les prix, le processus de commande, et les convaincre de contacter Moussa sur WhatsApp (+226 07 19 02 17).
+
+SERVICES ET TARIFS (marché africain XOF) :
+- Visuel publicitaire : 15 000 XOF (promo -25%, était 20 000)
+- Page de capture : 30 000 XOF (promo -25%, était 40 000)
+- Page de vente ⭐ POPULAIRE : 45 000 XOF (promo -25%, était 60 000)
+- Site vitrine (3-5 pages) : 80 000 XOF (promo -25%, était 107 000)
+- Pack BOOST ULTIME (tout inclus) : 130 000 XOF (économie 40 000 XOF)
+- Site EXPRESS (<24h) : 200 000 XOF
+- Maintenance mensuelle : 10 000 XOF/mois
+
+TARIFS INTERNATIONAUX :
+- Page de capture : 250€
+- Page de vente : 450€
+- Site vitrine : 700€
+- Visuel : 60€
+- Pack Ultimate : 1 200€
+- Maintenance : 50€/mois
+
+PAIEMENT : Orange Money ou Wave (Afrique), PayPal ou Wise (International). 50% à la commande, 50% à la livraison.
+
+DÉLAIS : Visuel 24-48h | Page capture 24-48h | Page vente 2-3j | Site vitrine 2-5j | Pack 5-7j | Express <24h
+
+PROCESS : 1) Contact WhatsApp → 2) Moussa construit → 3) Client valide → 4) Livraison + support
+
+GARANTIE : Retouches gratuites jusqu'à 100% de satisfaction.
+
+CONTACT : WhatsApp +226 07 19 02 17 | Email moussabalima07@gmail.com
+
+CONSIGNES DE RÉPONSE :
+- Réponds en français (ou anglais si l'utilisateur écrit en anglais)
+- Sois concis, chaleureux, professionnel — comme un vrai assistant de vente
+- Pousse toujours vers l'action : contacter Moussa, voir les services, commander
+- N'invente pas de nouvelles offres ou tarifs
+- Si la question est hors sujet, redirige poliment vers les services de Moussa
+- Utilise des émojis avec modération (max 1-2 par message)
+- Format: réponses courtes (2-4 phrases max), claires et directes
+- À la fin de chaque réponse, propose une action concrète si pertinent`;
+
+const QUICK_REPLIES_DEFAULT = [
+  "💰 Voir les prix",
+  "🚀 Quel service choisir ?",
+  "⏱️ Délais de livraison",
+  "💳 Comment payer ?",
+  "📱 Contacter Moussa"
+];
+
+let conversationHistory = [];
+let isOpen = false;
+let isTyping = false;
+
+const toggle = document.getElementById('chatToggle');
+const panel = document.getElementById('chatPanel');
+const closeBtn = document.getElementById('chatClose');
+const messagesEl = document.getElementById('chatMessages');
+const inputEl = document.getElementById('chatInput');
+const sendBtn = document.getElementById('chatSend');
+const quickRepliesEl = document.getElementById('quickReplies');
+const badge = document.getElementById('chatBadge');
+
+// --- OPEN/CLOSE ---
+function openChat() {
+  isOpen = true;
+  panel.classList.add('open');
+  toggle.style.animation = 'none';
+  if (badge) badge.style.display = 'none';
+  if (messagesEl.children.length === 0) {
+    setTimeout(() => botMessage("Salut 👋 Je suis l'assistant IA de **Moussa Balima**. Je connais tous ses services, ses tarifs et son process.\n\nComment puis-je t'aider aujourd'hui ?"), 300);
+  }
+  setTimeout(() => inputEl.focus(), 350);
+}
+
+function closeChat() {
+  isOpen = false;
+  panel.classList.remove('open');
+}
+
+toggle.addEventListener('click', () => isOpen ? closeChat() : openChat());
+closeBtn.addEventListener('click', closeChat);
+
+// --- RENDER MESSAGE ---
+function getTime() {
+  return new Date().toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+}
+
+function renderMarkdown(text) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#f0f4ff">$1</strong>')
+    .replace(/\n/g, '<br>');
+}
+
+function botMessage(text) {
+  const div = document.createElement('div');
+  div.className = 'msg bot';
+  div.innerHTML = `<div class="msg-bubble">${renderMarkdown(text)}</div><div class="msg-time">${getTime()}</div>`;
+  messagesEl.appendChild(div);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  setQuickReplies(QUICK_REPLIES_DEFAULT);
+}
+
+function userMessage(text) {
+  const div = document.createElement('div');
+  div.className = 'msg user';
+  div.innerHTML = `<div class="msg-bubble">${text}</div><div class="msg-time">${getTime()}</div>`;
+  messagesEl.appendChild(div);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  clearQuickReplies();
+}
+
+function showTyping() {
+  const div = document.createElement('div');
+  div.className = 'msg bot';
+  div.id = 'typingIndicator';
+  div.innerHTML = `<div class="typing-bubble"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
+  messagesEl.appendChild(div);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+}
+
+function hideTyping() {
+  const t = document.getElementById('typingIndicator');
+  if (t) t.remove();
+}
+
+// --- QUICK REPLIES ---
+function setQuickReplies(replies) {
+  quickRepliesEl.innerHTML = '';
+  replies.forEach(r => {
+    const btn = document.createElement('button');
+    btn.className = 'qr-btn';
+    btn.textContent = r;
+    btn.addEventListener('click', () => sendMessage(r));
+    quickRepliesEl.appendChild(btn);
+  });
+}
+
+function clearQuickReplies() {
+  quickRepliesEl.innerHTML = '';
+}
+
+// --- SEND MESSAGE ---
+async function sendMessage(text) {
+  text = (text || inputEl.value).trim();
+  if (!text || isTyping) return;
+  inputEl.value = '';
+
+  userMessage(text);
+  conversationHistory.push({role: 'user', content: text});
+
+  isTyping = true;
+  showTyping();
+  sendBtn.disabled = true;
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
+        messages: conversationHistory
+      })
+    });
+
+    const data = await response.json();
+    const reply = data.content?.[0]?.text || "Je rencontre un problème technique. Contacte Moussa directement sur WhatsApp 👉 +226 07 19 02 17";
+
+    hideTyping();
+    conversationHistory.push({role: 'assistant', content: reply});
+    botMessage(reply);
+
+  } catch (err) {
+    hideTyping();
+    botMessage("Désolé, une erreur est survenue. Tu peux contacter Moussa directement : [WhatsApp +226 07 19 02 17](https://wa.me/22607190217) 💬");
+  }
+
+  isTyping = false;
+  sendBtn.disabled = false;
+  inputEl.focus();
+}
+
+// --- INPUT EVENTS ---
+sendBtn.addEventListener('click', () => sendMessage());
+inputEl.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+});
+
+// --- AUTO-OPEN after 8s ---
+setTimeout(() => {
+  if (!isOpen) {
+    if (badge) badge.style.display = 'flex';
+  }
+}, 3000);
+
+// Init quick replies
+setQuickReplies(QUICK_REPLIES_DEFAULT);
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
