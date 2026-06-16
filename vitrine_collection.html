@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sites Vitrine — Collection Balima Dev</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#080C18;--card:#0C1020;--border:rgba(99,157,255,.08);
+  --blue:#0055FF;--accent:#C9A84C;--text:#E8ECFF;--muted:#6A7490;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;min-height:100vh;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,12,24,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-left{display:flex;align-items:center;gap:16px;}
+.nav-back{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;letter-spacing:1px;transition:color .2s;}
+.nav-back:hover{color:var(--blue);}
+.nav-sep{color:rgba(255,255,255,.1);font-size:.9rem;}
+.nav-title{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:2px;}
+.nav-cta{padding:9px 22px;background:var(--blue);color:white;font-size:.72rem;letter-spacing:1px;text-decoration:none;font-family:'JetBrains Mono',monospace;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+
+/* HERO */
+.hero{padding:120px 48px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--accent));}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,85,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,85,255,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:3px;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.hero-tag::before{content:'//';color:var(--accent);}
+.hero-title{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:800;line-height:.95;letter-spacing:-2px;color:white;margin-bottom:16px;}
+.hero-title span{color:var(--blue);}
+.hero-sub{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);max-width:560px;line-height:1.8;}
+.hero-count{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:8px 16px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);}
+.count-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;}
+
+/* GRID */
+.collection{padding:20px 48px 80px;}
+.sites-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1200px;margin:0 auto;}
+
+/* SITE CARD */
+.site-card{background:var(--card);border:1px solid var(--border);overflow:hidden;position:relative;transition:border-color .3s,transform .3s;}
+.site-card:hover{border-color:rgba(0,85,255,.3);transform:translateY(-4px);}
+.site-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s;}
+.site-card:hover::before{opacity:1;}
+.site-card.wassa::before{background:linear-gradient(90deg,#C9A84C,#8B6914);}
+.site-card.baobab::before{background:linear-gradient(90deg,#E8A020,#C88010);}
+.site-card.luma::before{background:linear-gradient(90deg,#2D5A27,#7A9E76);}
+.site-card.terra::before{background:linear-gradient(90deg,#1B3A6B,#B8922A);}
+
+/* PREVIEW */
+.site-preview{height:280px;overflow:hidden;position:relative;}
+.site-preview img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s ease;}
+.site-card:hover .site-preview img{transform:scale(1.04);}
+.preview-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(12,16,32,.95));display:flex;align-items:flex-end;padding:20px;opacity:0;transition:opacity .3s;}
+.site-card:hover .preview-overlay{opacity:1;}
+.preview-visit{display:flex;align-items:center;gap:8px;padding:10px 20px;background:white;color:#080C18;font-size:.75rem;font-weight:700;letter-spacing:1px;text-decoration:none;font-family:'JetBrains Mono',monospace;width:100%;justify-content:center;}
+
+/* PREVIEW MOCK (for sites without screenshots) */
+.preview-mock{width:100%;height:100%;display:flex;flex-direction:column;overflow:hidden;}
+.mock-nav{height:28px;display:flex;align-items:center;padding:0 12px;gap:6px;flex-shrink:0;}
+.mock-dot{width:7px;height:7px;border-radius:50%;}
+.mock-body{flex:1;overflow:hidden;padding:12px;}
+.mock-hero{display:grid;gap:8px;}
+.mock-line{height:8px;border-radius:2px;margin-bottom:6px;}
+.mock-line.short{width:40%;}
+.mock-line.med{width:65%;}
+.mock-line.long{width:85%;}
+.mock-line.full{width:100%;}
+.mock-btn{height:24px;width:100px;border-radius:2px;margin-top:8px;}
+.mock-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:12px;}
+.mock-card{height:60px;border-radius:3px;}
+
+/* WASSA mock */
+.wassa .mock-nav{background:#1A1614;}
+.wassa .mock-dot:nth-child(1){background:#ff5f57;}
+.wassa .mock-dot:nth-child(2){background:#febc2e;}
+.wassa .mock-dot:nth-child(3){background:#28c840;}
+.wassa .preview-mock{background:linear-gradient(135deg,#1A1614 50%,#E8DFD0 50%);}
+.wassa .mock-body{background:#1A1614;}
+.wassa .mock-line{background:rgba(250,247,242,.12);}
+.wassa .mock-line.accent{background:#C9A84C;width:30%;}
+.wassa .mock-btn{background:#C9A84C;}
+.wassa .mock-card{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.15);}
+
+/* BAOBAB mock */
+.baobab .preview-mock{background:#0C0A07;}
+.baobab .mock-nav{background:rgba(12,10,7,.95);}
+.baobab .mock-dot:nth-child(1){background:#ff5f57;}
+.baobab .mock-dot:nth-child(2){background:#febc2e;}
+.baobab .mock-dot:nth-child(3){background:#28c840;}
+.baobab .mock-body{background:#0C0A07;}
+.baobab .mock-line{background:rgba(245,237,216,.08);}
+.baobab .mock-line.accent{background:#E8A020;width:35%;}
+.baobab .mock-btn{background:#E8A020;}
+.baobab .mock-card{background:rgba(232,160,32,.06);border:1px solid rgba(232,160,32,.1);}
+
+/* LUMÀ mock */
+.luma .preview-mock{background:#FDFAF6;}
+.luma .mock-nav{background:rgba(253,250,246,.96);border-bottom:1px solid rgba(45,90,39,.08);}
+.luma .mock-dot:nth-child(1){background:#ff5f57;}
+.luma .mock-dot:nth-child(2){background:#febc2e;}
+.luma .mock-dot:nth-child(3){background:#28c840;}
+.luma .mock-body{background:linear-gradient(135deg,#1E3D1A 40%,#FDFAF6 40%);}
+.luma .mock-line{background:rgba(26,22,20,.1);}
+.luma .mock-line.accent{background:#2D5A27;width:30%;}
+.luma .mock-btn{background:#2D5A27;border-radius:100px;}
+.luma .mock-card{background:white;border:1px solid rgba(45,90,39,.08);border-radius:8px;}
+
+/* TERRA mock */
+.terra .preview-mock{background:#F8F6F2;}
+.terra .mock-nav{background:rgba(248,246,242,.95);border-bottom:1px solid #E0DCD4;}
+.terra .mock-dot:nth-child(1){background:#ff5f57;}
+.terra .mock-dot:nth-child(2){background:#febc2e;}
+.terra .mock-dot:nth-child(3){background:#28c840;}
+.terra .mock-body{background:linear-gradient(180deg,#0F0E0C 50%,#F8F6F2 50%);}
+.terra .mock-line{background:rgba(248,246,242,.12);}
+.terra .mock-line.accent{background:#B8922A;width:25%;}
+.terra .mock-btn{background:#B8922A;}
+.terra .mock-card{background:white;border:1px solid #E0DCD4;}
+
+/* CARD BODY */
+.site-body{padding:24px 28px 28px;}
+.site-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.site-name{font-size:1.1rem;font-weight:700;color:white;}
+.site-sector{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:2px;padding:4px 10px;border-radius:100px;}
+.site-sector.mode{background:rgba(201,168,76,.1);color:#C9A84C;border:1px solid rgba(201,168,76,.2);}
+.site-sector.resto{background:rgba(232,160,32,.1);color:#E8A020;border:1px solid rgba(232,160,32,.2);}
+.site-sector.cosm{background:rgba(45,90,39,.15);color:#7A9E76;border:1px solid rgba(45,90,39,.25);}
+.site-sector.immo{background:rgba(27,58,107,.2);color:#6B9FD4;border:1px solid rgba(27,58,107,.3);}
+.site-desc{font-size:.8rem;color:var(--muted);line-height:1.7;margin-bottom:20px;}
+.site-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.site-tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:3px 10px;border:1px solid var(--border);color:var(--muted);}
+.site-footer{display:flex;gap:10px;}
+.btn-visit{flex:1;padding:12px;background:var(--blue);color:white;font-size:.75rem;font-weight:600;letter-spacing:1px;text-decoration:none;text-align:center;font-family:'JetBrains Mono',monospace;transition:opacity .2s;}
+.btn-visit:hover{opacity:.85;}
+.btn-order{padding:12px 20px;border:1px solid var(--border);color:var(--muted);font-size:.72rem;font-family:'JetBrains Mono',monospace;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.btn-order:hover{border-color:var(--accent);color:var(--accent);}
+
+/* CTA BOTTOM */
+.cta-bottom{padding:60px 48px;text-align:center;border-top:1px solid var(--border);}
+.cta-bottom p{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted);margin-bottom:24px;letter-spacing:.5px;}
+.cta-bottom h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:white;margin-bottom:12px;letter-spacing:-1px;}
+.cta-bottom h2 span{color:var(--blue);}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:#25D366;color:white;font-size:.85rem;font-weight:600;text-decoration:none;letter-spacing:1px;transition:background .2s;}
+.btn-wa:hover{background:#20B858;}
+
+@media(max-width:768px){
+  nav{padding:0 16px;}
+  .hero{padding:90px 20px 40px;}
+  .collection{padding:0 16px 60px;}
+  .sites-grid{grid-template-columns:1fr;}
+  .cta-bottom{padding:48px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="https://moussabalima07-dot-github-io.vercel.app" class="nav-back">← Portfolio</a>
+    <span class="nav-sep">/</span>
+    <span class="nav-title">// SITES VITRINE</span>
+  </div>
+  <a href="https://wa.me/22607190217?text=Bonjour%20Moussa%2C%20je%20veux%20un%20site%20vitrine%20pour%20mon%20business." class="nav-cta">Commander le mien</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+    <div class="hero-tag">Sites Vitrine · Collection</div>
+    <h2 class="hero-title">Mes <span>réalisations</span><br>Sites Vitrine</h2>
+    <p class="hero-sub">Chaque site est conçu sur mesure pour le secteur d'activité. Design moderne, mobile first, optimisé pour convertir les visiteurs en clients.</p>
+    
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="collection">
+  <div class="sites-grid">
+
+    <!-- WASSA -->
+    <div class="site-card wassa">
+      <div class="site-preview">
+        <div class="preview-mock">
+          <div class="mock-nav">
+            <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-line accent"></div>
+            <div class="mock-line long"></div>
+            <div class="mock-line med"></div>
+            <div class="mock-line short" style="opacity:.5;"></div>
+            <div class="mock-btn"></div>
+            <div class="mock-cards">
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-overlay">
+          <a href="https://moussabalima07-dot-github-io.vercel.app/projet1_mode.html" target="_blank" class="preview-visit">🔗 Visiter WASSA →</a>
+        </div>
+      </div>
+      <div class="site-body">
+        <div class="site-header">
+          <div class="site-name">WASSA</div>
+          <span class="site-sector mode">Mode & Prêt-à-porter</span>
+        </div>
+        <p class="site-desc">Boutique mode féminine haut de gamme à Ouagadougou. Design luxe crème & charbon, collection produits, ticker animé, lookbook.</p>
+        <div class="site-tags">
+          <span class="site-tag">HTML/CSS</span>
+          <span class="site-tag">Animations</span>
+          <span class="site-tag">Mobile first</span>
+          <span class="site-tag">WhatsApp CTA</span>
+        </div>
+        <div class="site-footer">
+          <a href="https://moussabalima07-dot-github-io.vercel.app/projet1_mode.html" target="_blank" class="btn-visit">🔗 Visiter le site</a>
+          <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+un+site+similaire+à+WASSA." target="_blank" class="btn-order">Commander →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LE BAOBAB -->
+    <div class="site-card baobab">
+      <div class="site-preview">
+        <div class="preview-mock">
+          <div class="mock-nav">
+            <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-line accent"></div>
+            <div class="mock-line long"></div>
+            <div class="mock-line med"></div>
+            <div class="mock-line short" style="opacity:.5;"></div>
+            <div class="mock-btn"></div>
+            <div class="mock-cards">
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-overlay">
+          <a href="https://moussabalima07-dot-github-io.vercel.app/projet2_restaurant.html" target="_blank" class="preview-visit">🔗 Visiter Le Baobab →</a>
+        </div>
+      </div>
+      <div class="site-body">
+        <div class="site-header">
+          <div class="site-name">Le Baobab</div>
+          <span class="site-sector resto">Restaurant & Traiteur</span>
+        </div>
+        <p class="site-desc">Restaurant traditionnel burkinabè avec service traiteur. Design dark doré, menu avec vraies photos, réservation WhatsApp.</p>
+        <div class="site-tags">
+          <span class="site-tag">HTML/CSS</span>
+          <span class="site-tag">Galerie photos</span>
+          <span class="site-tag">Menu interactif</span>
+          <span class="site-tag">WhatsApp CTA</span>
+        </div>
+        <div class="site-footer">
+          <a href="https://moussabalima07-dot-github-io.vercel.app/projet2_restaurant.html" target="_blank" class="btn-visit">🔗 Visiter le site</a>
+          <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+un+site+similaire+au+Baobab." target="_blank" class="btn-order">Commander →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LUMÀ -->
+    <div class="site-card luma">
+      <div class="site-preview">
+        <div class="preview-mock">
+          <div class="mock-nav">
+            <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-line accent" style="background:#2D5A27;width:35%;"></div>
+            <div class="mock-line long" style="background:rgba(26,22,20,.15);"></div>
+            <div class="mock-line med" style="background:rgba(26,22,20,.15);"></div>
+            <div class="mock-btn" style="background:#2D5A27;border-radius:100px;width:90px;"></div>
+            <div class="mock-cards">
+              <div class="mock-card" style="background:white;border:1px solid rgba(45,90,39,.08);border-radius:8px;"></div>
+              <div class="mock-card" style="background:white;border:1px solid rgba(45,90,39,.08);border-radius:8px;"></div>
+              <div class="mock-card" style="background:white;border:1px solid rgba(45,90,39,.08);border-radius:8px;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-overlay">
+          <a href="https://moussabalima07-dot-github-io.vercel.app/projet3_cosmetique.html" target="_blank" class="preview-visit">🔗 Visiter LUMÀ →</a>
+        </div>
+      </div>
+      <div class="site-body">
+        <div class="site-header">
+          <div class="site-name">LUMÀ</div>
+          <span class="site-sector cosm">Cosmétiques Naturels</span>
+        </div>
+        <p class="site-desc">Marque cosmétique 100% naturelle du Burkina. Design organique vert & crème, gamme produits avec vraies photos, routine beauté.</p>
+        <div class="site-tags">
+          <span class="site-tag">HTML/CSS</span>
+          <span class="site-tag">E-commerce</span>
+          <span class="site-tag">Photos produits</span>
+          <span class="site-tag">Animations</span>
+        </div>
+        <div class="site-footer">
+          <a href="https://moussabalima07-dot-github-io.vercel.app/projet3_cosmetique.html" target="_blank" class="btn-visit">🔗 Visiter le site</a>
+          <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+un+site+similaire+à+Lumà." target="_blank" class="btn-order">Commander →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TERRA -->
+    <div class="site-card terra">
+      <div class="site-preview">
+        <div class="preview-mock">
+          <div class="mock-nav">
+            <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-line accent" style="background:#B8922A;width:25%;"></div>
+            <div class="mock-line long" style="background:rgba(248,246,242,.15);"></div>
+            <div class="mock-line med" style="background:rgba(248,246,242,.15);"></div>
+            <div class="mock-btn" style="background:#B8922A;"></div>
+            <div class="mock-cards">
+              <div class="mock-card" style="background:rgba(27,58,107,.15);border:1px solid rgba(27,58,107,.2);"></div>
+              <div class="mock-card" style="background:rgba(184,146,42,.1);border:1px solid rgba(184,146,42,.15);"></div>
+              <div class="mock-card" style="background:rgba(27,107,58,.1);border:1px solid rgba(27,107,58,.15);"></div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-overlay">
+          <a href="https://moussabalima07-dot-github-io.vercel.app/projet4_immo.html" target="_blank" class="preview-visit">🔗 Visiter TERRA →</a>
+        </div>
+      </div>
+      <div class="site-body">
+        <div class="site-header">
+          <div class="site-name">TERRA</div>
+          <span class="site-sector immo">Immobilier</span>
+        </div>
+        <p class="site-desc">Agence immobilière complète à Ouagadougou. Design sobre bleu marine & or, listings biens, moteur de recherche, consultation gratuite.</p>
+        <div class="site-tags">
+          <span class="site-tag">HTML/CSS/JS</span>
+          <span class="site-tag">Recherche</span>
+          <span class="site-tag">Listings</span>
+          <span class="site-tag">Multi-sections</span>
+        </div>
+        <div class="site-footer">
+          <a href="https://moussabalima07-dot-github-io.vercel.app/projet4_immo.html" target="_blank" class="btn-visit">🔗 Visiter le site</a>
+          <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+un+site+similaire+à+Terra." target="_blank" class="btn-order">Commander →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bottom">
+  <p>// Tu veux le même pour ton business ?</p>
+  <h2>Un site vitrine<br>à partir de <span>80 000 XOF</span></h2>
+  <br/>
+  <a href="https://wa.me/22607190217?text=Bonjour%20Moussa%2C%20j'ai%20vu%20tes%20réalisations%20et%20je%20veux%20un%20site%20vitrine%20pour%20mon%20business." class="btn-wa">💬 Discuter de mon projet</a>
+</section>
+
+</body>
+</html>
