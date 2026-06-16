@@ -1004,23 +1004,12 @@ applyLang('fr');
     }
   });
 
-  function sendAdminNotification(name, message, rating) {
-    const stars = "★".repeat(rating);
-    const preview = message.length > 60 ? message.substring(0, 60) + '...' : message;
-    fetch('https://onesignal.com/api/v1/notifications', {
+  async function sendAdminNotification(name, message, rating) {
+    await fetch('/api/notify', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-        'Authorization': 'Basic os_v2_app_bbmwwejnq5hfpawhp67yamg736gctffjzt7uw55erqzrvl4zzrplsfsoday5ii72xdmpjcocilyw5d7lohawktt2tztkdsmj23bv4sy'
-      },
-      body: JSON.stringify({
-        app_id: '08596b11-2d87-4e57-82c7-7fbf8030dfdf',
-        included_segments: ['Subscribed Users'],
-        headings: { en: 'Balima Web Developer', fr: 'Balima Web Developer' },
-        contents: { en: `New review from ${name} — ${stars}\n"${preview}"`, fr: `Nouvel avis de ${name} — ${stars}\n"${preview}"` },
-        url: window.location.href.split('#')[0] + '#avis'
-      })
-    }).catch(e => console.log('Notification non envoyée', e));
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, message, rating })
+    }).catch(e => console.log('Notification non envoyee', e));
   }
 </script>
 
