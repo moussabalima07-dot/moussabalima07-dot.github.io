@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>LUMÀ — Cosmétiques Naturels du Burkina</title>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://luma-cosmetiques.com/"/>
+<meta property="og:title" content="LUMÀ — Cosmétiques Naturels Burkina"/>
+<meta property="og:description" content="Soins 100% naturels à base de karité, neem et hibiscus du Burkina Faso. Sans produits chimiques."/>
+<meta property="og:image" content="og-image.jpg"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#FDFAF6;--dark:#1C1410;--green:#2D5A27;--green2:#1E3D1A;
+  --sage:#7A9E76;--peach:#E8956D;--cream:#F5EDE0;--muted:#8A7A6A;
+  --text:#2A2018;--border:rgba(45,90,39,.1);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;padding-bottom:44px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.logo{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:300;letter-spacing:4px;color:var(--green);text-transform:uppercase;}
+.logo sup{font-size:.5rem;vertical-align:super;letter-spacing:1px;}
+.nav-links a{font-size:.78rem;color:var(--muted);text-decoration:none;margin-left:32px;letter-spacing:.5px;transition:color .2s;}
+.nav-links a:hover{color:var(--green);}
+.nav-cta{margin-left:32px;padding:10px 22px;background:var(--green);color:white;font-size:.75rem;letter-spacing:1px;border-radius:100px;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:var(--green2);}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;margin-top:66px;}
+.hero-left{background:var(--green2);display:flex;align-items:center;justify-content:center;padding:60px;position:relative;overflow:hidden;}
+.hero-left::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;border:1px solid rgba(122,158,118,.12);top:50%;left:50%;transform:translate(-50%,-50%);}
+.hero-left::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(122,158,118,.08);top:50%;left:50%;transform:translate(-50%,-50%);}
+.hero-product-img{width:75%;max-width:340px;object-fit:contain;z-index:1;filter:drop-shadow(0 20px 60px rgba(0,0,0,.3));animation:float 4s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.hero-right{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;background:var(--bg);}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(45,90,39,.07);border-radius:100px;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:28px;width:fit-content;}
+.hero-tag-dot{width:6px;height:6px;background:var(--sage);border-radius:50%;}
+h1{font-family:'Fraunces',serif;font-size:clamp(2.5rem,4.5vw,4.2rem);font-weight:300;line-height:1.05;color:var(--dark);margin-bottom:20px;}
+h1 em{font-style:italic;color:var(--green);}
+.hero-desc{font-size:.9rem;line-height:1.9;color:var(--muted);max-width:400px;margin-bottom:36px;}
+.hero-btns{display:flex;gap:12px;align-items:center;margin-bottom:48px;flex-wrap:wrap;}
+.btn-green{padding:15px 32px;background:var(--green);color:white;font-size:.8rem;letter-spacing:1px;text-decoration:none;border-radius:100px;transition:background .2s;}
+.btn-green:hover{background:var(--green2);}
+.btn-text{font-size:.78rem;color:var(--green);text-decoration:none;display:flex;align-items:center;gap:6px;}
+.hero-trust{display:flex;gap:24px;padding-top:28px;border-top:1px solid var(--border);flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:.72rem;color:var(--muted);}
+
+/* INGREDIENTS */
+.ingredients{padding:90px 48px;background:var(--cream);}
+.sec-head{text-align:center;margin-bottom:56px;}
+.sec-tag{font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px;}
+.sec-tag::before,.sec-tag::after{content:'';width:30px;height:1px;background:var(--sage);}
+.sec-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;color:var(--dark);}
+.sec-title em{font-style:italic;color:var(--green);}
+.ing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto;}
+.ing-card{background:var(--bg);border-radius:12px;border:1px solid var(--border);overflow:hidden;transition:transform .3s,box-shadow .3s;}
+.ing-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(45,90,39,.08);}
+.ing-img{height:200px;overflow:hidden;}
+.ing-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;}
+.ing-card:hover .ing-img img{transform:scale(1.05);}
+.ing-body{padding:20px;}
+.ing-name{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:400;color:var(--dark);margin-bottom:6px;}
+.ing-desc{font-size:.72rem;color:var(--muted);line-height:1.6;}
+
+/* PRODUCTS */
+.products{padding:90px 48px;}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:48px auto 0;}
+.p-card{background:white;border-radius:16px;overflow:hidden;border:1px solid rgba(45,90,39,.07);transition:transform .3s,box-shadow .3s;}
+.p-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.08);}
+.p-img{height:260px;overflow:hidden;position:relative;background:var(--cream);}
+.p-img img{width:100%;height:100%;object-fit:contain;display:block;padding:20px;transition:transform .5s;}
+.p-card:hover .p-img img{transform:scale(1.05);}
+.p-badge{position:absolute;top:12px;right:12px;padding:4px 10px;background:var(--green);color:white;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;border-radius:100px;}
+.p-body{padding:20px 22px;}
+.p-name{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:400;color:var(--dark);margin-bottom:6px;}
+.p-desc{font-size:.75rem;color:var(--muted);line-height:1.6;margin-bottom:14px;}
+.p-footer{display:flex;align-items:center;justify-content:space-between;}
+.p-price{font-size:1.05rem;font-weight:600;color:var(--green);}
+.p-btn{padding:9px 20px;background:var(--green);color:white;font-size:.7rem;letter-spacing:1px;border:none;border-radius:100px;cursor:pointer;text-decoration:none;transition:background .2s;}
+.p-btn:hover{background:var(--green2);}
+
+/* ROUTINE */
+.routine{padding:90px 48px;background:var(--green2);position:relative;overflow:hidden;}
+.routine::before{content:'';position:absolute;right:-100px;top:-100px;width:400px;height:400px;border-radius:50%;background:rgba(122,158,118,.06);}
+.routine-inner{max-width:900px;margin:0 auto;}
+.routine .sec-tag{color:rgba(122,158,118,.8);}
+.routine .sec-tag::before,.routine .sec-tag::after{background:rgba(122,158,118,.3);}
+.routine .sec-title{color:white;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;background:rgba(255,255,255,.04);}
+.step{padding:40px 32px;background:var(--green2);}
+.step-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:300;color:rgba(122,158,118,.3);line-height:1;margin-bottom:16px;}
+.step-img{width:60px;height:60px;border-radius:8px;overflow:hidden;margin-bottom:16px;}
+.step-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.step-title{font-size:.9rem;font-weight:500;color:white;margin-bottom:8px;}
+.step-desc{font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.7;}
+
+/* TESTI */
+.testi{padding:90px 48px;background:var(--cream);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:48px auto 0;}
+.t-card{background:white;padding:28px;border-radius:12px;border:1px solid var(--border);}
+.t-stars{font-size:.85rem;color:var(--peach);margin-bottom:12px;letter-spacing:2px;}
+.t-text{font-size:.8rem;color:var(--muted);line-height:1.8;margin-bottom:16px;font-style:italic;}
+.t-author{font-size:.72rem;color:var(--green);font-weight:500;}
+
+/* CTA */
+.cta{padding:80px 48px;text-align:center;}
+.cta h2{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--dark);margin-bottom:12px;}
+.cta h2 em{color:var(--green);font-style:italic;}
+.cta p{font-size:.85rem;color:var(--muted);margin-bottom:36px;}
+
+footer{background:var(--dark);padding:40px 48px;display:flex;justify-content:space-between;align-items:center;}
+.f-logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:300;letter-spacing:4px;color:var(--sage);text-transform:uppercase;}
+.f-copy{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:1px;}
+
+/* DEMO BANNER */
+.demo-banner{position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#1C1410;border-top:1px solid rgba(45,90,39,.2);padding:8px 20px;display:flex;align-items:center;justify-content:space-between;font-family:monospace;font-size:.7rem;letter-spacing:1px;}
+.demo-banner span{color:rgba(122,158,118,.8);}
+.demo-banner a.site-link{color:#7A9E76;text-decoration:none;font-weight:bold;}
+.demo-banner a.cta-link{padding:6px 14px;background:#2D5A27;color:white;text-decoration:none;font-weight:bold;font-size:.68rem;letter-spacing:1px;white-space:nowrap;border-radius:100px;}
+
+@media(max-width:768px){
+  nav{padding:0 20px;}.nav-links{display:none;}
+  .hero{grid-template-columns:1fr;margin-top:66px;}
+  .hero-left{height:300px;padding:40px 20px;}
+  .hero-product-img{width:55%;}
+  .hero-right{padding:48px 20px;}
+  .ingredients,.products,.routine,.testi,.cta{padding:60px 20px;}
+  .ing-grid{grid-template-columns:1fr 1fr;}
+  .products-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .testi-grid{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Lumà<sup>®</sup></div>
+  <div class="nav-links">
+    <a href="#produits">Produits</a>
+    <a href="#ingredients">Ingrédients</a>
+    <a href="#routine">Routine</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="https://wa.me/22600000000?text=Bonjour%2C+je+veux+commander+un+produit+Lumà." class="nav-cta">Commander</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <img class="hero-product-img" src="luma_neem_produit.jpg" alt="Huile de Neem purifiante — LUMÀ"/>
+  </div>
+  <div class="hero-right">
+    <div class="hero-tag"><span class="hero-tag-dot"></span>100% naturel · Made in Burkina</div>
+    <h1>Ta peau mérite<br>le <em>meilleur</em><br>de la nature</h1>
+    <p class="hero-desc">Cosmétiques formulés à base de karité, neem et hibiscus du Burkina Faso. Sans produit chimique, sans compromis sur l'efficacité.</p>
+    <div class="hero-btns">
+      <a href="#produits" class="btn-green">Découvrir les soins</a>
+      <a href="#routine" class="btn-text">Ma routine →</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">🌱 Ingrédients 100% naturels</div>
+      <div class="trust-item">🇧🇫 Fabriqué au Burkina</div>
+      <div class="trust-item">🐰 Non testé sur animaux</div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients" id="ingredients">
+  <div class="sec-head">
+    <div class="sec-tag">Nos actifs</div>
+    <h2 class="sec-title">Ce que la nature<br>du Sahel <em>offre à ta peau</em></h2>
+  </div>
+  <div class="ing-grid">
+    <div class="ing-card">
+      <div class="ing-img"><img src="luma_karite_beurre.jpg" alt="Karité du Burkina"/></div>
+      <div class="ing-body">
+        <div class="ing-name">Karité du Nord</div>
+        <div class="ing-desc">Hydratation profonde, réparation des peaux sèches et craquelées. Notre matière première reine.</div>
+      </div>
+    </div>
+    <div class="ing-card">
+      <div class="ing-img"><img src="luma_neem_feuilles.png" alt="Feuilles de Neem"/></div>
+      <div class="ing-body">
+        <div class="ing-name">Feuilles de Neem</div>
+        <div class="ing-desc">Antibactérien naturel puissant. Combat l'acné, les impuretés et resserre les pores en profondeur.</div>
+      </div>
+    </div>
+    <div class="ing-card">
+      <div class="ing-img"><img src="luma_hibiscus_fleur.jpg" alt="Fleur d'Hibiscus"/></div>
+      <div class="ing-body">
+        <div class="ing-name">Fleur d'Hibiscus</div>
+        <div class="ing-desc">Éclat et uniformisation du teint. Riche en antioxydants, elle combat les signes du vieillissement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUITS -->
+<section class="products" id="produits">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="sec-head">
+      <div class="sec-tag">Nos soins</div>
+      <h2 class="sec-title">La gamme <em>Lumà</em></h2>
+    </div>
+    <div class="products-grid">
+      <!-- Crème Karité -->
+      <div class="p-card">
+        <div class="p-img">
+          <span class="p-badge">Best-seller</span>
+          <img src="luma_karite_produit.jpg" alt="Crème Karité Nuit"/>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Crème Karité Nuit</div>
+          <div class="p-desc">Hydratation intense 24h, peaux sèches à très sèches. Texture onctueuse non grasse. BIO certifié.</div>
+          <div class="p-footer">
+            <span class="p-price">7 500 XOF</span>
+            <a href="https://wa.me/22600000000?text=Je+veux+commander+la+Crème+Karité+Lumà." class="p-btn">Commander</a>
+          </div>
+        </div>
+      </div>
+      <!-- Sérum Hibiscus -->
+      <div class="p-card">
+        <div class="p-img">
+          <img src="luma_serum_hibiscus.jpg" alt="Sérum Éclat Hibiscus"/>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Sérum Éclat Hibiscus</div>
+          <div class="p-desc">Uniformise le teint en 14 jours. Formule légère à absorption rapide. Anti-âge naturel.</div>
+          <div class="p-footer">
+            <span class="p-price">11 000 XOF</span>
+            <a href="https://wa.me/22600000000?text=Je+veux+commander+le+Sérum+Hibiscus+Lumà." class="p-btn">Commander</a>
+          </div>
+        </div>
+      </div>
+      <!-- Huile Neem -->
+      <div class="p-card">
+        <div class="p-img">
+          <span class="p-badge">Nouveau</span>
+          <img src="luma_neem_produit.jpg" alt="Huile Purifiante Neem"/>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Huile Purifiante Neem</div>
+          <div class="p-desc">Traitement anti-acné ciblé. Pores resserrés, peau nette. Résultats visibles dès 7 jours.</div>
+          <div class="p-footer">
+            <span class="p-price">9 000 XOF</span>
+            <a href="https://wa.me/22600000000?text=Je+veux+commander+l'Huile+Neem+Lumà." class="p-btn">Commander</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTINE -->
+<section class="routine" id="routine">
+  <div class="routine-inner">
+    <div class="sec-head" style="text-align:left;">
+      <div class="sec-tag" style="justify-content:flex-start;">La routine</div>
+      <h2 class="sec-title" style="color:white;text-align:left;">3 étapes,<br><em style="color:var(--sage);">une peau transformée</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-img"><img src="luma_neem_feuilles.png" alt="Neem purifier"/></div>
+        <div class="step-title">Purifier</div>
+        <div class="step-desc">Commence par purifier ta peau avec notre huile neem pour éliminer impuretés et bactéries.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-img"><img src="luma_serum_hibiscus.jpg" alt="Sérum hibiscus"/></div>
+        <div class="step-title">Traiter</div>
+        <div class="step-desc">Applique le sérum hibiscus en tapotant du centre vers l'extérieur pour un teint éclatant.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-img"><img src="luma_karite_produit.jpg" alt="Crème karité"/></div>
+        <div class="step-title">Hydrater</div>
+        <div class="step-desc">Scelle le tout avec la crème karité pour une hydratation longue durée et une peau lumineuse.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGES -->
+<section class="testi">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div class="sec-head">
+      <div class="sec-tag">Témoignages</div>
+      <h2 class="sec-title">Elles ont <em>testé Lumà</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"La crème karité a complètement transformé ma peau en 2 semaines. Je n'achète plus autre chose."</p>
+        <div class="t-author">Aminata S. — Ouagadougou</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"L'huile neem a réglé mon acné en 10 jours. Résultat incroyable, je recommande vivement."</p>
+        <div class="t-author">Roukiata O. — Koudougou</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Le sérum hibiscus est magique. Mon teint est uniforme et lumineux depuis que je l'utilise."</p>
+        <div class="t-author">Fatou D. — Bobo-Dioulasso</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <h2>Commence ta <em>routine naturelle</em><br>aujourd'hui</h2>
+  <p>Livraison disponible à Ouagadougou, Bobo-Dioulasso et Koudougou.</p>
+  <a href="https://wa.me/22600000000?text=Bonjour%2C+je+veux+commander+des+produits+Lumà." class="btn-green" style="display:inline-block;">💬 Commander sur WhatsApp</a>
+</section>
+
+<footer>
+  <div class="f-logo">Lumà</div>
+  <div class="f-copy">© 2026 · Ouagadougou, Burkina Faso</div>
+</footer>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner">
+  <span>⚡ SITE DE DÉMONSTRATION — Réalisé par <a href="https://moussabalima07-dot-github-io.vercel.app" target="_blank" class="site-link">Balima Dev</a></span>
+  <a href="https://wa.me/22607190217?text=Bonjour%20Moussa%2C%20je%20veux%20un%20site%20similaire%20à%20Lumà." target="_blank" class="cta-link">→ Créer le mien</a>
+</div>
+
+</body>
+</html>
