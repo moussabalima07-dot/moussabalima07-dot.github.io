@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>VELOCE — Automobiles d'Exception</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--black:#050507;--dark:#0a0a0f;--dark2:#111118;--card:#13131c;--card2:#1a1a26;--gold:#c9a84c;--gold2:#e8c97a;--white:#f5f0e8;--muted:#7a7a8a;--muted2:#4a4a5a;--red:#c0392b;--line:rgba(201,168,76,0.15);--line2:rgba(255,255,255,0.06);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+button{font-family:'Montserrat',sans-serif;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--dark);}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+
+
+
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 60px;display:flex;align-items:center;justify-content:space-between;height:80px;transition:all 0.4s;}
+nav.scrolled{background:rgba(5,5,7,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);height:64px;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;letter-spacing:6px;color:var(--white);display:flex;align-items:center;gap:12px;}
+.nav-logo span{color:var(--gold);}
+.nav-logo::before{content:'';display:block;width:28px;height:2px;background:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;}
+.nav-links a{font-size:0.68rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);transition:color 0.3s;position:relative;padding-bottom:4px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s;}
+.nav-links a:hover{color:var(--white);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;transition:all 0.3s;}
+.nav-cta:hover{background:var(--gold);color:var(--black);}
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;overflow:hidden;}
+.hero-canvas{position:absolute;inset:0;z-index:0;}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,5,7,0.85) 0%,rgba(5,5,7,0.4) 55%,transparent 100%);}
+.hero-car{position:absolute;right:3%;top:50%;transform:translateY(-50%);width:58%;z-index:2;animation:carFloat 6s ease-in-out infinite;}
+@keyframes carFloat{0%,100%{transform:translateY(-50%);}50%{transform:translateY(-52%) translateX(-8px);}}
+.hero-car img{width:100%;filter:drop-shadow(0 40px 80px rgba(201,168,76,0.2));object-fit:contain;}
+.hero-content{position:relative;z-index:3;padding:0 60px;max-width:580px;}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:0.62rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:28px;}
+.hero-tag::before{content:'';width:30px;height:1px;background:var(--gold);}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,6vw,5.5rem);font-weight:300;line-height:1.0;letter-spacing:2px;margin-bottom:8px;}
+.hero-title strong{font-weight:700;color:var(--gold);font-style:italic;display:block;}
+.hero-sub{font-size:0.78rem;font-weight:300;letter-spacing:2px;color:var(--muted);margin-bottom:40px;line-height:1.8;text-transform:uppercase;}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:var(--black);padding:16px 36px;font-size:0.68rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;border:none;transition:all 0.3s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 20px 40px rgba(201,168,76,0.3);}
+.btn-ghost{background:transparent;color:var(--white);padding:15px 32px;font-size:0.68rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;border:1px solid var(--line2);transition:all 0.3s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{position:absolute;bottom:50px;left:60px;right:60px;z-index:3;display:flex;gap:60px;}
+.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--gold2);line-height:1;}
+.hero-stat-num sup{font-size:1rem;}
+.hero-stat-label{font-size:0.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+.hero-scroll{position:absolute;right:40px;top:50%;transform:translateY(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:12px;writing-mode:vertical-rl;font-size:0.58rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;}
+.hero-scroll::after{content:'';display:block;width:1px;height:60px;background:linear-gradient(var(--gold),transparent);animation:scrollLine 2s ease-in-out infinite;}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+.marquee-wrap{background:var(--gold);padding:14px 0;overflow:hidden;}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 25s linear infinite;}
+.marquee-item{display:inline-flex;align-items:center;gap:24px;padding:0 40px;font-size:0.62rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--black);}
+.marquee-dot{width:4px;height:4px;background:var(--black);border-radius:50%;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.section{padding:120px 60px;}
+.section-label{display:inline-flex;align-items:center;gap:12px;font-size:0.6rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.section-label::before{content:'';width:24px;height:1px;background:var(--gold);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,3.8rem);font-weight:300;line-height:1.1;}
+.section-title em{font-style:italic;color:var(--gold);}
+.section-divider{width:60px;height:1px;background:var(--gold);margin:28px 0;}
+.section-desc{font-size:0.82rem;font-weight:300;line-height:1.9;color:var(--muted);max-width:500px;}
+.brands-section{padding:80px 60px;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);}
+.brands-title{font-size:0.6rem;letter-spacing:5px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:50px;}
+.brands-grid{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:60px 80px;}
+.brand-item{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--muted2);transition:color 0.3s;user-select:none;}
+.brand-item:hover{color:var(--gold);}
+.filter-section{padding:0 60px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.filter-tabs{display:flex;gap:4px;flex-wrap:wrap;}
+.filter-tab{background:transparent;border:1px solid var(--line2);color:var(--muted);padding:10px 22px;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:all 0.25s;}
+.filter-tab:hover,.filter-tab.active{background:var(--gold);border-color:var(--gold);color:var(--black);}
+.filter-sort{display:flex;align-items:center;gap:16px;}
+.filter-sort label{font-size:0.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.filter-sort select{background:var(--card);border:1px solid var(--line2);color:var(--white);padding:10px 16px;font-size:0.7rem;font-family:'Montserrat',sans-serif;outline:none;appearance:none;}
+.cars-grid{padding:0 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.car-card{background:var(--card);position:relative;overflow:hidden;transition:transform 0.4s;border:1px solid var(--line2);}
+.car-card:hover{transform:translateY(-6px);z-index:2;}
+.car-card:hover .car-card-overlay{opacity:1;}
+.car-card:hover .car-card-img img{transform:scale(1.06);}
+.car-card:hover .car-card-cta{opacity:1;transform:translateY(0);}
+.car-badge{position:absolute;top:20px;left:20px;z-index:3;font-size:0.55rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:5px 12px;}
+.badge-new{background:var(--gold);color:var(--black);}
+.badge-hot{background:var(--red);color:white;}
+.badge-exclu{background:var(--dark);border:1px solid var(--gold);color:var(--gold);}
+.car-fav{position:absolute;top:20px;right:20px;z-index:3;background:rgba(5,5,7,0.6);border:1px solid var(--line2);color:var(--muted);width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all 0.3s;backdrop-filter:blur(4px);}
+.car-fav:hover,.car-fav.active{border-color:var(--gold);color:var(--gold);}
+.car-card-img{height:240px;background:var(--dark2);overflow:hidden;position:relative;}
+.car-card-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(transparent,var(--card));z-index:1;}
+.car-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+.car-card-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.05) 0%,transparent 60%);opacity:0;transition:opacity 0.4s;z-index:2;}
+.car-card-body{padding:24px;}
+.car-card-brand{font-size:0.58rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.car-card-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;line-height:1.2;margin-bottom:4px;}
+.car-card-version{font-size:0.65rem;color:var(--muted);margin-bottom:18px;letter-spacing:1px;}
+.car-card-specs{display:flex;gap:20px;border-top:1px solid var(--line2);padding-top:16px;margin-bottom:20px;}
+.spec-val{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;}
+.spec-unit{font-size:0.58rem;color:var(--gold);font-weight:700;}
+.spec-label{font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.car-card-footer{display:flex;align-items:flex-end;justify-content:space-between;}
+.price-from{font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.price-val{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--gold2);line-height:1.1;}
+.price-currency{font-size:1rem;color:var(--muted);}
+.car-card-cta{background:var(--gold);color:var(--black);border:none;padding:10px 18px;font-size:0.58rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:all 0.3s;}
+.car-card.featured{grid-column:span 2;}
+.car-card.featured .car-card-img{height:320px;}
+.page{display:none;position:fixed;inset:0;z-index:2000;background:var(--black);overflow-y:auto;}
+.page.open{display:block;}
+.page-close{position:fixed;top:24px;right:24px;z-index:2100;background:rgba(5,5,7,0.8);border:1px solid var(--line);color:var(--white);width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all 0.3s;backdrop-filter:blur(10px);}
+.page-close:hover{border-color:var(--gold);color:var(--gold);}
+.detail-hero{height:72vh;position:relative;overflow:hidden;}
+.detail-hero img{width:100%;height:100%;object-fit:cover;}
+.detail-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,var(--black) 0%,rgba(5,5,7,0.2) 60%,transparent 100%);}
+.detail-hero-info{position:absolute;bottom:60px;left:60px;right:60px;z-index:2;}
+.detail-brand{font-size:0.62rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.detail-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,6rem);font-weight:300;line-height:1;margin-bottom:8px;}
+.detail-title strong{font-weight:700;}
+.detail-subtitle{font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.detail-body{padding:80px 60px;display:grid;grid-template-columns:1fr 380px;gap:80px;max-width:1400px;margin:0 auto;}
+.detail-specs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:50px;}
+.dspec{background:var(--card);padding:24px 20px;text-align:center;border:1px solid var(--line2);}
+.dspec-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold2);line-height:1;}
+.dspec-unit{font-size:0.7rem;color:var(--gold);}
+.dspec-label{font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+.detail-desc{font-size:0.85rem;line-height:2;color:var(--muted);font-weight:300;margin-bottom:40px;}
+.detail-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:50px;}
+.detail-feature{display:flex;align-items:center;gap:12px;font-size:0.72rem;color:var(--muted);}
+.detail-feature::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;}
+.detail-gallery{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:30px;}
+.detail-gallery-img{overflow:hidden;}
+.detail-gallery-img img{width:100%;height:200px;object-fit:cover;transition:transform 0.4s;}
+.detail-gallery-img:hover img{transform:scale(1.05);}
+.detail-price-box{background:var(--card);border:1px solid var(--line);padding:36px;margin-bottom:2px;}
+.detail-price-label{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.detail-price{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--gold2);line-height:1;margin-bottom:24px;}
+.detail-stock{display:flex;align-items:center;gap:8px;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+.detail-stock-dot{width:8px;height:8px;background:#25d366;border-radius:50%;box-shadow:0 0 8px #25d366;}
+.detail-sidebar-actions{display:flex;flex-direction:column;gap:10px;}
+.detail-sidebar-actions .btn-primary{clip-path:none;text-align:center;}
+.config-btn-sm{background:var(--card2);color:var(--gold);border:1px solid var(--gold);padding:14px;font-size:0.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-align:center;transition:all 0.3s;}
+.config-btn-sm:hover{background:var(--gold);color:var(--black);}
+.detail-tabs{display:flex;gap:0;margin-bottom:40px;border-bottom:1px solid var(--line2);}
+.detail-tab{padding:14px 24px;font-size:0.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.3s;}
+.detail-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.detail-tab-content{display:none;}
+.detail-tab-content.active{display:block;}
+.lightbox{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.96);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 0.4s;}
+.lightbox.open{opacity:1;visibility:visible;}
+.lightbox img{max-width:90vw;max-height:85vh;object-fit:contain;}
+.lightbox-close{position:absolute;top:24px;right:24px;background:transparent;border:1px solid var(--line);color:var(--white);width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all 0.3s;}
+.lightbox-close:hover{border-color:var(--gold);color:var(--gold);}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(201,168,76,0.1);border:1px solid var(--line);color:var(--gold);width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:all 0.3s;}
+.lightbox-nav:hover{background:var(--gold);color:var(--black);}
+.lightbox-prev{left:24px;}
+.lightbox-next{right:24px;}
+.lightbox-caption{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.config-page{display:none;position:fixed;inset:0;z-index:3000;background:var(--black);overflow:hidden;}
+.config-page.open{display:block;}
+.config-layout{display:grid;grid-template-columns:1fr 420px;height:100vh;}
+.config-preview{position:relative;background:linear-gradient(135deg,var(--dark2) 0%,var(--card) 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.config-preview-car{width:85%;position:relative;z-index:2;}
+.config-preview-car img{width:100%;object-fit:contain;filter:drop-shadow(0 40px 80px rgba(201,168,76,0.15));transition:filter 0.5s;}
+.config-color-overlay{position:absolute;inset:0;transition:background 0.5s;mix-blend-mode:color;pointer-events:none;opacity:0.18;z-index:1;}
+.config-preview-info{position:absolute;bottom:40px;left:40px;z-index:3;}
+.config-preview-brand{font-size:0.6rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.config-preview-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;}
+.config-preview-title strong{font-weight:700;}
+.config-panel{background:var(--dark);overflow-y:auto;display:flex;flex-direction:column;}
+.config-panel-header{padding:28px 36px;border-bottom:1px solid var(--line2);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--dark);z-index:10;}
+.config-panel-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;}
+.config-close{background:transparent;border:1px solid var(--line2);color:var(--muted);width:40px;height:40px;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+.config-close:hover{border-color:var(--gold);color:var(--gold);}
+.config-section{padding:24px 36px;border-bottom:1px solid var(--line2);}
+.config-section-title{font-size:0.6rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.config-colors{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+.config-color{width:42px;height:42px;border-radius:50%;border:3px solid transparent;transition:all 0.3s;position:relative;}
+.config-color.active,.config-color:hover{border-color:var(--gold);transform:scale(1.1);}
+.config-color-name{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:0.48rem;letter-spacing:1px;white-space:nowrap;color:var(--muted);opacity:0;transition:opacity 0.2s;}
+.config-color:hover .config-color-name{opacity:1;}
+.config-wheels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.config-wheel{background:var(--card);border:1px solid var(--line2);padding:14px 10px;text-align:center;transition:all 0.3s;}
+.config-wheel.active,.config-wheel:hover{border-color:var(--gold);background:var(--card2);}
+.config-wheel-icon{font-size:1.8rem;margin-bottom:6px;}
+.config-wheel-name{font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.config-wheel.active .config-wheel-name{color:var(--gold);}
+.config-interior{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.config-int-item{background:var(--card);border:1px solid var(--line2);padding:12px;transition:all 0.3s;display:flex;align-items:center;gap:10px;}
+.config-int-item.active,.config-int-item:hover{border-color:var(--gold);}
+.config-int-swatch{width:30px;height:30px;border-radius:4px;flex-shrink:0;}
+.config-int-label{font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.config-int-item.active .config-int-label{color:var(--gold);}
+.config-options{display:flex;flex-direction:column;gap:8px;}
+.config-option{background:var(--card);border:1px solid var(--line2);padding:12px 14px;transition:all 0.3s;display:flex;align-items:center;justify-content:space-between;}
+.config-option.active{border-color:var(--gold);}
+.config-option-label{font-size:0.66rem;font-weight:600;color:var(--white);}
+.config-option-price{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);}
+.config-option-check{width:20px;height:20px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:0.7rem;transition:all 0.3s;flex-shrink:0;}
+.config-option.active .config-option-check{background:var(--gold);border-color:var(--gold);color:var(--black);}
+.config-footer{padding:24px 36px;background:var(--dark);border-top:1px solid var(--line2);position:sticky;bottom:0;}
+.config-total-label{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.config-total-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold2);margin-bottom:16px;}
+.config-footer-actions{display:flex;gap:10px;}
+.config-footer-actions .btn-primary{flex:1;clip-path:none;text-align:center;}
+.spotlight{padding:120px 60px;background:var(--dark2);position:relative;overflow:hidden;}
+.spotlight-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.spotlight-car-visual{border:1px solid var(--line);overflow:hidden;position:relative;height:400px;}
+.spotlight-car-visual img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;}
+.spotlight-car-visual:hover img{transform:scale(1.04);}
+.spotlight-car-badge{position:absolute;top:0;right:40px;background:var(--gold);color:var(--black);padding:8px 20px;font-size:0.6rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;z-index:2;}
+.spotlight-car-num{position:absolute;bottom:-30px;left:-30px;font-family:'Cormorant Garamond',serif;font-size:10rem;font-weight:700;color:rgba(201,168,76,0.06);pointer-events:none;user-select:none;z-index:3;}
+.spotlight-tag{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:6px 16px;font-size:0.58rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:28px;}
+.spotlight-title{font-family:'Cormorant Garamond',serif;font-size:3.4rem;font-weight:300;line-height:1.05;margin-bottom:8px;}
+.spotlight-title strong{font-weight:700;}
+.spotlight-subtitle{font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:28px;}
+.spotlight-desc{font-size:0.8rem;line-height:1.9;color:var(--muted);margin-bottom:40px;font-weight:300;}
+.spotlight-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:40px;}
+.sspec{background:var(--card);padding:20px 16px;text-align:center;border:1px solid var(--line2);}
+.sspec-val{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--gold2);}
+.sspec-unit{font-size:0.7rem;color:var(--gold);}
+.sspec-label{font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+.spotlight-price-row{display:flex;align-items:center;gap:40px;margin-bottom:32px;padding-top:28px;border-top:1px solid var(--line2);}
+.spotlight-price-label{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.spotlight-price-val{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold2);}
+.spotlight-price-currency{font-size:1.4rem;color:var(--muted);}
+.spotlight-actions{display:flex;gap:14px;}
+.academie{padding:120px 60px;background:var(--black);}
+.academie-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:80px;}
+.academie-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.academie-card{background:var(--card);border:1px solid var(--line2);overflow:hidden;transition:transform 0.4s;}
+.academie-card:hover{transform:translateY(-6px);}
+.academie-card:hover .academie-img img{transform:scale(1.04);}
+.academie-img{height:220px;overflow:hidden;position:relative;}
+.academie-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+.academie-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(transparent,var(--card));z-index:1;}
+.academie-cat{position:absolute;top:16px;left:16px;z-index:2;background:var(--gold);color:var(--black);padding:4px 12px;font-size:0.5rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;}
+.academie-body{padding:28px;}
+.academie-date{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.academie-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;line-height:1.3;margin-bottom:12px;}
+.academie-desc{font-size:0.72rem;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:20px;}
+.academie-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--line2);}
+.academie-author{font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);}
+.academie-link{font-size:0.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.evenements{padding:120px 60px;background:var(--dark2);}
+.evenements-header{text-align:center;margin-bottom:80px;}
+.evenements-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
+.event-card{background:var(--card);border:1px solid var(--line2);display:grid;grid-template-columns:140px 1fr;overflow:hidden;transition:all 0.3s;}
+.event-card:hover{border-color:var(--line);transform:translateX(4px);}
+.event-date-box{background:var(--dark2);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px;border-right:1px solid var(--line2);}
+.event-day{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;color:var(--gold2);line-height:1;}
+.event-month{font-size:0.58rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-top:4px;}
+.event-year{font-size:0.52rem;letter-spacing:2px;color:var(--muted2);margin-top:2px;}
+.event-body{padding:24px 28px;}
+.event-type{font-size:0.55rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.event-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;line-height:1.2;margin-bottom:8px;}
+.event-desc{font-size:0.7rem;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:14px;}
+.event-meta{display:flex;gap:20px;flex-wrap:wrap;}
+.event-meta-item{font-size:0.56rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);}
+.event-register{display:inline-flex;align-items:center;gap:8px;font-size:0.56rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:7px 14px;margin-top:14px;transition:all 0.3s;}
+.event-register:hover{background:var(--gold);color:var(--black);}
+.event-card.featured-event{grid-column:span 2;grid-template-columns:160px 1fr;}
+.event-card.featured-event .event-date-box{background:var(--gold);}
+.event-card.featured-event .event-day{color:var(--black);}
+.event-card.featured-event .event-month{color:rgba(0,0,0,0.6);}
+.services-section{padding:120px 60px;background:var(--black);}
+.services-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:80px;}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.service-card{background:var(--card);padding:40px 32px;border:1px solid var(--line2);position:relative;overflow:hidden;transition:all 0.4s;}
+.service-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform 0.4s;}
+.service-card:hover{background:var(--card2);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-num{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;color:rgba(201,168,76,0.06);position:absolute;top:10px;right:20px;user-select:none;}
+.service-icon{font-size:1.8rem;margin-bottom:24px;color:var(--muted2);}
+.service-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;margin-bottom:14px;}
+.service-desc{font-size:0.75rem;line-height:1.8;color:var(--muted);font-weight:300;}
+.testimonials{padding:120px 60px;background:var(--dark2);position:relative;overflow:hidden;}
+.testi-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:20rem;font-weight:700;color:rgba(201,168,76,0.02);white-space:nowrap;pointer-events:none;user-select:none;}
+.testi-header{text-align:center;margin-bottom:80px;position:relative;z-index:1;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;position:relative;z-index:1;}
+.testi-card{background:var(--card);padding:40px 36px;border:1px solid var(--line2);position:relative;overflow:hidden;}
+.testi-card::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:700;color:rgba(201,168,76,0.08);position:absolute;top:-10px;left:20px;line-height:1;}
+.testi-stars{display:flex;gap:4px;margin-bottom:20px;position:relative;z-index:1;}
+.star{color:var(--gold);font-size:0.8rem;}
+.testi-text{font-size:0.82rem;line-height:1.9;color:var(--muted);font-weight:300;margin-bottom:28px;font-style:italic;position:relative;z-index:1;}
+.testi-author{display:flex;align-items:center;gap:16px;position:relative;z-index:1;}
+.testi-avatar{width:48px;height:48px;border-radius:50%;background:var(--card2);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--gold2);flex-shrink:0;}
+.testi-name{font-size:0.78rem;font-weight:700;color:var(--white);}
+.testi-role{font-size:0.62rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.testi-car{font-size:0.58rem;color:var(--muted);margin-top:2px;}
+.cta-section{padding:120px 60px;background:var(--gold);position:relative;overflow:hidden;text-align:center;}
+.cta-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(0,0,0,0.08));}
+.cta-section::after{content:'VELOCE';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:22rem;font-weight:700;color:rgba(0,0,0,0.04);white-space:nowrap;pointer-events:none;}
+.cta-content{position:relative;z-index:1;}
+.cta-label{font-size:0.62rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:20px;}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:700;color:var(--black);line-height:1.1;margin-bottom:16px;}
+.cta-sub{font-size:0.8rem;color:rgba(0,0,0,0.55);font-weight:300;margin-bottom:48px;line-height:1.7;}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-dark{background:var(--black);color:var(--gold);padding:16px 40px;font-size:0.68rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;border:none;transition:all 0.3s;}
+.btn-dark:hover{background:var(--dark2);transform:translateY(-2px);}
+.btn-outline-dark{background:transparent;color:var(--black);padding:15px 36px;font-size:0.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;border:2px solid var(--black);transition:all 0.3s;}
+.btn-outline-dark:hover{background:var(--black);color:var(--gold);}
+footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60px 40px;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;letter-spacing:6px;color:var(--white);margin-bottom:20px;}
+.footer-logo span{color:var(--gold);}
+.footer-tagline{font-size:0.72rem;line-height:1.9;color:var(--muted);font-weight:300;max-width:300px;margin-bottom:28px;}
+.footer-social{display:flex;gap:12px;}
+.social-btn{width:38px;height:38px;border:1px solid var(--line2);background:transparent;color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:0.7rem;transition:all 0.3s;}
+.social-btn:hover{border-color:var(--gold);color:var(--gold);}
+.footer-col-title{font-size:0.6rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.footer-links a{font-size:0.76rem;color:var(--muted);font-weight:300;transition:color 0.3s;display:flex;align-items:center;gap:8px;}
+.footer-links a::before{content:'—';font-size:0.5rem;color:var(--gold);opacity:0;transition:opacity 0.3s;}
+.footer-links a:hover{color:var(--white);}
+.footer-links a:hover::before{opacity:1;}
+.footer-bottom{padding-top:40px;border-top:1px solid var(--line2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-copy{font-size:0.62rem;color:var(--muted2);letter-spacing:2px;text-transform:uppercase;}
+.footer-legal{display:flex;gap:24px;}
+.footer-legal a{font-size:0.6rem;color:var(--muted2);transition:color 0.3s;}
+.footer-legal a:hover{color:var(--gold);}
+.modal{position:fixed;inset:0;z-index:5000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:all 0.4s;}
+.modal.open{opacity:1;visibility:visible;}
+.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);}
+.modal-box{position:relative;z-index:1;background:var(--card);border:1px solid var(--line);max-width:600px;width:100%;padding:50px;transform:translateY(30px);transition:transform 0.4s;}
+.modal.open .modal-box{transform:translateY(0);}
+.modal-close{position:absolute;top:20px;right:20px;background:transparent;border:none;color:var(--muted);font-size:1.2rem;transition:color 0.2s;}
+.modal-close:hover{color:var(--gold);}
+.modal-tag{font-size:0.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;margin-bottom:8px;}
+.modal-subtitle{font-size:0.75rem;color:var(--muted);margin-bottom:32px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--dark2);border:1px solid var(--line2);color:var(--white);padding:12px 16px;font-size:0.8rem;font-family:'Montserrat';outline:none;transition:border-color 0.3s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+.form-group textarea{resize:none;height:80px;}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s,transform 0.8s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+.loader{position:fixed;inset:0;z-index:10000;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;transition:opacity 0.8s,visibility 0.8s;}
+.loader.hidden{opacity:0;visibility:hidden;}
+.loader-logo{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;letter-spacing:10px;color:var(--white);animation:logoPulse 1.5s ease-in-out infinite;}
+.loader-logo span{color:var(--gold);}
+.loader-bar{width:200px;height:1px;background:var(--muted2);position:relative;overflow:hidden;}
+.loader-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gold);animation:loaderBar 2s ease forwards;}
+.loader-text{font-size:0.58rem;letter-spacing:5px;text-transform:uppercase;color:var(--muted);}
+@keyframes logoPulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+@keyframes loaderBar{0%{left:-100%;}100%{left:0%;}}
+@media(max-width:1100px){.cars-grid{grid-template-columns:repeat(2,1fr);}.car-card.featured{grid-column:span 2;}.spotlight-inner,.academie-header,.services-header{grid-template-columns:1fr;gap:40px;}.services-grid{grid-template-columns:repeat(2,1fr);}.testi-grid,.academie-grid{grid-template-columns:repeat(2,1fr);}.footer-top{grid-template-columns:1fr 1fr;}.config-layout{grid-template-columns:1fr;height:auto;overflow-y:auto;}.config-preview{height:50vh;}.evenements-grid{grid-template-columns:1fr;}.event-card.featured-event{grid-column:span 1;grid-template-columns:120px 1fr;}.detail-body{grid-template-columns:1fr;}}
+@media(max-width:768px){nav{padding:0 24px;}.nav-links{display:none;}.section,.spotlight,.services-section,.testimonials,.cta-section,.academie,.evenements{padding:80px 24px;}.filter-section{padding:0 24px 40px;}.cars-grid{padding:0 24px;grid-template-columns:1fr;}.car-card.featured{grid-column:span 1;}.hero-content{padding:0 24px;}.hero-stats{left:24px;right:24px;gap:30px;}.spotlight-specs{grid-template-columns:repeat(2,1fr);}.testi-grid,.services-grid,.academie-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;}footer{padding:60px 24px 30px;}.brands-section{padding:60px 24px;}.hero-car{display:none;}.hero-title{font-size:3rem;}.detail-hero-info{bottom:30px;left:24px;right:24px;}.detail-body{padding:40px 24px;}.detail-specs-grid{grid-template-columns:repeat(2,1fr);}.detail-gallery{grid-template-columns:1fr;}.event-card{grid-template-columns:100px 1fr;}}
+
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-logo">VEL<span>O</span>CE</div>
+  <div class="loader-bar"></div>
+  <div class="loader-text">Chargement de l'expérience</div>
+</div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">‹</button>
+  <img id="lambo.jpg" src="lambo.jpg" alt="">
+  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">›</button>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<!-- DETAIL PAGE -->
+<div class="page" id="detailPage">
+  <button class="page-close" onclick="closeDetail()">✕</button>
+  <div id="detailContent"></div>
+</div>
+
+<!-- CONFIGURATEUR -->
+<div class="config-page" id="configPage">
+  <div class="config-layout">
+    <div class="config-preview">
+      <canvas id="configCanvas" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+      <div class="config-color-overlay" id="colorOverlay"></div>
+      <div class="config-preview-car"><img id="configCarImg" src="" alt=""></div>
+      <div class="config-preview-info">
+        <div class="config-preview-brand" id="configBrand"></div>
+        <div class="config-preview-title" id="configTitle"></div>
+      </div>
+    </div>
+    <div class="config-panel">
+      <div class="config-panel-header">
+        <div class="config-panel-title">Configurateur</div>
+        <button class="config-close" onclick="closeConfig()">✕</button>
+      </div>
+      <div class="config-section">
+        <div class="config-section-title">Couleur Carrosserie</div>
+        <div class="config-colors">
+          <div class="config-color active" style="background:#1a1a2a" data-color="#1a1a2a" data-name="Noir Profond" onclick="selectColor(this)"><span class="config-color-name">Noir Profond</span></div>
+          <div class="config-color" style="background:#8b0000" data-color="#8b0000" data-name="Rouge Passion" onclick="selectColor(this)"><span class="config-color-name">Rouge Passion</span></div>
+          <div class="config-color" style="background:#c9a84c" data-color="#c9a84c" data-name="Or Métallisé" onclick="selectColor(this)"><span class="config-color-name">Or Métallisé</span></div>
+          <div class="config-color" style="background:#f0ece4;border:2px solid #ccc" data-color="#f0ece4" data-name="Blanc Glacier" onclick="selectColor(this)"><span class="config-color-name">Blanc Glacier</span></div>
+          <div class="config-color" style="background:#2d4a7a" data-color="#2d4a7a" data-name="Bleu Nuit" onclick="selectColor(this)"><span class="config-color-name">Bleu Nuit</span></div>
+          <div class="config-color" style="background:#1a3a1a" data-color="#1a3a1a" data-name="Vert Racing" onclick="selectColor(this)"><span class="config-color-name">Vert Racing</span></div>
+          <div class="config-color" style="background:#4a4a5a" data-color="#4a4a5a" data-name="Gris Titane" onclick="selectColor(this)"><span class="config-color-name">Gris Titane</span></div>
+          <div class="config-color" style="background:#5c2a00" data-color="#5c2a00" data-name="Bronze Cuivre" onclick="selectColor(this)"><span class="config-color-name">Bronze Cuivre</span></div>
+        </div>
+        <div id="selectedColorName" style="margin-top:14px;font-size:0.62rem;letter-spacing:2px;color:var(--gold)">Noir Profond</div>
+      </div>
+      <div class="config-section">
+        <div class="config-section-title">Jantes</div>
+        <div class="config-wheels">
+          <div class="config-wheel active" onclick="selectWheel(this,0)"><div class="config-wheel-icon">⚙️</div><div class="config-wheel-name">Standard</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--gold);margin-top:4px">Inclus</div></div>
+          <div class="config-wheel" onclick="selectWheel(this,8500)"><div class="config-wheel-icon">🔩</div><div class="config-wheel-name">Sport 21"</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--gold);margin-top:4px">+ €8 500</div></div>
+          <div class="config-wheel" onclick="selectWheel(this,18000)"><div class="config-wheel-icon">🏆</div><div class="config-wheel-name">Carbone 22"</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--gold);margin-top:4px">+ €18 000</div></div>
+        </div>
+      </div>
+      <div class="config-section">
+        <div class="config-section-title">Sellerie Intérieure</div>
+        <div class="config-interior">
+          <div class="config-int-item active" onclick="selectInterior(this,0)"><div class="config-int-swatch" style="background:#111;border:1px solid #333"></div><div><div class="config-int-label">Cuir Noir</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:var(--gold)">Inclus</div></div></div>
+          <div class="config-int-item" onclick="selectInterior(this,4200)"><div class="config-int-swatch" style="background:#c8a87a"></div><div><div class="config-int-label">Cuir Beige</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:var(--gold)">+ €4 200</div></div></div>
+          <div class="config-int-item" onclick="selectInterior(this,7800)"><div class="config-int-swatch" style="background:#8b0000"></div><div><div class="config-int-label">Alcantara Rouge</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:var(--gold)">+ €7 800</div></div></div>
+          <div class="config-int-item" onclick="selectInterior(this,6500)"><div class="config-int-swatch" style="background:#f5f0e8;border:1px solid #ddd"></div><div><div class="config-int-label">Cuir Blanc</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:var(--gold)">+ €6 500</div></div></div>
+        </div>
+      </div>
+      <div class="config-section">
+        <div class="config-section-title">Options & Équipements</div>
+        <div class="config-options">
+          <div class="config-option" onclick="toggleOption(this,12000)"><div><div class="config-option-label">Pack Carbone Extérieur</div><div style="font-size:0.58rem;color:var(--muted);margin-top:2px">Toit, rétros, diffuseur carbone</div></div><div style="display:flex;align-items:center;gap:10px"><div class="config-option-price">+ €12 000</div><div class="config-option-check">✓</div></div></div>
+          <div class="config-option" onclick="toggleOption(this,8500)"><div><div class="config-option-label">Audio Burmester 3D</div><div style="font-size:0.58rem;color:var(--muted);margin-top:2px">Surround 24 haut-parleurs</div></div><div style="display:flex;align-items:center;gap:10px"><div class="config-option-price">+ €8 500</div><div class="config-option-check">✓</div></div></div>
+          <div class="config-option" onclick="toggleOption(this,5200)"><div><div class="config-option-label">Freins Céramique</div><div style="font-size:0.58rem;color:var(--muted);margin-top:2px">Disques carbone haute performance</div></div><div style="display:flex;align-items:center;gap:10px"><div class="config-option-price">+ €5 200</div><div class="config-option-check">✓</div></div></div>
+          <div class="config-option" onclick="toggleOption(this,3800)"><div><div class="config-option-label">Vitres Athermiques</div><div style="font-size:0.58rem;color:var(--muted);margin-top:2px">Teinté · Protection solaire</div></div><div style="display:flex;align-items:center;gap:10px"><div class="config-option-price">+ €3 800</div><div class="config-option-check">✓</div></div></div>
+          <div class="config-option" onclick="toggleOption(this,9600)"><div><div class="config-option-label">Ciel Étoilé Fibre Optique</div><div style="font-size:0.58rem;color:var(--muted);margin-top:2px">1 340 étoiles au plafond</div></div><div style="display:flex;align-items:center;gap:10px"><div class="config-option-price">+ €9 600</div><div class="config-option-check">✓</div></div></div>
+        </div>
+      </div>
+      <div style="height:120px"></div>
+      <div class="config-footer">
+        <div class="config-total-label">Prix Total Configuré</div>
+        <div class="config-total-price" id="configTotalPrice">€ —</div>
+        <div class="config-footer-actions">
+          <button class="btn-primary" onclick="openModal()">Commander</button>
+          <button class="btn-ghost" style="padding:14px 20px;font-size:0.62rem" onclick="resetConfig()">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">VEL<span>O</span>CE</div>
+  <ul class="nav-links">
+    <li><a href="#catalogue">Catalogue</a></li>
+    <li><a href="#spotlight">Coup de Cœur</a></li>
+    <li><a href="#academie">Académie</a></li>
+    <li><a href="#evenements">Événements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openModal()">Réserver un Essai</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-car"><img src="images/lambo.jpg" alt="Lamborghini Huracán EVO"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Collection Exclusive 2025</div>
+    <h1 class="hero-title">L'Art de<br><strong>Conduire</strong> Autrement</h1>
+    <p class="hero-sub">Automobiles d'exception · Sélection de prestige</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'})">Découvrir le Catalogue</button>
+      <button class="btn-ghost" onclick="openModal()">Essai Privé</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">200<sup>+</sup></div><div class="hero-stat-label">Véhicules en Stock</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-label">Marques Exclusives</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">98<sup>%</sup></div><div class="hero-stat-label">Clients Satisfaits</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">15</div><div class="hero-stat-label">Ans d'Excellence</div></div>
+  </div>
+  <div class="hero-scroll">Défiler</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap"><div class="marquee-track">
+  <span class="marquee-item"><span class="marquee-dot"></span>Lamborghini<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Ferrari<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Porsche<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Bentley<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Rolls-Royce<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Aston Martin<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>McLaren<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Maserati<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Lamborghini<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Ferrari<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Porsche<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Bentley<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Rolls-Royce<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Aston Martin<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>McLaren<span class="marquee-dot"></span></span>
+  <span class="marquee-item"><span class="marquee-dot"></span>Maserati<span class="marquee-dot"></span></span>
+</div></div>
+
+<!-- BRANDS -->
+<div class="brands-section">
+  <div class="brands-title">Nos Marques Partenaires</div>
+  <div class="brands-grid">
+    <div class="brand-item">Lamborghini</div><div class="brand-item">Ferrari</div>
+    <div class="brand-item">Porsche</div><div class="brand-item">Bentley</div>
+    <div class="brand-item">Rolls‑Royce</div><div class="brand-item">McLaren</div>
+    <div class="brand-item">Aston Martin</div><div class="brand-item">Maserati</div>
+  </div>
+</div>
+
+<!-- CATALOGUE -->
+<section class="section" id="catalogue" style="padding-bottom:40px">
+  <div class="reveal">
+    <div class="section-label">Notre Sélection</div>
+    <h2 class="section-title">Catalogue<br><em>d'Exception</em></h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Chaque véhicule est méticuleusement sélectionné pour sa rareté, ses performances et son histoire.</p>
+  </div>
+</section>
+<div class="filter-section">
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterCars('all',this)">Tous</button>
+    <button class="filter-tab" onclick="filterCars('sport',this)">Sport & GT</button>
+    <button class="filter-tab" onclick="filterCars('luxe',this)">Grand Luxe</button>
+    <button class="filter-tab" onclick="filterCars('suv',this)">SUV Prestige</button>
+    <button class="filter-tab" onclick="filterCars('electrique',this)">Électrique</button>
+  </div>
+  <div class="filter-sort">
+    <label>Trier par</label>
+    <select onchange="sortCars(this.value)">
+      <option value="price-asc">Prix croissant</option>
+      <option value="price-desc">Prix décroissant</option>
+    </select>
+  </div>
+</div>
+
+<div class="cars-grid" id="carsGrid">
+
+  <div class="car-card featured reveal" data-cat="sport" data-price="1290000" data-id="lambo">
+    <span class="car-badge badge-new">Nouveau</span>
+    <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
+    <div class="car-card-img" onclick="openDetail('lambo')">
+      <img src="lambo.jpg" alt="Lamborghini Huracán EVO">
+    </div>
+    <div class="car-card-overlay"></div>
+    <div class="car-card-body">
+      <div class="car-card-brand">Lamborghini</div>
+      <div class="car-card-name">Huracán EVO</div>
+      <div class="car-card-version">V10 · 640 ch · Edizione Finale</div>
+      <div class="car-card-specs">
+        <div class="spec-item"><div class="spec-val">640<span class="spec-unit">ch</span></div><div class="spec-label">Puissance</div></div>
+        <div class="spec-item"><div class="spec-val">3.1<span class="spec-unit">s</span></div><div class="spec-label">0–100</div></div>
+        <div class="spec-item"><div class="spec-val">325<span class="spec-unit">km/h</span></div><div class="spec-label">Vmax</div></div>
+        <div class="spec-item"><div class="spec-val">2022</div><div class="spec-label">Millésime</div></div>
+      </div>
+      <div class="car-card-footer">
+        <div class="car-card-price"><div class="price-from">À partir de</div><div class="price-val"><span class="price-currency">€</span> 1 290 000</div></div>
+        <button class="car-card-cta" onclick="openDetail('lambo')">Voir Détails</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="car-card reveal reveal-delay-1" data-cat="sport" data-price="890000" data-id="ferrari">
+    <span class="car-badge badge-hot">Populaire</span>
+    <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
+    <div class="car-card-img" onclick="openDetail('ferrari')">
+      <img src="ferrari.jpg" alt="Ferrari Roma Spider">
+    </div>
+    <div class="car-card-overlay"></div>
+    <div class="car-card-body">
+      <div class="car-card-brand">Ferrari</div>
+      <div class="car-card-name">Roma Spider</div>
+      <div class="car-card-version">V8 Turbo · 620 ch · Cabriolet</div>
+      <div class="car-card-specs">
+        <div class="spec-item"><div class="spec-val">620<span class="spec-unit">ch</span></div><div class="spec-label">Puissance</div></div>
+        <div class="spec-item"><div class="spec-val">3.4<span class="spec-unit">s</span></div><div class="spec-label">0–100</div></div>
+        <div class="spec-item"><div class="spec-val">320<span class="spec-unit">km/h</span></div><div class="spec-label">Vmax</div></div>
+      </div>
+      <div class="car-card-footer">
+        <div class="car-card-price"><div class="price-from">À partir de</div><div class="price-val"><span class="price-currency">€</span> 890 000</div></div>
+        <button class="car-card-cta" onclick="openDetail('ferrari')">Voir Détails</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="car-card reveal reveal-delay-2" data-cat="luxe" data-price="2100000" data-id="rr">
+    <span class="car-badge badge-exclu">Exclusif</span>
+    <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
+    <div class="car-card-img" onclick="openDetail('rr')">
+      <img src="rolls.jpg" alt="Rolls-Royce Spectre">
+    </div>
+    <div class="car-card-overlay"></div>
+    <div class="car-card-body">
+      <div class="car-card-brand">Rolls-Royce</div>
+      <div class="car-card-name">Spectre</div>
+      <div class="car-card-version">Électrique · 585 ch · Grand Tourisme</div>
+      <div class="car-card-specs">
+        <div class="spec-item"><div class="spec-val">585<span class="spec-unit">ch</span></div><div class="spec-label">Puissance</div></div>
+        <div class="spec-item"><div class="spec-val">4.5<span class="spec-unit">s</span></div><div class="spec-label">0–100</div></div>
+        <div class="spec-item"><div class="spec-val">250<span class="spec-unit">km/h</span></div><div class="spec-label">Vmax</div></div>
+      </div>
+      <div class="car-card-footer">
+        <div class="car-card-price"><div class="price-from">À partir de</div><div class="price-val"><span class="price-currency">€</span> 2 100 000</div></div>
+        <button class="car-card-cta" onclick="openDetail('rr')">Voir Détails</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="car-card reveal" data-cat="sport" data-price="750000" data-id="p911">
+    <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
+    <div class="car-card-img" onclick="openDetail('p911')">
+      <img src="porsche911.jpg" alt="Porsche 911 Turbo S Mansory">
+    </div>
+    <div class="car-card-overlay"></div>
+    <div class="car-card-body">
+      <div class="car-card-brand">Porsche × Mansory</div>
+      <div class="car-card-name">911 Turbo S</div>
+      <div class="car-card-version">Flat-6 · 900 ch · Widebody</div>
+      <div class="car-card-specs">
+        <div class="spec-item"><div class="spec-val">900<span class="spec-unit">ch</span></div><div class="spec-label">Puissance</div></div>
+        <div class="spec-item"><div class="spec-val">2.6<span class="spec-unit">s</span></div><div class="spec-label">0–100</div></div>
+        <div class="spec-item"><div class="spec-val">330<span class="spec-unit">km/h</span></div><div class="spec-label">Vmax</div></div>
+      </div>
+      <div class="car-card-footer">
+        <div class="car-card-price"><div class="price-from">À partir de</div><div class="price-val"><span class="price-currency">€</span> 750 000</div></div>
+        <button class="car-card-cta" onclick="openDetail('p911')">Voir Détails</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="car-card reveal reveal-delay-1" data-cat="luxe" data-price="320000" data-id="bentley">
+    <span class="car-badge badge-new">Nouveau</span>
+    <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
+    <div class="car-card-img" onclick="openDetail('bentley')">
+      <img src="bentley.jpg" alt="Bentley Continental GT V8">
+    </div>
+    <div class="car-card-overlay"></div>
+    <div class="car-card-body">
+      <div class="car-card-brand">Bentley</div>
+      <div class="car-card-name">Continental GT V8</div>
+      <div class="car-card-version">V8 Biturbo · 550 ch · Grand Tourisme</div>
+      <div class="car-card-specs">
+        <div class="spec-item"><div class="spec-val">550<span class="spec-unit">ch</span></div><div class="spec-label">Puissance</div></div>
+        <div class="spec-item"><div class="spec-val">3.9<span class="spec-unit">s</span></div><div class="spec-label">0–100</div></div>
+        <div class="spec-item"><div class="spec-val">318<span class="spec-unit">km/h</span></div><div class="spec-label">Vmax</div></div>
+      </div>
+      <div class="car-card-footer">
+        <div class="car-card-price"><div class="price-from">À partir de</div><div class="price-val"><span class="price-currency">€</span> 320 000</div></div>
+        <button class="car-card-cta" onclick="openDetail('bentley')">Voir Détails</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="car-card reveal reveal-delay-2" data-cat="electrique" data-price="280000" data-id="taycan">
+    <span class="car-badge badge-exclu">Électrique</span>
+    <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
+    <div class="car-card-img" onclick="openDetail('taycan')">
+      <img src="taycan.jpg" alt="Porsche Taycan Turbo S">
+    </div>
+    <div class="car-card-overlay"></div>
+    <div class="car-card-body">
+      <div class="car-card-brand">Porsche</div>
+      <div class="car-card-name">Taycan Turbo S</div>
+      <div class="car-card-version">Électrique · 761 ch · Sport Turismo</div>
+      <div class="car-card-specs">
+        <div class="spec-item"><div class="spec-val">761<span class="spec-unit">ch</span></div><div class="spec-label">Puissance</div></div>
+        <div class="spec-item"><div class="spec-val">2.8<span class="spec-unit">s</span></div><div class="spec-label">0–100</div></div>
+        <div class="spec-item"><div class="spec-val">260<span class="spec-unit">km/h</span></div><div class="spec-label">Vmax</div></div>
+      </div>
+      <div class="car-card-footer">
+        <div class="car-card-price"><div class="price-from">À partir de</div><div class="price-val"><span class="price-currency">€</span> 280 000</div></div>
+        <button class="car-card-cta" onclick="openDetail('taycan')">Voir Détails</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div style="padding:50px 60px 0;text-align:center">
+  <button class="btn-ghost" style="font-size:0.7rem;letter-spacing:3px;padding:16px 48px">Voir tout le Catalogue (200+ véhicules)</button>
+</div>
+
+<!-- SPOTLIGHT -->
+<section class="spotlight" id="spotlight">
+  <div class="spotlight-inner">
+    <div class="spotlight-car reveal">
+      <div class="spotlight-car-visual" onclick="openLightboxSingle('images/aston.jpg','Aston Martin DB12')">
+        <img src="aston.jpg" alt="Aston Martin DB12">
+        <div class="spotlight-car-badge">Coup de Cœur</div>
+        <div class="spotlight-car-num">01</div>
+      </div>
+    </div>
+    <div class="spotlight-info reveal reveal-delay-2">
+      <div class="spotlight-tag">Sélection Directeur</div>
+      <h2 class="spotlight-title">Aston Martin<br><strong>DB12</strong></h2>
+      <div class="spotlight-subtitle">V8 Twin-Turbo · 680 ch · 2024</div>
+      <p class="spotlight-desc">La DB12 redéfinit le grand tourisme britannique. Chaque courbe raconte une histoire, chaque accélération est une révélation. Ce n'est pas qu'une voiture — c'est un art de vivre sur quatre roues.</p>
+      <div class="spotlight-specs">
+        <div class="sspec"><div class="sspec-val">680<span class="sspec-unit">ch</span></div><div class="sspec-label">Puissance</div></div>
+        <div class="sspec"><div class="sspec-val">3.6<span class="sspec-unit">s</span></div><div class="sspec-label">0–100</div></div>
+        <div class="sspec"><div class="sspec-val">325<span class="sspec-unit">km/h</span></div><div class="sspec-label">Vmax</div></div>
+        <div class="sspec"><div class="sspec-val">900<span class="sspec-unit">Nm</span></div><div class="sspec-label">Couple</div></div>
+      </div>
+      <div class="spotlight-price-row">
+        <div><div class="spotlight-price-label">Prix de vente</div><div class="spotlight-price-val"><span class="spotlight-price-currency">€ </span>685 000</div></div>
+        <div><div class="spotlight-price-label">Stock disponible</div><div class="spotlight-price-val" style="font-size:1.8rem">3 <span style="font-size:0.9rem;color:var(--muted)">unités</span></div></div>
+      </div>
+      <div class="spotlight-actions">
+        <button class="btn-primary" onclick="openModal()">Réserver Maintenant</button>
+        <button class="btn-ghost" onclick="openDetail('aston')">Voir les Détails</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADÉMIE -->
+<section class="academie" id="academie">
+  <div class="academie-header">
+    <div class="reveal">
+      <div class="section-label">Savoir & Passion</div>
+      <h2 class="section-title">Académie<br><em>VELOCE</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <p class="section-desc">Guides d'experts, essais approfondis et analyses exclusives. Tout ce qu'un connaisseur doit savoir sur les automobiles d'exception.</p>
+      <div style="margin-top:24px"><button class="btn-ghost" style="font-size:0.62rem;padding:12px 28px">Tous les Articles →</button></div>
+    </div>
+  </div>
+  <div class="academie-grid">
+    <div class="academie-card reveal">
+      <div class="academie-img"><img src="lambo.jpg" alt=""><div class="academie-cat">Essai</div></div>
+      <div class="academie-body">
+        <div class="academie-date">12 Janvier 2025</div>
+        <div class="academie-title">Huracán EVO : La Dernière Danse du V10 Atmosphérique</div>
+        <p class="academie-desc">Avant l'hybridation inévitable, nous avons passé 3 jours sur circuit avec le dernier Lamborghini atmosphérique. Un testament.</p>
+        <div class="academie-footer"><div class="academie-author">Par Marco Ferretti</div><div class="academie-link">Lire →</div></div>
+      </div>
+    </div>
+    <div class="academie-card reveal reveal-delay-1">
+      <div class="academie-img"><img src="rolls.jpg" alt=""><div class="academie-cat">Guide</div></div>
+      <div class="academie-body">
+        <div class="academie-date">28 Février 2025</div>
+        <div class="academie-title">Rolls-Royce Spectre : L'Électrique Réinvente le Luxe</div>
+        <p class="academie-desc">Comment la maison de Goodwood a repensé chaque détail pour faire de l'électrique un vecteur de raffinement ultime.</p>
+        <div class="academie-footer"><div class="academie-author">Par Élise Dumont</div><div class="academie-link">Lire →</div></div>
+      </div>
+    </div>
+    <div class="academie-card reveal reveal-delay-2">
+      <div class="academie-img"><img src="porsche911.jpg" alt=""><div class="academie-cat">Exclusif</div></div>
+      <div class="academie-body">
+        <div class="academie-date">15 Mars 2025</div>
+        <div class="academie-title">Mansory × Porsche : Quand la Customisation Devient Art</div>
+        <p class="academie-desc">900 chevaux, carbone visible, jantes forgées. Rencontre avec les artisans de l'extrême.</p>
+        <div class="academie-footer"><div class="academie-author">Par Thomas Keller</div><div class="academie-link">Lire →</div></div>
+      </div>
+    </div>
+    <div class="academie-card reveal">
+      <div class="academie-img"><img src="aston.jpg" alt=""><div class="academie-cat">Analyse</div></div>
+      <div class="academie-body">
+        <div class="academie-date">3 Avril 2025</div>
+        <div class="academie-title">DB12 : Aston Martin Retrouve Son Âme</div>
+        <p class="academie-desc">Après des années de turbulences, la DB12 marque le grand retour d'Aston au sommet du GT mondial.</p>
+        <div class="academie-footer"><div class="academie-author">Par Sophie Laurent</div><div class="academie-link">Lire →</div></div>
+      </div>
+    </div>
+    <div class="academie-card reveal reveal-delay-1">
+      <div class="academie-img"><img src="ferrari.jpg" alt=""><div class="academie-cat">Culture</div></div>
+      <div class="academie-body">
+        <div class="academie-date">20 Avril 2025</div>
+        <div class="academie-title">Ferrari Roma Spider : La Dolce Vita en Cabriolet</div>
+        <p class="academie-desc">Capote ouverte sur la Côte d'Azur. La Roma Spider incarne la nouvelle vision de Ferrari.</p>
+        <div class="academie-footer"><div class="academie-author">Par Lucia Moretti</div><div class="academie-link">Lire →</div></div>
+      </div>
+    </div>
+    <div class="academie-card reveal reveal-delay-2">
+      <div class="academie-img"><img src="taycan.jpg" alt=""><div class="academie-cat">Technologie</div></div>
+      <div class="academie-body">
+        <div class="academie-date">8 Mai 2025</div>
+        <div class="academie-title">Taycan Turbo S : 761 ch Sans une Goutte d'Essence</div>
+        <p class="academie-desc">Porsche prouve que l'électrique peut être aussi exaltant qu'un thermique. Technologie à son apogée.</p>
+        <div class="academie-footer"><div class="academie-author">Par Jean-Marc Picard</div><div class="academie-link">Lire →</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉVÉNEMENTS -->
+<section class="evenements" id="evenements">
+  <div class="evenements-header reveal">
+    <div class="section-label" style="justify-content:center">Agenda Exclusif</div>
+    <h2 class="section-title" style="text-align:center">Événements<br><em>& Expériences</em></h2>
+    <div class="section-divider" style="margin:28px auto"></div>
+    <p class="section-desc" style="margin:0 auto;text-align:center">Des expériences uniques réservées à notre clientèle et aux passionnés d'exception.</p>
+  </div>
+  <div class="evenements-grid">
+    <div class="event-card featured-event reveal">
+      <div class="event-date-box"><div class="event-day">14</div><div class="event-month">Juin</div><div class="event-year">2025</div></div>
+      <div class="event-body">
+        <div class="event-type">⭐ Événement Signature</div>
+        <div class="event-title">Nuit de l'Exception — Gala VELOCE 2025</div>
+        <p class="event-desc">Dévoilement en exclusivité mondiale de 3 nouvelles acquisitions, dîner gastronomique étoilé, et rencontres avec les directeurs artistiques des plus grandes maisons automobiles.</p>
+        <div class="event-meta"><div class="event-meta-item">📍 Château de Versailles, Grand Trianon</div><div class="event-meta-item">👔 Tenue de soirée</div><div class="event-meta-item">👥 120 invités</div></div>
+        <button class="event-register" onclick="openModal()">Demander une Invitation →</button>
+      </div>
+    </div>
+    <div class="event-card reveal">
+      <div class="event-date-box"><div class="event-day">22</div><div class="event-month">Juin</div><div class="event-year">2025</div></div>
+      <div class="event-body">
+        <div class="event-type">🏎️ Circuit</div>
+        <div class="event-title">Track Day Privé — Circuit Paul Ricard</div>
+        <p class="event-desc">Journée exclusive sur le circuit Paul Ricard avec nos Lamborghini et Ferrari. Coaching par des pilotes professionnels, chronométrage officiel.</p>
+        <div class="event-meta"><div class="event-meta-item">📍 Le Castellet</div><div class="event-meta-item">👥 20 participants max</div></div>
+        <button class="event-register" onclick="openModal()">S'inscrire →</button>
+      </div>
+    </div>
+    <div class="event-card reveal reveal-delay-1">
+      <div class="event-date-box"><div class="event-day">05</div><div class="event-month">Juil</div><div class="event-year">2025</div></div>
+      <div class="event-body">
+        <div class="event-type">🗺️ Road Trip</div>
+        <div class="event-title">Grand Tour Côte d'Azur — Monaco à Portofino</div>
+        <p class="event-desc">3 jours de route d'exception le long de la Méditerranée à bord de notre flotte. Hôtels 5★, restaurants étoilés, escorte privée.</p>
+        <div class="event-meta"><div class="event-meta-item">📍 Monaco → Portofino</div><div class="event-meta-item">🗓️ 3 jours / 2 nuits</div></div>
+        <button class="event-register" onclick="openModal()">Réserver →</button>
+      </div>
+    </div>
+    <div class="event-card reveal reveal-delay-2">
+      <div class="event-date-box"><div class="event-day">19</div><div class="event-month">Juil</div><div class="event-year">2025</div></div>
+      <div class="event-body">
+        <div class="event-type">🎓 Académie</div>
+        <div class="event-title">Masterclass — L'Art d'Investir dans les Supercars</div>
+        <p class="event-desc">Conférence privée avec nos experts patrimoniaux. Quelles voitures acheter en 2025 ? Raretés et opportunités du marché collector.</p>
+        <div class="event-meta"><div class="event-meta-item">📍 Showroom VELOCE, Paris 8e</div><div class="event-meta-item">⏱️ 3 heures</div></div>
+        <button class="event-register" onclick="openModal()">Réserver une place →</button>
+      </div>
+    </div>
+    <div class="event-card reveal">
+      <div class="event-date-box"><div class="event-day">02</div><div class="event-month">Août</div><div class="event-year">2025</div></div>
+      <div class="event-body">
+        <div class="event-type">🌅 Expérience</div>
+        <div class="event-title">Lever du Soleil — Col du Galibier en Supercar</div>
+        <p class="event-desc">Rendez-vous à 4h pour grimper le Galibier au lever du soleil dans nos bolides. Une expérience sensorielle et photographique unique.</p>
+        <div class="event-meta"><div class="event-meta-item">📍 Col du Galibier, Alpes</div><div class="event-meta-item">👥 8 véhicules max</div></div>
+        <button class="event-register" onclick="openModal()">Réserver →</button>
+      </div>
+    </div>
+    <div class="event-card reveal reveal-delay-1">
+      <div class="event-date-box"><div class="event-day">15</div><div class="event-month">Sept</div><div class="event-year">2025</div></div>
+      <div class="event-body">
+        <div class="event-type">🏆 Concours</div>
+        <div class="event-title">Concours d'Élégance VELOCE — Parc de Saint-Cloud</div>
+        <p class="event-desc">Premier concours d'élégance organisé par VELOCE. 40 véhicules d'exception, jury de connaisseurs, trophées exclusifs.</p>
+        <div class="event-meta"><div class="event-meta-item">📍 Parc de Saint-Cloud</div><div class="event-meta-item">🎟️ Sur invitation</div></div>
+        <button class="event-register" onclick="openModal()">Participer →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-header">
+    <div class="reveal"><div class="section-label">Notre Expertise</div><h2 class="section-title">Des Services<br><em>Sans Égal</em></h2><div class="section-divider"></div></div>
+    <div class="reveal reveal-delay-2"><p class="section-desc">De l'acquisition à l'entretien, chaque étape orchestrée avec une attention méticuleuse au détail.</p></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal"><div class="service-num">01</div><div class="service-icon">🚗</div><div class="service-name">Vente & Acquisition</div><p class="service-desc">Sélection exclusive de véhicules d'exception. Certifiés, inspectés, garantis.</p></div>
+    <div class="service-card reveal reveal-delay-1"><div class="service-num">02</div><div class="service-icon">🔑</div><div class="service-name">Essai Privé</div><p class="service-desc">Vivez l'expérience avant l'acquisition. Essais sur circuit ou sur route en toute discrétion.</p></div>
+    <div class="service-card reveal reveal-delay-2"><div class="service-num">03</div><div class="service-icon">🛠️</div><div class="service-name">Entretien Premium</div><p class="service-desc">Atelier spécialisé, techniciens certifiés constructeurs. Pièces d'origine garanties.</p></div>
+    <div class="service-card reveal reveal-delay-3"><div class="service-num">04</div><div class="service-icon">🛡️</div><div class="service-name">Assurance & Garantie</div><p class="service-desc">Solutions dédiées prestige. Extension jusqu'à 5 ans, assistance 24h/7j.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="temoignages">
+  <div class="testi-bg-text">Vélocité</div>
+  <div class="testi-header reveal">
+    <div class="section-label" style="justify-content:center">Ce Qu'ils Disent</div>
+    <h2 class="section-title">La Satisfaction<br><em>Avant Tout</em></h2>
+    <div class="section-divider" style="margin:28px auto"></div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal"><div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="testi-text">« Une expérience absolument incomparable. L'équipe VELOCE a su comprendre mes attentes dès le premier échange. La Lamborghini dépasse toutes mes espérances. »</p><div class="testi-author"><div class="testi-avatar">JL</div><div><div class="testi-name">Jean-Louis Marchand</div><div class="testi-role">Chef d'Entreprise</div><div class="testi-car">Lamborghini Huracán EVO</div></div></div></div>
+    <div class="testi-card reveal reveal-delay-1"><div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="testi-text">« VELOCE n'est pas un simple concessionnaire — c'est une maison. Du premier contact à la livraison de ma Rolls-Royce, j'ai été traitée comme une priorité absolue. »</p><div class="testi-author"><div class="testi-avatar">SB</div><div><div class="testi-name">Sophie Beaumont</div><div class="testi-role">Directrice Artistique</div><div class="testi-car">Rolls-Royce Spectre</div></div></div></div>
+    <div class="testi-card reveal reveal-delay-2"><div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><p class="testi-text">« La transparence, le conseil expert et le suivi après-vente sont à la hauteur : exceptionnels. Mon Aston Martin DB12 est arrivé impeccablement préparé. »</p><div class="testi-author"><div class="testi-avatar">AR</div><div><div class="testi-name">Antoine Rousseau</div><div class="testi-role">Architecte</div><div class="testi-car">Aston Martin DB12</div></div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-content">
+    <div class="cta-label">Votre Prochain Véhicule Vous Attend</div>
+    <h2 class="cta-title">Prêt à Vivre<br>l'Expérience ?</h2>
+    <p class="cta-sub">Consultez un expert VELOCE dès aujourd'hui.<br>Essai privé, financement sur mesure, livraison à domicile.</p>
+    <div class="cta-btns">
+      <button class="btn-dark" onclick="openModal()">Prendre Rendez-vous</button>
+      <a href="tel:+33123456789" class="btn-outline-dark">+33 1 23 45 67 89</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">VEL<span>O</span>CE</div>
+      <p class="footer-tagline">Automobiles d'exception depuis 2009. Votre partenaire de confiance pour l'acquisition, l'entretien et le financement des véhicules les plus prestigieux du monde.</p>
+      <div class="footer-social"><a class="social-btn" href="#">in</a><a class="social-btn" href="#">ig</a><a class="social-btn" href="#">yt</a><a class="social-btn" href="#">fb</a></div>
+    </div>
+    <div><div class="footer-col-title">Catalogue</div><ul class="footer-links"><li><a href="#">Sport & GT</a></li><li><a href="#">Grand Luxe</a></li><li><a href="#">SUV Prestige</a></li><li><a href="#">Électrique</a></li><li><a href="#">Occasion Certifiée</a></li></ul></div>
+    <div><div class="footer-col-title">VELOCE</div><ul class="footer-links"><li><a href="#">Académie</a></li><li><a href="#">Événements</a></li><li><a href="#">Configurateur</a></li><li><a href="#">Services</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="#">8 Avenue Montaigne, Paris</a></li><li><a href="#">+33 1 23 45 67 89</a></li><li><a href="#">contact@veloce.fr</a></li><li><a href="#">Lun–Sam : 9h–19h</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 VELOCE — Automobiles d'Exception. Tous droits réservés.</div>
+    <div class="footer-legal"><a href="#">Mentions Légales</a><a href="#">Confidentialité</a><a href="#">CGV</a></div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-tag">Réservation Privée</div>
+    <div class="modal-title">Réserver un Essai</div>
+    <div class="modal-subtitle">Un conseiller VELOCE vous contactera sous 2h ouvrées.</div>
+    <div class="form-row">
+      <div class="form-group"><label>Prénom</label><input type="text" placeholder="Jean-Louis"></div>
+      <div class="form-group"><label>Nom</label><input type="text" placeholder="Marchand"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Email</label><input type="email" placeholder="contact@email.com"></div>
+      <div class="form-group"><label>Téléphone</label><input type="tel" placeholder="+33 6 XX XX XX XX"></div>
+    </div>
+    <div class="form-group"><label>Véhicule souhaité</label><select><option>Lamborghini Huracán EVO</option><option>Ferrari Roma Spider</option><option>Rolls-Royce Spectre</option><option>Porsche 911 Turbo S Mansory</option><option>Bentley Continental GT V8</option><option>Porsche Taycan Turbo S</option><option>Aston Martin DB12</option><option>Autre</option></select></div>
+    <div class="form-group"><label>Message</label><textarea placeholder="Précisez vos attentes, disponibilités..."></textarea></div>
+    <button class="btn-primary" style="width:100%;text-align:center;margin-top:8px;clip-path:none" onclick="submitForm()">Envoyer la Demande</button>
+  </div>
+</div>
+
+<script>
+const CARS = {
+  lambo:{brand:'Lamborghini',name:'Huracán EVO',version:'V10 · 640 ch · Edizione Finale',price:'1 290 000',basePrice:1290000,
+    specs:[{v:'640',u:'ch',l:'Puissance'},{v:'3.1',u:'s',l:'0–100 km/h'},{v:'325',u:'km/h',l:'Vmax'},{v:'5.2',u:'L',l:'Cylindrée'},{v:'1.422',u:'kg',l:'Poids'},{v:'2022',u:'',l:'Millésime'},{v:'AWD',u:'',l:'Transmission'},{v:'V10',u:'',l:'Moteur'}],
+    desc:"Le Lamborghini Huracán EVO représente l'apogée du V10 atmosphérique. Dernier d'une lignée mythique, il incarne la philosophie Lamborghini dans sa forme la plus pure : émotions viscérales, design sculptural, performances absolues.",
+    features:['V10 5.2L atmosphérique 640 ch','Boîte PDK 7 rapports','Transmission intégrale AWD','Freins carbone-céramique','Suspension magnétorhéologique','Aero actif Aerovettore','Écran tactile 8.4"','Pack Nido en Fibra'],
+    img:'images/lambo.jpg'},
+  ferrari:{brand:'Ferrari',name:'Roma Spider',version:'V8 Turbo · 620 ch · Cabriolet',price:'890 000',basePrice:890000,
+    specs:[{v:'620',u:'ch',l:'Puissance'},{v:'3.4',u:'s',l:'0–100 km/h'},{v:'320',u:'km/h',l:'Vmax'},{v:'3.9',u:'L',l:'Cylindrée'},{v:'1.570',u:'kg',l:'Poids'},{v:'2023',u:'',l:'Millésime'},{v:'RWD',u:'',l:'Transmission'},{v:'V8 TT',u:'',l:'Moteur'}],
+    desc:"La Ferrari Roma Spider reprend l'âme de la berlinetta Roma et lui offre le ciel. Capote électrique en 13,5 secondes, V8 biturbo de 620 ch — la dolce vita en version cabriolet.",
+    features:['V8 3.9L biturbo 620 ch','Boîte DCT 8 rapports','Capote souple électrique 13.5s','Châssis aluminium allégé','Différentiel E-Diff 3','Side Slip Control 6.1','Écran passager','Pack Fiorano en option'],
+    img:'images/ferrari.jpg'},
+  rr:{brand:'Rolls-Royce',name:'Spectre',version:'Électrique · 585 ch · Grand Tourisme',price:'2 100 000',basePrice:2100000,
+    specs:[{v:'585',u:'ch',l:'Puissance'},{v:'4.5',u:'s',l:'0–100 km/h'},{v:'250',u:'km/h',l:'Vmax'},{v:'900',u:'km',l:'Autonomie'},{v:'2.890',u:'kg',l:'Poids'},{v:'2024',u:'',l:'Millésime'},{v:'AWD',u:'',l:'Transmission'},{v:'Élec.',u:'',l:'Moteur'}],
+    desc:"Le Rolls-Royce Spectre est le premier électrique de la marque. 900 km d'autonomie, 141.000 éléments d'isolation phonique. Le silence absolu comme nouveau symbole du luxe absolu.",
+    features:['2 moteurs électriques 585 ch','Batterie 102 kWh','900 km autonomie WLTP','Plateforme SSPCA dédiée','141.000 éléments insonorisation','Suspension pneumatique 5e génération','Starlight Headliner 1.340 étoiles','Roues aérodynamiques 23"'],
+    img:'images/rolls.jpg'},
+  p911:{brand:'Porsche × Mansory',name:'911 Turbo S',version:'Flat-6 · 900 ch · Widebody',price:'750 000',basePrice:750000,
+    specs:[{v:'900',u:'ch',l:'Puissance'},{v:'2.6',u:'s',l:'0–100 km/h'},{v:'330',u:'km/h',l:'Vmax'},{v:'3.8',u:'L',l:'Cylindrée'},{v:'1.580',u:'kg',l:'Poids'},{v:'2024',u:'',l:'Millésime'},{v:'AWD',u:'',l:'Transmission'},{v:'Flat-6',u:'',l:'Moteur'}],
+    desc:"La Mansory P9LM EVO 900 est la transformation ultime de la Porsche 911 Turbo S. 900 chevaux, carrosserie entièrement redessinée en fibre de carbone, kit widebody, jantes forgées carbone-turquoise.",
+    features:['Flat-6 3.8L 900 ch Mansory','Boîte PDK optimisée','Carrosserie carbone complète','Aileron actif carbone','Jantes forgées 21/22" carbone','Freins céramique 420mm','Échappement titane sport','Intérieur alcantara sur mesure'],
+    img:'images/porsche911.jpg'},
+  bentley:{brand:'Bentley',name:'Continental GT V8',version:'V8 Biturbo · 550 ch · Grand Tourisme',price:'320 000',basePrice:320000,
+    specs:[{v:'550',u:'ch',l:'Puissance'},{v:'3.9',u:'s',l:'0–100 km/h'},{v:'318',u:'km/h',l:'Vmax'},{v:'4.0',u:'L',l:'Cylindrée'},{v:'2.195',u:'kg',l:'Poids'},{v:'2023',u:'',l:'Millésime'},{v:'AWD',u:'',l:'Transmission'},{v:'V8 TT',u:'',l:'Moteur'}],
+    desc:"La Bentley Continental GT V8 est l'expression parfaite du grand tourisme. V8 biturbo de 550 ch, bois massifs, cuir Mulliner — chaque détail est une déclaration d'intention.",
+    features:['V8 4.0L biturbo 550 ch','Boîte DCT 8 rapports','Transmission intégrale AWD','Suspension pneumatique active','Châssis aluminium MSB','Intérieur Mulliner cuir pleine fleur','Placages bois massif','Audio Naim for Bentley'],
+    img:'images/bentley.jpg'},
+  taycan:{brand:'Porsche',name:'Taycan Turbo S',version:'Électrique · 761 ch · Sport Turismo',price:'280 000',basePrice:280000,
+    specs:[{v:'761',u:'ch',l:'Puissance'},{v:'2.8',u:'s',l:'0–100 km/h'},{v:'260',u:'km/h',l:'Vmax'},{v:'93.4',u:'kWh',l:'Batterie'},{v:'2.295',u:'kg',l:'Poids'},{v:'2024',u:'',l:'Millésime'},{v:'AWD',u:'',l:'Transmission'},{v:'Élec.',u:'',l:'Moteur'}],
+    desc:"Le Porsche Taycan Turbo S repousse les frontières de la berline électrique. 761 ch en Overboost, 2,8s de 0 à 100. La preuve que l'électrique peut être aussi exaltant qu'un thermique.",
+    features:['2 moteurs électriques 761 ch','Batterie Performance Plus 93.4 kWh','Recharge 270 kW DC','Launch Control','Suspension PASM pneumatique','Freins céramique PCCB','Porsche Active Ride','Affichage tête haute AR'],
+    img:'images/taycan.jpg'},
+  aston:{brand:'Aston Martin',name:'DB12',version:'V8 Twin-Turbo · 680 ch · 2024',price:'685 000',basePrice:685000,
+    specs:[{v:'680',u:'ch',l:'Puissance'},{v:'3.6',u:'s',l:'0–100 km/h'},{v:'325',u:'km/h',l:'Vmax'},{v:'4.0',u:'L',l:'Cylindrée'},{v:'1.750',u:'kg',l:'Poids'},{v:'2024',u:'',l:'Millésime'},{v:'RWD',u:'',l:'Transmission'},{v:'V8 TT',u:'',l:'Moteur'}],
+    desc:"L'Aston Martin DB12 marque une nouvelle ère. V8 AMG biturbo de 680 ch — le plus puissant sur une DB — elle redéfinit le grand tourisme sportif. Design sublimé, technologies inédites.",
+    features:['V8 4.0L AMG biturbo 680 ch','Boîte ZF 8 rapports','Châssis aluminium VH','Freins carbone-céramique','Audio B&O 15 haut-parleurs','HMI numérique AMG','Sellerie Bridge of Weir','Aston Martin Connect'],
+    img:'images/aston.jpg'}
+};
+
+// LOADER
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hidden'),2200));
+
+
+
+// NAV
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>80));
+
+// HERO PARTICLES
+(function(){
+  const c=document.getElementById('heroCanvas');if(!c)return;
+  const ctx=c.getContext('2d');let W,H,pts=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<80;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.2,s:Math.random()*1.5+.3,o:Math.random()*.4+.1});
+  (function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.s,0,Math.PI*2);ctx.fillStyle=`rgba(201,168,76,${p.o})`;ctx.fill();});
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(201,168,76,${.06*(1-d/120)})`;ctx.lineWidth=.5;ctx.stroke();}}
+    requestAnimationFrame(draw);
+  })();
+})();
+
+// REVEAL
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.1,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// FILTER/SORT
+function filterCars(cat,btn){document.querySelectorAll('.filter-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.car-card').forEach(c=>{const s=cat==='all'||c.dataset.cat===cat;c.style.opacity=s?'1':'.2';c.style.transform=s?'':'scale(.96)';});}
+function sortCars(v){const g=document.getElementById('carsGrid');[...g.querySelectorAll('.car-card')].sort((a,b)=>{const pa=+a.dataset.price,pb=+b.dataset.price;return v==='price-asc'?pa-pb:pb-pa;}).forEach(c=>g.appendChild(c));}
+
+// FAV
+function toggleFav(btn,e){e.stopPropagation();btn.classList.toggle('active');btn.textContent=btn.classList.contains('active')?'♥':'♡';}
+
+// LIGHTBOX
+let lbImgs=[],lbIdx=0;
+function openLightboxSingle(src,cap){document.getElementById('lightbox-img').src=src;document.getElementById('lightbox-caption').textContent=cap;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function lightboxNav(d){if(!lbImgs.length)return;lbIdx=(lbIdx+d+lbImgs.length)%lbImgs.length;document.getElementById('lightbox-img').src=lbImgs[lbIdx].src;document.getElementById('lightbox-caption').textContent=lbImgs[lbIdx].cap;}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
+
+// DETAIL
+function openDetail(id){
+  const c=CARS[id];if(!c)return;
+  const specsH=c.specs.map(s=>`<div class="dspec"><div class="dspec-val">${s.v}<span class="dspec-unit">${s.u||''}</span></div><div class="dspec-label">${s.l}</div></div>`).join('');
+  const featH=c.features.map(f=>`<div class="detail-feature">${f}</div>`).join('');
+  const otherIds=Object.keys(CARS).filter(k=>k!==id).slice(0,4);
+  const galH=otherIds.map(oid=>`<div class="detail-gallery-img" onclick="openLightboxSingle('${CARS[oid].img}','${CARS[oid].brand} ${CARS[oid].name}')"><img src="${CARS[oid].img}" alt="${CARS[oid].name}"></div>`).join('');
+  document.getElementById('detailContent').innerHTML=`
+    <div class="detail-hero"><img src="${c.img}" alt="${c.name}"><div class="detail-hero-overlay"></div>
+      <div class="detail-hero-info"><div class="detail-brand">${c.brand}</div><h1 class="detail-title"><strong>${c.name}</strong></h1><div class="detail-subtitle">${c.version}</div></div>
+    </div>
+    <div class="detail-body">
+      <div>
+        <div class="detail-tabs">
+          <div class="detail-tab active" onclick="switchTab(this,'t1')">Vue d'ensemble</div>
+          <div class="detail-tab" onclick="switchTab(this,'t2')">Spécifications</div>
+          <div class="detail-tab" onclick="switchTab(this,'t3')">Galerie</div>
+        </div>
+        <div class="detail-tab-content active" id="t1">
+          <p class="detail-desc">${c.desc}</p>
+          <div class="detail-specs-grid">${specsH}</div>
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Équipements Notables</div>
+          <div class="detail-features">${featH}</div>
+        </div>
+        <div class="detail-tab-content" id="t2">
+          <div class="detail-specs-grid" style="margin-bottom:40px">${specsH}</div>
+          <table style="width:100%;border-collapse:collapse">${c.features.map(f=>`<tr style="border-bottom:1px solid var(--line2)"><td style="padding:14px 0;font-size:.72rem;color:var(--muted)">${f}</td><td style="padding:14px 0;font-size:.72rem;color:var(--gold);text-align:right">✓ Inclus</td></tr>`).join('')}</table>
+        </div>
+        <div class="detail-tab-content" id="t3">
+          <div class="detail-gallery">
+            <div class="detail-gallery-img" style="grid-column:span 2" onclick="openLightboxSingle('${c.img}','${c.brand} ${c.name}')"><img src="${c.img}" alt="${c.name}" style="height:300px"></div>
+            ${galH}
+          </div>
+          <p style="font-size:.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:12px">Cliquez pour agrandir</p>
+        </div>
+      </div>
+      <div>
+        <div class="detail-price-box">
+          <div class="detail-price-label">Prix de vente</div>
+          <div class="detail-price"><span style="font-size:1.3rem;color:var(--muted)">€ </span>${c.price}</div>
+          <div class="detail-stock"><div class="detail-stock-dot"></div>En stock — Disponible immédiatement</div>
+          <div class="detail-sidebar-actions">
+            <button class="btn-primary" onclick="openModal()">Réserver un Essai</button>
+            <button class="config-btn-sm" onclick="openConfig('${id}')">⚙ Configurer ce Véhicule</button>
+            <button class="btn-ghost" style="text-align:center;padding:12px" onclick="openModal()">Demander une Offre</button>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--line2);padding:24px;margin-top:2px">
+          <div style="font-size:.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Financement Estimé</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--white)">${Math.round(c.basePrice/60).toLocaleString('fr-FR')} €<span style="font-size:.8rem;color:var(--muted);font-family:'Montserrat'">/mois</span></div>
+          <div style="font-size:.6rem;color:var(--muted2);margin-top:6px">Sur 60 mois · 20% apport · Sous réserve</div>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('detailPage').classList.add('open');
+  document.getElementById('detailPage').scrollTop=0;
+  document.body.style.overflow='hidden';
+}
+function closeDetail(){document.getElementById('detailPage').classList.remove('open');document.body.style.overflow='';}
+function switchTab(btn,id){document.querySelectorAll('.detail-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.detail-tab-content').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.getElementById(id).classList.add('active');}
+
+// CONFIG
+let cfgBase=0,cfgExtras={wheel:0,int:0,opts:0};
+function openConfig(id){
+  const c=CARS[id]||CARS.lambo;cfgBase=c.basePrice;cfgExtras={wheel:0,int:0,opts:0};
+  document.getElementById('configCarImg').src=c.img;
+  document.getElementById('configBrand').textContent=c.brand;
+  document.getElementById('configTitle').innerHTML='<strong>'+c.name+'</strong>';
+  document.getElementById('colorOverlay').style.background='#1a1a2a';
+  document.querySelectorAll('.config-color').forEach((el,i)=>el.classList.toggle('active',i===0));
+  document.getElementById('selectedColorName').textContent='Noir Profond';
+  document.querySelectorAll('.config-wheel').forEach((el,i)=>el.classList.toggle('active',i===0));
+  document.querySelectorAll('.config-int-item').forEach((el,i)=>el.classList.toggle('active',i===0));
+  document.querySelectorAll('.config-option').forEach(el=>el.classList.remove('active'));
+  updateCfgPrice();
+  document.getElementById('configPage').classList.add('open');
+  document.body.style.overflow='hidden';
+  initCfgCanvas();
+}
+function closeConfig(){document.getElementById('configPage').classList.remove('open');document.body.style.overflow='';}
+function selectColor(el){document.querySelectorAll('.config-color').forEach(c=>c.classList.remove('active'));el.classList.add('active');document.getElementById('colorOverlay').style.background=el.dataset.color;document.getElementById('selectedColorName').textContent=el.dataset.name;}
+function selectWheel(el,price){document.querySelectorAll('.config-wheel').forEach(c=>c.classList.remove('active'));el.classList.add('active');cfgExtras.wheel=price;updateCfgPrice();}
+function selectInterior(el,price){document.querySelectorAll('.config-int-item').forEach(c=>c.classList.remove('active'));el.classList.add('active');cfgExtras.int=price;updateCfgPrice();}
+function toggleOption(el,price){el.classList.toggle('active');let t=0;document.querySelectorAll('.config-option.active').forEach(o=>{const m=o.getAttribute('onclick').match(/\d+/);if(m)t+=+m[0];});cfgExtras.opts=t;updateCfgPrice();}
+function updateCfgPrice(){const t=cfgBase+cfgExtras.wheel+cfgExtras.int+cfgExtras.opts;document.getElementById('configTotalPrice').textContent='€ '+t.toLocaleString('fr-FR');}
+function resetConfig(){document.querySelectorAll('.config-color').forEach((el,i)=>el.classList.toggle('active',i===0));document.getElementById('colorOverlay').style.background='#1a1a2a';document.getElementById('selectedColorName').textContent='Noir Profond';document.querySelectorAll('.config-wheel').forEach((el,i)=>el.classList.toggle('active',i===0));document.querySelectorAll('.config-int-item').forEach((el,i)=>el.classList.toggle('active',i===0));document.querySelectorAll('.config-option').forEach(el=>el.classList.remove('active'));cfgExtras={wheel:0,int:0,opts:0};updateCfgPrice();}
+function initCfgCanvas(){const c=document.getElementById('configCanvas');if(!c)return;const ctx=c.getContext('2d');let W=c.width=c.offsetWidth,H=c.height=c.offsetHeight,pts=[];for(let i=0;i<40;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3});(function d(){if(!document.getElementById('configPage').classList.contains('open'))return;ctx.clearRect(0,0,W,H);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,1,0,Math.PI*2);ctx.fillStyle='rgba(201,168,76,.15)';ctx.fill();});requestAnimationFrame(d);})();}
+
+// MODAL
+function openModal(){document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+function submitForm(){const btn=event.target;btn.textContent='✓ Demande Envoyée — Nous vous contactons sous 2h';btn.style.background='#25d366';btn.style.color='white';setTimeout(closeModal,2500);setTimeout(()=>{btn.textContent='Envoyer la Demande';btn.style.background='';btn.style.color='';},3000);}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeDetail();closeConfig();closeLightbox();}});
+
+// PARALLAX
+document.addEventListener('mousemove',e=>{const car=document.querySelector('.hero-car');if(!car)return;car.style.transform=`translateY(-50%) translateX(${(e.clientX/innerWidth-.5)*3}px) translateY(${(e.clientY/innerHeight-.5)*2}px)`;});
+
+// COUNTER
+function animC(el,target,suf=''){let c=0;const t=setInterval(()=>{c+=target/60;if(c>=target){el.textContent=target+suf;clearInterval(t);}else el.textContent=Math.floor(c)+suf;},20);}
+new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.hero-stat-num').forEach(n=>{const txt=n.textContent;animC(n,parseInt(txt),txt.replace(/[0-9]/g,''));});}),{threshold:.5}).observe(document.querySelector('.hero-stats'));
+</script>
+</body>
+</html>
