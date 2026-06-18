@@ -470,7 +470,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
 <section class="hero" id="home">
   <canvas class="hero-canvas" id="heroCanvas"></canvas>
   <div class="hero-overlay"></div>
-  <div class="hero-car"><img src="lambo.jpg?v=2" alt="Lamborghini Huracán EVO"></div>
+  <div class="hero-car"><img src="lambo.jpg" alt="Lamborghini Huracán EVO"></div>
   <div class="hero-content">
     <div class="hero-tag">Collection Exclusive 2025</div>
     <h1 class="hero-title">L'Art de<br><strong>Conduire</strong> Autrement</h1>
