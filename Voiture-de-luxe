@@ -367,13 +367,11 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
   <div class="loader-text">Chargement de l'expérience</div>
 </div>
 
-</div>
-
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
   <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">‹</button>
-  <img id="lambo.jpg" src="lambo.jpg" alt="">
+  <img id="lightbox-img" src="" alt="">
   <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">›</button>
   <div class="lightbox-caption" id="lightbox-caption"></div>
 </div>
@@ -472,7 +470,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
 <section class="hero" id="home">
   <canvas class="hero-canvas" id="heroCanvas"></canvas>
   <div class="hero-overlay"></div>
-  <div class="hero-car"><img src="lambo.jpg" alt="Lamborghini Huracán EVO"></div>
+  <div class="hero-car"><img src="images/lambo.jpg" alt="Lamborghini Huracán EVO"></div>
   <div class="hero-content">
     <div class="hero-tag">Collection Exclusive 2025</div>
     <h1 class="hero-title">L'Art de<br><strong>Conduire</strong> Autrement</h1>
@@ -554,7 +552,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
     <span class="car-badge badge-new">Nouveau</span>
     <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
     <div class="car-card-img" onclick="openDetail('lambo')">
-      <img src="lambo.jpg" alt="Lamborghini Huracán EVO">
+      <img src="images/lambo.jpg" alt="Lamborghini Huracán EVO">
     </div>
     <div class="car-card-overlay"></div>
     <div class="car-card-body">
@@ -578,7 +576,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
     <span class="car-badge badge-hot">Populaire</span>
     <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
     <div class="car-card-img" onclick="openDetail('ferrari')">
-      <img src="ferrari.jpg" alt="Ferrari Roma Spider">
+      <img src="images/ferrari.jpg" alt="Ferrari Roma Spider">
     </div>
     <div class="car-card-overlay"></div>
     <div class="car-card-body">
@@ -601,7 +599,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
     <span class="car-badge badge-exclu">Exclusif</span>
     <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
     <div class="car-card-img" onclick="openDetail('rr')">
-      <img src="rolls.jpg" alt="Rolls-Royce Spectre">
+      <img src="images/rolls.jpg" alt="Rolls-Royce Spectre">
     </div>
     <div class="car-card-overlay"></div>
     <div class="car-card-body">
@@ -623,7 +621,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
   <div class="car-card reveal" data-cat="sport" data-price="750000" data-id="p911">
     <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
     <div class="car-card-img" onclick="openDetail('p911')">
-      <img src="porsche911.jpg" alt="Porsche 911 Turbo S Mansory">
+      <img src="images/porsche911.jpg" alt="Porsche 911 Turbo S Mansory">
     </div>
     <div class="car-card-overlay"></div>
     <div class="car-card-body">
@@ -646,7 +644,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
     <span class="car-badge badge-new">Nouveau</span>
     <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
     <div class="car-card-img" onclick="openDetail('bentley')">
-      <img src="bentley.jpg" alt="Bentley Continental GT V8">
+      <img src="images/bentley.jpg" alt="Bentley Continental GT V8">
     </div>
     <div class="car-card-overlay"></div>
     <div class="car-card-body">
@@ -669,7 +667,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
     <span class="car-badge badge-exclu">Électrique</span>
     <button class="car-fav" onclick="toggleFav(this,event)">♡</button>
     <div class="car-card-img" onclick="openDetail('taycan')">
-      <img src="taycan.jpg" alt="Porsche Taycan Turbo S">
+      <img src="images/taycan.jpg" alt="Porsche Taycan Turbo S">
     </div>
     <div class="car-card-overlay"></div>
     <div class="car-card-body">
@@ -698,7 +696,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
   <div class="spotlight-inner">
     <div class="spotlight-car reveal">
       <div class="spotlight-car-visual" onclick="openLightboxSingle('images/aston.jpg','Aston Martin DB12')">
-        <img src="aston.jpg" alt="Aston Martin DB12">
+        <img src="images/aston.jpg" alt="Aston Martin DB12">
         <div class="spotlight-car-badge">Coup de Cœur</div>
         <div class="spotlight-car-num">01</div>
       </div>
@@ -741,7 +739,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
   </div>
   <div class="academie-grid">
     <div class="academie-card reveal">
-      <div class="academie-img"><img src="lambo.jpg" alt=""><div class="academie-cat">Essai</div></div>
+      <div class="academie-img"><img src="images/lambo.jpg" alt=""><div class="academie-cat">Essai</div></div>
       <div class="academie-body">
         <div class="academie-date">12 Janvier 2025</div>
         <div class="academie-title">Huracán EVO : La Dernière Danse du V10 Atmosphérique</div>
@@ -750,7 +748,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
       </div>
     </div>
     <div class="academie-card reveal reveal-delay-1">
-      <div class="academie-img"><img src="rolls.jpg" alt=""><div class="academie-cat">Guide</div></div>
+      <div class="academie-img"><img src="images/rolls.jpg" alt=""><div class="academie-cat">Guide</div></div>
       <div class="academie-body">
         <div class="academie-date">28 Février 2025</div>
         <div class="academie-title">Rolls-Royce Spectre : L'Électrique Réinvente le Luxe</div>
@@ -759,7 +757,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
       </div>
     </div>
     <div class="academie-card reveal reveal-delay-2">
-      <div class="academie-img"><img src="porsche911.jpg" alt=""><div class="academie-cat">Exclusif</div></div>
+      <div class="academie-img"><img src="images/porsche911.jpg" alt=""><div class="academie-cat">Exclusif</div></div>
       <div class="academie-body">
         <div class="academie-date">15 Mars 2025</div>
         <div class="academie-title">Mansory × Porsche : Quand la Customisation Devient Art</div>
@@ -768,7 +766,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
       </div>
     </div>
     <div class="academie-card reveal">
-      <div class="academie-img"><img src="aston.jpg" alt=""><div class="academie-cat">Analyse</div></div>
+      <div class="academie-img"><img src="images/aston.jpg" alt=""><div class="academie-cat">Analyse</div></div>
       <div class="academie-body">
         <div class="academie-date">3 Avril 2025</div>
         <div class="academie-title">DB12 : Aston Martin Retrouve Son Âme</div>
@@ -777,7 +775,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
       </div>
     </div>
     <div class="academie-card reveal reveal-delay-1">
-      <div class="academie-img"><img src="ferrari.jpg" alt=""><div class="academie-cat">Culture</div></div>
+      <div class="academie-img"><img src="images/ferrari.jpg" alt=""><div class="academie-cat">Culture</div></div>
       <div class="academie-body">
         <div class="academie-date">20 Avril 2025</div>
         <div class="academie-title">Ferrari Roma Spider : La Dolce Vita en Cabriolet</div>
@@ -786,7 +784,7 @@ footer{background:var(--dark);border-top:1px solid var(--line2);padding:80px 60p
       </div>
     </div>
     <div class="academie-card reveal reveal-delay-2">
-      <div class="academie-img"><img src="taycan.jpg" alt=""><div class="academie-cat">Technologie</div></div>
+      <div class="academie-img"><img src="images/taycan.jpg" alt=""><div class="academie-cat">Technologie</div></div>
       <div class="academie-body">
         <div class="academie-date">8 Mai 2025</div>
         <div class="academie-title">Taycan Turbo S : 761 ch Sans une Goutte d'Essence</div>
