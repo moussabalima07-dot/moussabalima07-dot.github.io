@@ -49,6 +49,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 48px;d
 .site-card.baobab::before{background:linear-gradient(90deg,#E8A020,#C88010);}
 .site-card.luma::before{background:linear-gradient(90deg,#2D5A27,#7A9E76);}
 .site-card.terra::before{background:linear-gradient(90deg,#1B3A6B,#B8922A);}
+.site-card.shaki::before{background:linear-gradient(90deg,#D946A8,#9D2F75);}
 
 /* PREVIEW */
 .site-preview{height:280px;overflow:hidden;position:relative;}
@@ -120,6 +121,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 48px;d
 .terra .mock-line.accent{background:#B8922A;width:25%;}
 .terra .mock-btn{background:#B8922A;}
 .terra .mock-card{background:white;border:1px solid #E0DCD4;}
+/* SHAKI mock */
+.shaki .preview-mock{background:#0D0A14;}
+.shaki .mock-nav{background:rgba(13,10,20,.95);border-bottom:1px solid rgba(217,70,168,.1);}
+.shaki .mock-dot:nth-child(1){background:#ff5f57;}
+.shaki .mock-dot:nth-child(2){background:#febc2e;}
+.shaki .mock-dot:nth-child(3){background:#28c840;}
+.shaki .mock-body{background:#0D0A14;}
+.shaki .mock-line{background:rgba(232,236,255,.08);}
+.shaki .mock-line.accent{background:#D946A8;width:32%;}
+.shaki .mock-btn{background:#D946A8;border-radius:100px;}
+.shaki .mock-card{background:rgba(217,70,168,.08);border:1px solid rgba(217,70,168,.15);}
 
 /* CARD BODY */
 .site-body{padding:24px 28px 28px;}
@@ -130,6 +142,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 48px;d
 .site-sector.resto{background:rgba(232,160,32,.1);color:#E8A020;border:1px solid rgba(232,160,32,.2);}
 .site-sector.cosm{background:rgba(45,90,39,.15);color:#7A9E76;border:1px solid rgba(45,90,39,.25);}
 .site-sector.immo{background:rgba(27,58,107,.2);color:#6B9FD4;border:1px solid rgba(27,58,107,.3);}
+.site-sector.boutique{background:rgba(217,70,168,.1);color:#D946A8;border:1px solid rgba(217,70,168,.2);}
 .site-desc{font-size:.8rem;color:var(--muted);line-height:1.7;margin-bottom:20px;}
 .site-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
 .site-tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:3px 10px;border:1px solid var(--border);color:var(--muted);}
@@ -386,6 +399,49 @@ target="_blank" class="btn-order">Commander ↗️</a>
         <div class="site-footer">
           <a href="https://moussabalima07-dot-github-io.vercel.app/projet4_immo.html" target="_blank" class="btn-visit">🔗 Visiter le site</a>
           <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+un+site+similaire+à+Terra." target="_blank" class="btn-order">Commander →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHAKI -->
+    <div class="site-card shaki">
+      <div class="site-preview">
+        <div class="preview-mock">
+          <div class="mock-nav">
+            <div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-line accent"></div>
+            <div class="mock-line long"></div>
+            <div class="mock-line med"></div>
+            <div class="mock-line short" style="opacity:.5;"></div>
+            <div class="mock-btn"></div>
+            <div class="mock-cards">
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-overlay">
+          <a href="https://moussabalima07-dot.github.io/Shaki/" target="_blank" class="preview-visit">🔗 Visiter SHAKI →</a>
+        </div>
+      </div>
+      <div class="site-body">
+        <div class="site-header">
+          <div class="site-name">SHAKI</div>
+          <span class="site-sector boutique">Mode & Accessoires</span>
+        </div>
+        <p class="site-desc">Boutique de mode en ligne. Présentation produits soignée, navigation fluide, image premium qui inspire confiance et donne envie d'acheter.</p>
+        <div class="site-tags">
+          <span class="site-tag">HTML/CSS/JS</span>
+          <span class="site-tag">E-commerce</span>
+          <span class="site-tag">Mobile first</span>
+          <span class="site-tag">WhatsApp CTA</span>
+        </div>
+        <div class="site-footer">
+          <a href="https://moussabalima07-dot.github.io/Shaki/" target="_blank" class="btn-visit">🔗 Visiter le site</a>
+          <a href="https://wa.me/22607190217?text=Bonjour%2C+je+veux+un+site+similaire+à+Shaki." target="_blank" class="btn-order">Commander →</a>
         </div>
       </div>
     </div>
