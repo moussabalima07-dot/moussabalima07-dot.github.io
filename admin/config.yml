@@ -84,3 +84,406 @@ collections:
                 fields:
                   - { label: "Français", name: "fr", widget: "string" }
                   - { label: "Anglais", name: "en", widget: "string" }
+  - name: "content"
+    label: "Textes du site"
+    files:
+      - file: "data/i18n.json"
+        label: "Tous les textes (FR / EN)"
+        name: "site_texts"
+        fields:
+          - label: "Français"
+            name: "fr"
+            widget: "object"
+            collapsed: true
+            fields:
+              # --- Menu de navigation ---
+              - { label: "nav.services — Services", name: "nav.services", widget: "string" }
+              - { label: "nav.portfolio — Réalisations", name: "nav.portfolio", widget: "string" }
+              - { label: "nav.blog — Blog", name: "nav.blog", widget: "string" }
+              - { label: "nav.reviews — Avis", name: "nav.reviews", widget: "string" }
+              - { label: "nav.contact — Contact", name: "nav.contact", widget: "string" }
+              - { label: "nav.cta — → Me contacter", name: "nav.cta", widget: "string" }
+              # --- Bandeau d'accueil (hero) ---
+              - { label: "hero.tag — ✅ DISPONIBLE · OUAGADOUGOU, BURKINA FASO", name: "hero.tag", widget: "string" }
+              - { label: "hero.line1 — TON SITE WEB", name: "hero.line1", widget: "string" }
+              - { label: "hero.line2 — TES CLIENTS", name: "hero.line2", widget: "string" }
+              - { label: "hero.line3 — TES VENTES.", name: "hero.line3", widget: "string" }
+              - { label: "hero.sub — Je suis Moussa Balima, développeur web freelance…", name: "hero.sub", widget: "text" }
+              - { label: "hero.cta1 — → Voir mes services", name: "hero.cta1", widget: "string" }
+              - { label: "hero.cta2 — 💬 WhatsApp direct", name: "hero.cta2", widget: "string" }
+              # --- Statistiques (chiffres clés) ---
+              - { label: "stats.s1 — Sites livrés", name: "stats.s1", widget: "string" }
+              - { label: "stats.s2 — Disponibilité", name: "stats.s2", widget: "string" }
+              - { label: "stats.s3 — Satisfaction client", name: "stats.s3", widget: "string" }
+              - { label: "stats.s4 — Livraison express", name: "stats.s4", widget: "string" }
+              # --- Services — textes généraux ---
+              - { label: "svc.tag — Services", name: "svc.tag", widget: "string" }
+              - { label: "svc.title1 — Des solutions", name: "svc.title1", widget: "string" }
+              - { label: "svc.title2 — qui vendent", name: "svc.title2", widget: "string" }
+              - { label: "svc.sub — Chaque formule est conçue pour convertir tes vis…", name: "svc.sub", widget: "string" }
+              - { label: "svc.mkt.africa — 🌍 Afrique", name: "svc.mkt.africa", widget: "string" }
+              - { label: "svc.mkt.intl — 🌐 International", name: "svc.mkt.intl", widget: "string" }
+              - { label: "svc.note.africa — Tarifs optimisés pour le marché africain · Paiem…", name: "svc.note.africa", widget: "text" }
+              - { label: "svc.note.intl — International rates · Payment via PayPal or Wise…", name: "svc.note.intl", widget: "text" }
+              - { label: "svc.order — → Commander", name: "svc.order", widget: "string" }
+              - { label: "svc.deposit — 50% avant · 50% à la livraison", name: "svc.deposit", widget: "string" }
+              # --- Service — Page de capture ---
+              - { label: "svc1.name — Page de capture", name: "svc1.name", widget: "string" }
+              - { label: "svc1.desc — Design impactant. Formulaire optimisé. Interface…", name: "svc1.desc", widget: "string" }
+              - { label: "svc1.f1 — Design moderne et percutant", name: "svc1.f1", widget: "string" }
+              - { label: "svc1.f2 — Formulaire de capture optimisé", name: "svc1.f2", widget: "string" }
+              - { label: "svc1.f3 — Compatible mobile / PC", name: "svc1.f3", widget: "string" }
+              - { label: "svc1.f4 — Livraison 24h–48h", name: "svc1.f4", widget: "string" }
+              # --- Service — Page de vente ---
+              - { label: "svc2.name — Page de vente", name: "svc2.name", widget: "string" }
+              - { label: "svc2.desc — Structure de conversion éprouvée. Design premium…", name: "svc2.desc", widget: "string" }
+              - { label: "svc2.f1 — Structure de conversion testée", name: "svc2.f1", widget: "string" }
+              - { label: "svc2.f2 — Design premium crédibilisant", name: "svc2.f2", widget: "string" }
+              - { label: "svc2.f3 — CTA stratégique et percutant", name: "svc2.f3", widget: "string" }
+              - { label: "svc2.f4 — Compatible mobile / PC", name: "svc2.f4", widget: "string" }
+              - { label: "svc2.f5 — Livraison 2–3 jours", name: "svc2.f5", widget: "string" }
+              # --- Service — Site vitrine ---
+              - { label: "svc3.name — Site vitrine", name: "svc3.name", widget: "string" }
+              - { label: "svc3.desc — 3 à 5 pages sur mesure. Image professionnelle ga…", name: "svc3.desc", widget: "string" }
+              - { label: "svc3.f1 — 3 à 5 pages personnalisées", name: "svc3.f1", widget: "string" }
+              - { label: "svc3.f2 — Image professionnelle garantie", name: "svc3.f2", widget: "string" }
+              - { label: "svc3.f3 — Structure propre et moderne", name: "svc3.f3", widget: "string" }
+              - { label: "svc3.f4 — Livraison 2–5 jours selon complexité", name: "svc3.f4", widget: "string" }
+              # --- Service — BOOST ULTIME ---
+              - { label: "svc4.name — BOOST ULTIME", name: "svc4.name", widget: "string" }
+              - { label: "svc4.desc — Tout inclus. Visuel + page capture + page vente …", name: "svc4.desc", widget: "string" }
+              - { label: "svc4.eco — 💰 ÉCONOMIE −23.5%", name: "svc4.eco", widget: "string" }
+              - { label: "svc4.saving — Tu économises 40 000 XOF (−23.5%)", name: "svc4.saving", widget: "string" }
+              - { label: "svc4.f1 — Visuel publicitaire inclus", name: "svc4.f1", widget: "string" }
+              - { label: "svc4.f2 — Page de capture incluse", name: "svc4.f2", widget: "string" }
+              - { label: "svc4.f3 — Page de vente incluse", name: "svc4.f3", widget: "string" }
+              - { label: "svc4.f4 — Site vitrine complet", name: "svc4.f4", widget: "string" }
+              - { label: "svc4.f5 — Livraison 5–7 jours", name: "svc4.f5", widget: "string" }
+              - { label: "svc4.f6 — Support 30 jours inclus", name: "svc4.f6", widget: "string" }
+              # --- Service — Visuel publicitaire ---
+              - { label: "svc5.name — Visuel publicitaire", name: "svc5.name", widget: "string" }
+              - { label: "svc5.desc — Affiche ou visuel pro pour tes réseaux sociaux o…", name: "svc5.desc", widget: "text" }
+              - { label: "svc5.f1 — Format réseaux sociaux ou impression", name: "svc5.f1", widget: "string" }
+              - { label: "svc5.f2 — Design accrocheur et professionnel", name: "svc5.f2", widget: "string" }
+              - { label: "svc5.f3 — Message clair et percutant", name: "svc5.f3", widget: "string" }
+              - { label: "svc5.f4 — Livraison 24h–48h", name: "svc5.f4", widget: "string" }
+              # --- Service — Maintenance mensuelle ---
+              - { label: "svc6.name — Maintenance mensuelle", name: "svc6.name", widget: "string" }
+              - { label: "svc6.desc — Ton site toujours en ligne, à jour et performant…", name: "svc6.desc", widget: "text" }
+              - { label: "svc6.f1 — Mises à jour de contenu", name: "svc6.f1", widget: "string" }
+              - { label: "svc6.f2 — Surveillance disponibilité 24/7", name: "svc6.f2", widget: "string" }
+              - { label: "svc6.f3 — Corrections de bugs incluses", name: "svc6.f3", widget: "string" }
+              - { label: "svc6.f4 — Rapport mensuel d'activité", name: "svc6.f4", widget: "string" }
+              - { label: "svc6.order — → Souscrire", name: "svc6.order", widget: "string" }
+              # --- Service — SITE EXPRESS ---
+              - { label: "svcX.name — SITE EXPRESS", name: "svcX.name", widget: "string" }
+              - { label: "svcX.desc — Tu as besoin d'un site demain matin ? Je livre e…", name: "svcX.desc", widget: "text" }
+              - { label: "svcX.f1 — ⚡ Livraison garantie &lt;24h", name: "svcX.f1", widget: "string" }
+              - { label: "svcX.f2 — Traitement prioritaire immédiat", name: "svcX.f2", widget: "string" }
+              - { label: "svcX.f3 — Travail de nuit si nécessaire", name: "svcX.f3", widget: "string" }
+              - { label: "svcX.f4 — Site vitrine complet inclus", name: "svcX.f4", widget: "string" }
+              - { label: "svcX.order — → Commander en urgence", name: "svcX.order", widget: "string" }
+              - { label: "svcX.note — ⚠️ Places limitées · Paiement intégral à la comm…", name: "svcX.note", widget: "string" }
+              # --- Processus (4 étapes) ---
+              - { label: "proc.tag — Processus", name: "proc.tag", widget: "string" }
+              - { label: "proc.title1 — Ton site en", name: "proc.title1", widget: "string" }
+              - { label: "proc.title2 — 4 étapes", name: "proc.title2", widget: "string" }
+              - { label: "proc.s1t — Tu me contactes", name: "proc.s1t", widget: "string" }
+              - { label: "proc.s1d — Tu m'expliques ton projet sur WhatsApp. Je compr…", name: "proc.s1d", widget: "string" }
+              - { label: "proc.s2t — Je construis", name: "proc.s2t", widget: "string" }
+              - { label: "proc.s2d — Je crée ton site sur mesure. 2 à 5 jours selon l…", name: "proc.s2d", widget: "string" }
+              - { label: "proc.s3t — Tu valides", name: "proc.s3t", widget: "string" }
+              - { label: "proc.s3d — Tu vérifies chaque détail. Retouches gratuites j…", name: "proc.s3d", widget: "string" }
+              - { label: "proc.s4t — Je te livre", name: "proc.s4t", widget: "string" }
+              - { label: "proc.s4d — Site livré, prêt à convertir. Je reste disponibl…", name: "proc.s4d", widget: "string" }
+              # --- Avant / Après (impact) ---
+              - { label: "ba.tag — Impact réel", name: "ba.tag", widget: "string" }
+              - { label: "ba.title1 — Ce qui", name: "ba.title1", widget: "string" }
+              - { label: "ba.title2 — change", name: "ba.title2", widget: "string" }
+              - { label: "ba.title3 — avec un site pro", name: "ba.title3", widget: "string" }
+              - { label: "ba.bad.status — ⛔ SANS SITE PRO", name: "ba.bad.status", widget: "string" }
+              - { label: "ba.bad.title — Tu bloques tes propres ventes", name: "ba.bad.title", widget: "string" }
+              - { label: "ba.bad.i1 — Tes clients doutent et repartent chez un concurr…", name: "ba.bad.i1", widget: "string" }
+              - { label: "ba.bad.i2 — Ta page Facebook ne suffit plus — personne ne te…", name: "ba.bad.i2", widget: "string" }
+              - { label: "ba.bad.i3 — Chaque jour sans site = des ventes perdues en si…", name: "ba.bad.i3", widget: "string" }
+              - { label: "ba.bad.i4 — Tu parais amateur même si ton produit est excell…", name: "ba.bad.i4", widget: "string" }
+              - { label: "ba.bad.i5 — Tu expliques encore et encore au lieu de vendre", name: "ba.bad.i5", widget: "string" }
+              - { label: "ba.good.status — ✓ AVEC UN SITE WEB", name: "ba.good.status", widget: "string" }
+              - { label: "ba.good.title — Tes ventes s'activent automatiquement", name: "ba.good.title", widget: "string" }
+              - { label: "ba.good.i1 — Confiance immédiate : tes visiteurs achètent", name: "ba.good.i1", widget: "string" }
+              - { label: "ba.good.i2 — Ton sérieux parle avant même que tu ouvres la bo…", name: "ba.good.i2", widget: "string" }
+              - { label: "ba.good.i3 — Des ventes automatiques, 24h/24, même la nuit", name: "ba.good.i3", widget: "string" }
+              - { label: "ba.good.i4 — Une image premium qui justifie tes prix", name: "ba.good.i4", widget: "string" }
+              - { label: "ba.good.i5 — Ton site vend pour toi — tu te concentres sur to…", name: "ba.good.i5", widget: "string" }
+              # --- Garantie ---
+              - { label: "guar.title — Garantie satisfait ou retouché", name: "guar.title", widget: "string" }
+              - { label: "guar.text — Si le rendu ne te plaît pas à 100%, je retravail…", name: "guar.text", widget: "text" }
+              # --- Avis clients (titres de section) ---
+              - { label: "rev.tag — Témoignages", name: "rev.tag", widget: "string" }
+              - { label: "rev.title1 — Ce que disent", name: "rev.title1", widget: "string" }
+              - { label: "rev.title2 — mes clients", name: "rev.title2", widget: "string" }
+              # --- Questions fréquentes (FAQ) ---
+              - { label: "faq.title1 — Questions", name: "faq.title1", widget: "string" }
+              - { label: "faq.title2 — fréquentes", name: "faq.title2", widget: "string" }
+              - { label: "faq.q1 — Est-ce que les sites sont vraiment personnalisés…", name: "faq.q1", widget: "string" }
+              - { label: "faq.a1 — Oui, chaque site est créé de zéro selon ton acti…", name: "faq.a1", widget: "text" }
+              - { label: "faq.q2 — Combien de temps pour être livré ?", name: "faq.q2", widget: "string" }
+              - { label: "faq.a2 — Entre 24h et 5 jours selon la complexité du proj…", name: "faq.a2", widget: "text" }
+              - { label: "faq.q3 — Comment se fait le paiement ?", name: "faq.q3", widget: "string" }
+              - { label: "faq.a3 — 50% à la commande, 50% à la livraison — par Oran…", name: "faq.a3", widget: "text" }
+              - { label: "faq.q4 — Puis-je demander des modifications après livrais…", name: "faq.q4", widget: "string" }
+              - { label: "faq.a4 — Oui, les retouches sont incluses jusqu'à 100% de…", name: "faq.a4", widget: "text" }
+              - { label: "faq.q5 — Et si le site ne me plaît vraiment pas ?", name: "faq.q5", widget: "string" }
+              - { label: "faq.a5 — Je retravaille gratuitement jusqu'à ce que tu so…", name: "faq.a5", widget: "text" }
+              - { label: "faq.q6 — Proposez-vous un suivi après livraison ?", name: "faq.q6", widget: "string" }
+              - { label: "faq.a6 — Oui, la maintenance mensuelle à 10 000 XOF/mois …", name: "faq.a6", widget: "text" }
+              # --- Paiement ---
+              - { label: "pay.tag — Paiement", name: "pay.tag", widget: "string" }
+              - { label: "pay.badge — Paiement sécurisé · Orange Money Burkina Faso", name: "pay.badge", widget: "string" }
+              - { label: "pay.sub — 50% à la commande · 50% à la livraison. Contacte…", name: "pay.sub", widget: "text" }
+              - { label: "pay.paid — ✅ J'ai payé", name: "pay.paid", widget: "string" }
+              - { label: "pay.ask — Poser une question", name: "pay.ask", widget: "string" }
+              # --- Contact ---
+              - { label: "contact.tag — Contact", name: "contact.tag", widget: "string" }
+              - { label: "contact.title1 — Prêt à lancer", name: "contact.title1", widget: "string" }
+              - { label: "contact.title2 — ton", name: "contact.title2", widget: "string" }
+              - { label: "contact.title3 — projet ?", name: "contact.title3", widget: "string" }
+              - { label: "contact.sub — Ce que tu vends a de la valeur.Ton site doit le …", name: "contact.sub", widget: "text" }
+              - { label: "contact.wa — → Écrire sur WhatsApp", name: "contact.wa", widget: "string" }
+              - { label: "contact.loc — LOCALISATION", name: "contact.loc", widget: "string" }
+              - { label: "contact.rep — RÉPONSE", name: "contact.rep", widget: "string" }
+              - { label: "contact.repval — En moins d'1 heure", name: "contact.repval", widget: "string" }
+              # --- Pied de page ---
+              - { label: "footer.sub — Développeur Web Freelance Premium", name: "footer.sub", widget: "string" }
+              # --- Réalisations / Portfolio ---
+              - { label: "port.tag — Réalisations", name: "port.tag", widget: "string" }
+              - { label: "port.title1 — Mes travaux,", name: "port.title1", widget: "string" }
+              - { label: "port.title2 — la preuve concrète", name: "port.title2", widget: "string" }
+              - { label: "port.sub — Sites web, pages de vente, pages de capture, aff…", name: "port.sub", widget: "text" }
+              - { label: "port.f.all — Tout", name: "port.f.all", widget: "string" }
+              - { label: "port.f.capture — Capture", name: "port.f.capture", widget: "string" }
+              - { label: "port.f.vente — Vente", name: "port.f.vente", widget: "string" }
+              - { label: "port.f.vitrine — Vitrine", name: "port.f.vitrine", widget: "string" }
+              - { label: "port.f.affiche — Affiche", name: "port.f.affiche", widget: "string" }
+              - { label: "port.c1.title — ÉLÈVE — Page de capture coaching", name: "port.c1.title", widget: "string" }
+              - { label: "port.c1.desc — Page de capture ultra-ciblée pour un coach busin…", name: "port.c1.desc", widget: "text" }
+              - { label: "port.c2.title — LUMÀ — Page de vente cosmétiques", name: "port.c2.title", widget: "string" }
+              - { label: "port.c2.desc — Page de vente complète pour une gamme cosmétique…", name: "port.c2.desc", widget: "text" }
+              - { label: "port.c3.title — Collection Sites Vitrine", name: "port.c3.title", widget: "string" }
+              - { label: "port.c3.desc — WASSA, Le Baobab, VELOCE, LUMÀ, TERRA, SHAKI — d…", name: "port.c3.desc", widget: "text" }
+              - { label: "port.c4.title — Visuel pub — Promotion −30%", name: "port.c4.title", widget: "string" }
+              - { label: "port.c4.desc — Affiche promotionnelle percutante pour réseaux s…", name: "port.c4.desc", widget: "text" }
+              - { label: "port.add — Ton projet ici bientôt", name: "port.add", widget: "string" }
+              # --- Blog ---
+              - { label: "blog.tag — Blog", name: "blog.tag", widget: "string" }
+              - { label: "blog.title1 — Conseils &", name: "blog.title1", widget: "string" }
+              - { label: "blog.title2 — ressources", name: "blog.title2", widget: "string" }
+              - { label: "blog.sub — Des articles pratiques pour booster ta visibilit…", name: "blog.sub", widget: "string" }
+              - { label: "blog.cat.tips — Conseils", name: "blog.cat.tips", widget: "string" }
+              - { label: "blog.cat.web — Web", name: "blog.cat.web", widget: "string" }
+              - { label: "blog.cat.convert — Conversion", name: "blog.cat.convert", widget: "string" }
+              - { label: "blog.read — Lire l'article →", name: "blog.read", widget: "string" }
+              - { label: "blog.p1.title — 5 erreurs qui tuent tes ventes en ligne", name: "blog.p1.title", widget: "string" }
+              - { label: "blog.p1.excerpt — Sans le savoir, beaucoup de vendeurs sabotent le…", name: "blog.p1.excerpt", widget: "text" }
+              - { label: "blog.p2.title — Pourquoi ton site doit être mobile-first", name: "blog.p2.title", widget: "string" }
+              - { label: "blog.p2.excerpt — Plus de 70% de tes clients visitent ton site dep…", name: "blog.p2.excerpt", widget: "text" }
+              - { label: "blog.p3.title — Page de capture vs page de vente : laquelle choi…", name: "blog.p3.title", widget: "string" }
+              - { label: "blog.p3.excerpt — Tu ne sais pas par où commencer ? Voici comment …", name: "blog.p3.excerpt", widget: "text" }
+          - label: "Anglais"
+            name: "en"
+            widget: "object"
+            collapsed: true
+            fields:
+              # --- Menu de navigation ---
+              - { label: "nav.services — Services", name: "nav.services", widget: "string" }
+              - { label: "nav.portfolio — Portfolio", name: "nav.portfolio", widget: "string" }
+              - { label: "nav.blog — Blog", name: "nav.blog", widget: "string" }
+              - { label: "nav.reviews — Reviews", name: "nav.reviews", widget: "string" }
+              - { label: "nav.contact — Contact", name: "nav.contact", widget: "string" }
+              - { label: "nav.cta — → Contact me", name: "nav.cta", widget: "string" }
+              # --- Bandeau d'accueil (hero) ---
+              - { label: "hero.tag — ✅ AVAILABLE · OUAGADOUGOU, BURKINA FASO", name: "hero.tag", widget: "string" }
+              - { label: "hero.line1 — YOUR WEBSITE", name: "hero.line1", widget: "string" }
+              - { label: "hero.line2 — YOUR CLIENTS", name: "hero.line2", widget: "string" }
+              - { label: "hero.line3 — YOUR SALES.", name: "hero.line3", widget: "string" }
+              - { label: "hero.sub — I'm Moussa Balima, a freelance web developer in …", name: "hero.sub", widget: "text" }
+              - { label: "hero.cta1 — → See my services", name: "hero.cta1", widget: "string" }
+              - { label: "hero.cta2 — 💬 WhatsApp direct", name: "hero.cta2", widget: "string" }
+              # --- Statistiques (chiffres clés) ---
+              - { label: "stats.s1 — Sites delivered", name: "stats.s1", widget: "string" }
+              - { label: "stats.s2 — Availability", name: "stats.s2", widget: "string" }
+              - { label: "stats.s3 — Client satisfaction", name: "stats.s3", widget: "string" }
+              - { label: "stats.s4 — Express delivery", name: "stats.s4", widget: "string" }
+              # --- Services — textes généraux ---
+              - { label: "svc.tag — Services", name: "svc.tag", widget: "string" }
+              - { label: "svc.title1 — Solutions that", name: "svc.title1", widget: "string" }
+              - { label: "svc.title2 — sell", name: "svc.title2", widget: "string" }
+              - { label: "svc.sub — Each package is designed to convert your visitor…", name: "svc.sub", widget: "string" }
+              - { label: "svc.mkt.africa — 🌍 Africa", name: "svc.mkt.africa", widget: "string" }
+              - { label: "svc.mkt.intl — 🌐 International", name: "svc.mkt.intl", widget: "string" }
+              - { label: "svc.note.africa — Optimized rates for the African market · Orange …", name: "svc.note.africa", widget: "text" }
+              - { label: "svc.note.intl — International rates · Payment via PayPal or Wise…", name: "svc.note.intl", widget: "text" }
+              - { label: "svc.order — → Order now", name: "svc.order", widget: "string" }
+              - { label: "svc.deposit — 50% upfront · 50% on delivery", name: "svc.deposit", widget: "string" }
+              # --- Service — Page de capture ---
+              - { label: "svc1.name — Capture page", name: "svc1.name", widget: "string" }
+              - { label: "svc1.desc — Impactful design. Optimized form. Interface that…", name: "svc1.desc", widget: "string" }
+              - { label: "svc1.f1 — Modern and impactful design", name: "svc1.f1", widget: "string" }
+              - { label: "svc1.f2 — Optimized capture form", name: "svc1.f2", widget: "string" }
+              - { label: "svc1.f3 — Mobile / PC compatible", name: "svc1.f3", widget: "string" }
+              - { label: "svc1.f4 — Delivery 24h–48h", name: "svc1.f4", widget: "string" }
+              # --- Service — Page de vente ---
+              - { label: "svc2.name — Sales page", name: "svc2.name", widget: "string" }
+              - { label: "svc2.desc — Proven conversion structure. Premium design. Irr…", name: "svc2.desc", widget: "string" }
+              - { label: "svc2.f1 — Tested conversion structure", name: "svc2.f1", widget: "string" }
+              - { label: "svc2.f2 — Credibility-boosting premium design", name: "svc2.f2", widget: "string" }
+              - { label: "svc2.f3 — Strategic and impactful CTA", name: "svc2.f3", widget: "string" }
+              - { label: "svc2.f4 — Mobile / PC compatible", name: "svc2.f4", widget: "string" }
+              - { label: "svc2.f5 — Delivery 2–3 days", name: "svc2.f5", widget: "string" }
+              # --- Service — Site vitrine ---
+              - { label: "svc3.name — Showcase site", name: "svc3.name", widget: "string" }
+              - { label: "svc3.desc — 3 to 5 custom pages. Professional image guarante…", name: "svc3.desc", widget: "string" }
+              - { label: "svc3.f1 — 3 to 5 personalized pages", name: "svc3.f1", widget: "string" }
+              - { label: "svc3.f2 — Guaranteed professional image", name: "svc3.f2", widget: "string" }
+              - { label: "svc3.f3 — Clean and modern structure", name: "svc3.f3", widget: "string" }
+              - { label: "svc3.f4 — Delivery 2–5 days (complexity-based)", name: "svc3.f4", widget: "string" }
+              # --- Service — BOOST ULTIME ---
+              - { label: "svc4.name — ULTIMATE BOOST", name: "svc4.name", widget: "string" }
+              - { label: "svc4.desc — All included. Visual + capture page + sales page…", name: "svc4.desc", widget: "string" }
+              - { label: "svc4.eco — 💰 SAVE 23.5%", name: "svc4.eco", widget: "string" }
+              - { label: "svc4.saving — You save 40 000 XOF (−23.5%)", name: "svc4.saving", widget: "string" }
+              - { label: "svc4.f1 — Advertising visual included", name: "svc4.f1", widget: "string" }
+              - { label: "svc4.f2 — Capture page included", name: "svc4.f2", widget: "string" }
+              - { label: "svc4.f3 — Sales page included", name: "svc4.f3", widget: "string" }
+              - { label: "svc4.f4 — Complete showcase site", name: "svc4.f4", widget: "string" }
+              - { label: "svc4.f5 — Delivery 5–7 days", name: "svc4.f5", widget: "string" }
+              - { label: "svc4.f6 — 30-day support included", name: "svc4.f6", widget: "string" }
+              # --- Service — Visuel publicitaire ---
+              - { label: "svc5.name — Advertising visual", name: "svc5.name", widget: "string" }
+              - { label: "svc5.desc — Professional poster or visual for your social me…", name: "svc5.desc", widget: "text" }
+              - { label: "svc5.f1 — Social media or print format", name: "svc5.f1", widget: "string" }
+              - { label: "svc5.f2 — Eye-catching professional design", name: "svc5.f2", widget: "string" }
+              - { label: "svc5.f3 — Clear and impactful message", name: "svc5.f3", widget: "string" }
+              - { label: "svc5.f4 — Delivery 24h–48h", name: "svc5.f4", widget: "string" }
+              # --- Service — Maintenance mensuelle ---
+              - { label: "svc6.name — Monthly maintenance", name: "svc6.name", widget: "string" }
+              - { label: "svc6.desc — Your site always online, up to date and performi…", name: "svc6.desc", widget: "text" }
+              - { label: "svc6.f1 — Content updates", name: "svc6.f1", widget: "string" }
+              - { label: "svc6.f2 — 24/7 uptime monitoring", name: "svc6.f2", widget: "string" }
+              - { label: "svc6.f3 — Bug fixes included", name: "svc6.f3", widget: "string" }
+              - { label: "svc6.f4 — Monthly activity report", name: "svc6.f4", widget: "string" }
+              - { label: "svc6.order — → Subscribe", name: "svc6.order", widget: "string" }
+              # --- Service — SITE EXPRESS ---
+              - { label: "svcX.name — EXPRESS SITE", name: "svcX.name", widget: "string" }
+              - { label: "svcX.desc — Need your site delivered tomorrow? Priority trea…", name: "svcX.desc", widget: "text" }
+              - { label: "svcX.f1 — ⚡ Guaranteed delivery &lt;24h", name: "svcX.f1", widget: "string" }
+              - { label: "svcX.f2 — Immediate priority treatment", name: "svcX.f2", widget: "string" }
+              - { label: "svcX.f3 — Night work if necessary", name: "svcX.f3", widget: "string" }
+              - { label: "svcX.f4 — Full showcase site included", name: "svcX.f4", widget: "string" }
+              - { label: "svcX.order — → Order urgently", name: "svcX.order", widget: "string" }
+              - { label: "svcX.note — ⚠️ Limited slots · Full payment at order", name: "svcX.note", widget: "string" }
+              # --- Processus (4 étapes) ---
+              - { label: "proc.tag — Process", name: "proc.tag", widget: "string" }
+              - { label: "proc.title1 — Your site in", name: "proc.title1", widget: "string" }
+              - { label: "proc.title2 — 4 steps", name: "proc.title2", widget: "string" }
+              - { label: "proc.s1t — You contact me", name: "proc.s1t", widget: "string" }
+              - { label: "proc.s1d — You explain your project on WhatsApp. I deeply u…", name: "proc.s1d", widget: "string" }
+              - { label: "proc.s2t — I build", name: "proc.s2t", widget: "string" }
+              - { label: "proc.s2d — I create your custom site. 2 to 5 days depending…", name: "proc.s2d", widget: "string" }
+              - { label: "proc.s3t — You validate", name: "proc.s3t", widget: "string" }
+              - { label: "proc.s3d — You check every detail. Free revisions until you…", name: "proc.s3d", widget: "string" }
+              - { label: "proc.s4t — I deliver", name: "proc.s4t", widget: "string" }
+              - { label: "proc.s4d — Site delivered, ready to convert. I stay availab…", name: "proc.s4d", widget: "string" }
+              # --- Avant / Après (impact) ---
+              - { label: "ba.tag — Real impact", name: "ba.tag", widget: "string" }
+              - { label: "ba.title1 — What", name: "ba.title1", widget: "string" }
+              - { label: "ba.title2 — changes", name: "ba.title2", widget: "string" }
+              - { label: "ba.title3 — with a pro site", name: "ba.title3", widget: "string" }
+              - { label: "ba.bad.status — ⛔ WITHOUT A PRO SITE", name: "ba.bad.status", widget: "string" }
+              - { label: "ba.bad.title — You block your own sales", name: "ba.bad.title", widget: "string" }
+              - { label: "ba.bad.i1 — Your clients doubt and go to a competitor", name: "ba.bad.i1", widget: "string" }
+              - { label: "ba.bad.i2 — Your Facebook page is no longer enough — nobody …", name: "ba.bad.i2", widget: "string" }
+              - { label: "ba.bad.i3 — Every day without a site = sales lost in silence", name: "ba.bad.i3", widget: "string" }
+              - { label: "ba.bad.i4 — You look amateur even if your product is excelle…", name: "ba.bad.i4", widget: "string" }
+              - { label: "ba.bad.i5 — You explain over and over instead of selling", name: "ba.bad.i5", widget: "string" }
+              - { label: "ba.good.status — ✓ WITH A WEBSITE", name: "ba.good.status", widget: "string" }
+              - { label: "ba.good.title — Your sales activate automatically", name: "ba.good.title", widget: "string" }
+              - { label: "ba.good.i1 — Instant trust: your visitors buy", name: "ba.good.i1", widget: "string" }
+              - { label: "ba.good.i2 — Your professionalism speaks before you even open…", name: "ba.good.i2", widget: "string" }
+              - { label: "ba.good.i3 — Automatic sales, 24/7, even at night", name: "ba.good.i3", widget: "string" }
+              - { label: "ba.good.i4 — A premium image that justifies your prices", name: "ba.good.i4", widget: "string" }
+              - { label: "ba.good.i5 — Your site sells for you — you focus on your busi…", name: "ba.good.i5", widget: "string" }
+              # --- Garantie ---
+              - { label: "guar.title — Satisfied or revised guarantee", name: "guar.title", widget: "string" }
+              - { label: "guar.text — If you don't love the result at 100%, I rework i…", name: "guar.text", widget: "text" }
+              # --- Avis clients (titres de section) ---
+              - { label: "rev.tag — Testimonials", name: "rev.tag", widget: "string" }
+              - { label: "rev.title1 — What my", name: "rev.title1", widget: "string" }
+              - { label: "rev.title2 — clients say", name: "rev.title2", widget: "string" }
+              # --- Questions fréquentes (FAQ) ---
+              - { label: "faq.title1 — Frequent", name: "faq.title1", widget: "string" }
+              - { label: "faq.title2 — questions", name: "faq.title2", widget: "string" }
+              - { label: "faq.q1 — Are the sites really personalized?", name: "faq.q1", widget: "string" }
+              - { label: "faq.a1 — Yes, every site is built from scratch according …", name: "faq.a1", widget: "text" }
+              - { label: "faq.q2 — How long for delivery?", name: "faq.q2", widget: "string" }
+              - { label: "faq.a2 — Between 24h and 5 days depending on the project …", name: "faq.a2", widget: "text" }
+              - { label: "faq.q3 — How does payment work?", name: "faq.q3", widget: "string" }
+              - { label: "faq.a3 — 50% upfront, 50% on delivery — via Orange Money …", name: "faq.a3", widget: "text" }
+              - { label: "faq.q4 — Can I request modifications after delivery?", name: "faq.q4", widget: "string" }
+              - { label: "faq.a4 — Yes, revisions are included until 100% satisfact…", name: "faq.a4", widget: "text" }
+              - { label: "faq.q5 — What if I really don't like the site?", name: "faq.q5", widget: "string" }
+              - { label: "faq.a5 — I rework it for free until you're satisfied. You…", name: "faq.a5", widget: "string" }
+              - { label: "faq.q6 — Do you offer post-delivery support?", name: "faq.q6", widget: "string" }
+              - { label: "faq.a6 — Yes, monthly maintenance at 10,000 XOF/month (or…", name: "faq.a6", widget: "text" }
+              # --- Paiement ---
+              - { label: "pay.tag — Payment", name: "pay.tag", widget: "string" }
+              - { label: "pay.badge — Secure payment · Orange Money Burkina Faso", name: "pay.badge", widget: "string" }
+              - { label: "pay.sub — 50% upfront · 50% on delivery. Contact me to con…", name: "pay.sub", widget: "string" }
+              - { label: "pay.paid — ✅ I've paid", name: "pay.paid", widget: "string" }
+              - { label: "pay.ask — Ask a question", name: "pay.ask", widget: "string" }
+              # --- Contact ---
+              - { label: "contact.tag — Contact", name: "contact.tag", widget: "string" }
+              - { label: "contact.title1 — Ready to start", name: "contact.title1", widget: "string" }
+              - { label: "contact.title2 — your", name: "contact.title2", widget: "string" }
+              - { label: "contact.title3 — project?", name: "contact.title3", widget: "string" }
+              - { label: "contact.sub — What you sell has value.Your site must show it b…", name: "contact.sub", widget: "text" }
+              - { label: "contact.wa — → Write on WhatsApp", name: "contact.wa", widget: "string" }
+              - { label: "contact.loc — LOCATION", name: "contact.loc", widget: "string" }
+              - { label: "contact.rep — RESPONSE TIME", name: "contact.rep", widget: "string" }
+              - { label: "contact.repval — Under 1 hour", name: "contact.repval", widget: "string" }
+              # --- Pied de page ---
+              - { label: "footer.sub — Premium Freelance Web Developer", name: "footer.sub", widget: "string" }
+              # --- Réalisations / Portfolio ---
+              - { label: "port.tag — Portfolio", name: "port.tag", widget: "string" }
+              - { label: "port.title1 — My work,", name: "port.title1", widget: "string" }
+              - { label: "port.title2 — the concrete proof", name: "port.title2", widget: "string" }
+              - { label: "port.sub — Websites, sales pages, capture pages, visuals — …", name: "port.sub", widget: "string" }
+              - { label: "port.f.all — All", name: "port.f.all", widget: "string" }
+              - { label: "port.f.capture — Capture", name: "port.f.capture", widget: "string" }
+              - { label: "port.f.vente — Sales", name: "port.f.vente", widget: "string" }
+              - { label: "port.f.vitrine — Showcase", name: "port.f.vitrine", widget: "string" }
+              - { label: "port.f.affiche — Visual", name: "port.f.affiche", widget: "string" }
+              - { label: "port.c1.title — ÉLÈVE — Coaching capture page", name: "port.c1.title", widget: "string" }
+              - { label: "port.c1.desc — Highly targeted capture page for a business coac…", name: "port.c1.desc", widget: "text" }
+              - { label: "port.c2.title — LUMÀ — Cosmetics sales page", name: "port.c2.title", widget: "string" }
+              - { label: "port.c2.desc — Complete sales page for a natural cosmetics bran…", name: "port.c2.desc", widget: "text" }
+              - { label: "port.c3.title — Showcase Sites Collection — 5 projects", name: "port.c3.title", widget: "string" }
+              - { label: "port.c3.desc — WASSA, Le Baobab, LUMÀ, TERRA, SHAKI — 5 complet…", name: "port.c3.desc", widget: "text" }
+              - { label: "port.c4.title — Ad visual — −30% Promotion", name: "port.c4.title", widget: "string" }
+              - { label: "port.c4.desc — Punchy promotional poster for social media. Prem…", name: "port.c4.desc", widget: "string" }
+              - { label: "port.add — Your project here soon", name: "port.add", widget: "string" }
+              # --- Blog ---
+              - { label: "blog.tag — Blog", name: "blog.tag", widget: "string" }
+              - { label: "blog.title1 — Tips &", name: "blog.title1", widget: "string" }
+              - { label: "blog.title2 — resources", name: "blog.title2", widget: "string" }
+              - { label: "blog.sub — Practical articles to boost your online visibili…", name: "blog.sub", widget: "string" }
+              - { label: "blog.cat.tips — Tips", name: "blog.cat.tips", widget: "string" }
+              - { label: "blog.cat.web — Web", name: "blog.cat.web", widget: "string" }
+              - { label: "blog.cat.convert — Conversion", name: "blog.cat.convert", widget: "string" }
+              - { label: "blog.read — Read article →", name: "blog.read", widget: "string" }
+              - { label: "blog.p1.title — 5 mistakes that kill your online sales", name: "blog.p1.title", widget: "string" }
+              - { label: "blog.p1.excerpt — Without knowing it, many sellers sabotage their …", name: "blog.p1.excerpt", widget: "text" }
+              - { label: "blog.p2.title — Why your site must be mobile-first", name: "blog.p2.title", widget: "string" }
+              - { label: "blog.p2.excerpt — Over 70% of your clients visit your site from th…", name: "blog.p2.excerpt", widget: "text" }
+              - { label: "blog.p3.title — Capture page vs sales page: which one to choose?", name: "blog.p3.title", widget: "string" }
+              - { label: "blog.p3.excerpt — Don't know where to start? Here's how to choose …", name: "blog.p3.excerpt", widget: "text" }
