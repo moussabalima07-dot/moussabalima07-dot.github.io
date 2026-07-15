@@ -1,0 +1,86 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "services"
+    label: "Services & Tarifs"
+    files:
+      - file: "data/services.json"
+        label: "Offres — Marché Afrique"
+        name: "services_africa"
+        fields:
+          - label: "Services (Afrique)"
+            name: "africa"
+            widget: "list"
+            summary: "{{fields.name.fr}} — {{fields.price}}"
+            fields:
+              - { label: "Identifiant (ne pas modifier)", name: "id", widget: "string" }
+              - label: "Type de carte"
+                name: "type"
+                widget: "select"
+                options: ["normal", "popular", "pack", "urgent", "maintenance"]
+              - { label: "Numéro d'affichage (ex: 01 / CRÉATIF)", name: "num", widget: "string", required: false }
+              - { label: "Icône (emoji)", name: "icon", widget: "string", required: false }
+              - { label: "Badge (laisser vide si aucun)", name: "badge", widget: "string", required: false }
+              - label: "Nom de l'offre"
+                name: "name"
+                widget: "object"
+                fields:
+                  - { label: "Français", name: "fr", widget: "string" }
+                  - { label: "Anglais", name: "en", widget: "string" }
+              - label: "Description"
+                name: "desc"
+                widget: "object"
+                fields:
+                  - { label: "Français", name: "fr", widget: "text" }
+                  - { label: "Anglais", name: "en", widget: "text" }
+              - label: "Caractéristiques (liste de points)"
+                name: "feats"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Français", name: "fr", widget: "string" }
+                  - { label: "Anglais", name: "en", widget: "string" }
+              - { label: "Ancien prix barré (ex: 180 000 XOF)", name: "priceOld", widget: "string", required: false }
+              - { label: "Prix actuel (ex: 100 000 XOF)", name: "price", widget: "string" }
+              - { label: "Unité de prix (ex: /mois)", name: "priceUnit", widget: "object", required: false, fields: [{label: "Français", name: "fr", widget: "string"}, {label: "Anglais", name: "en", widget: "string"}] }
+              - { label: "Badge de réduction (ex: −25%)", name: "save", widget: "string", required: false }
+              - label: "Sous-texte du prix (paiement, etc.)"
+                name: "priceSub"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Français", name: "fr", widget: "string" }
+                  - { label: "Anglais", name: "en", widget: "string" }
+              - label: "Texte d'économie (pack complet)"
+                name: "saving"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Français", name: "fr", widget: "string" }
+                  - { label: "Anglais", name: "en", widget: "string" }
+              - label: "Note dépôt (pack complet)"
+                name: "depositNote"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Français", name: "fr", widget: "string" }
+                  - { label: "Anglais", name: "en", widget: "string" }
+              - label: "Note urgence (site express)"
+                name: "note"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Français", name: "fr", widget: "string" }
+                  - { label: "Anglais", name: "en", widget: "string" }
+              - { label: "Lien WhatsApp", name: "waLink", widget: "string" }
+              - label: "Texte du bouton"
+                name: "orderText"
+                widget: "object"
+                fields:
+                  - { label: "Français", name: "fr", widget: "string" }
+                  - { label: "Anglais", name: "en", widget: "string" }
