@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  site_domain: taupe-banoffee-63f0b8.netlify.app
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
